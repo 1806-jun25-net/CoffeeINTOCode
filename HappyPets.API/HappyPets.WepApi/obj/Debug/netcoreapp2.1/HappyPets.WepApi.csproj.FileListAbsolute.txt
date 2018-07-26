@@ -1,0 +1,14 @@
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\bin\Debug\netcoreapp2.1\HappyPets.WepApi.deps.json
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\bin\Debug\netcoreapp2.1\HappyPets.WepApi.runtimeconfig.json
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\bin\Debug\netcoreapp2.1\HappyPets.WepApi.runtimeconfig.dev.json
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\bin\Debug\netcoreapp2.1\HappyPets.WepApi.dll
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\bin\Debug\netcoreapp2.1\HappyPets.WepApi.pdb
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.csprojAssemblyReference.cache
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.csproj.CoreCompileInputs.cache
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.RazorAssemblyInfo.cache
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.RazorAssemblyInfo.cs
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.AssemblyInfoInputs.cache
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.AssemblyInfo.cs
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.RazorTargetAssemblyInfo.cache
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.dll
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.pdb

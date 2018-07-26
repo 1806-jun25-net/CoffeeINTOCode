@@ -11506,11 +11506,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Revature\\HappyPets\\HappyPets.WebApp\\HappyPets.WebApp.csproj",
+      "projectUniqueName": "C:\\Revature\\CoffeeINTOCode\\HappyPets\\HappyPets.WebApp\\HappyPets.WebApp.csproj",
       "projectName": "HappyPets.WebApp",
-      "projectPath": "C:\\Revature\\HappyPets\\HappyPets.WebApp\\HappyPets.WebApp.csproj",
+      "projectPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets\\HappyPets.WebApp\\HappyPets.WebApp.csproj",
       "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Revature\\HappyPets\\HappyPets.WebApp\\obj\\",
+      "outputPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets\\HappyPets.WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
