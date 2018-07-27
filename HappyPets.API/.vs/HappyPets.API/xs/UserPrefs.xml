@@ -1,13 +1,14 @@
 ﻿<Properties StartupConfiguration="{0D666422-A915-44D1-821A-B126BA546D42}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HappyPets.Library/ServiceRepository.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="HappyPets.WepApi/Program.cs">
     <Files>
       <File FileName="HappyPets.WepApi/Controllers/ValuesController.cs" Line="1" Column="1" />
-      <File FileName="HappyPets.WepApi/Startup.cs" Line="29" Column="10" />
-      <File FileName="HappyPets.Data/Class1.cs" Line="8" Column="9" />
-      <File FileName="HappyPets.Library/Class1.cs" Line="8" Column="9" />
+      <File FileName="HappyPets.WepApi/Startup.cs" Line="68" Column="46" />
+      <File FileName="HappyPets.Data/Data/Class1.cs" Line="1" Column="1" />
+      <File FileName="HappyPets.Library/Class1.cs" Line="8" Column="1" />
       <File FileName="HappyPets.Library/UserRepository.cs" Line="11" Column="1" />
-      <File FileName="HappyPets.Library/OrderRepository.cs" Line="11" Column="1" />
-      <File FileName="HappyPets.Library/ServiceRepository.cs" Line="4" Column="20" />
+      <File FileName="HappyPets.Library/OrderRepository.cs" Line="6" Column="9" />
+      <File FileName="HappyPets.Library/ServiceRepository.cs" Line="7" Column="1" />
+      <File FileName="HappyPets.WepApi/Program.cs" Line="17" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.HappyPets.WepApi PreferredExecutionTarget="MonoDevelop.Default" />
@@ -17,6 +18,5 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.ItemProperties.HappyPets.Library FirstBuild="True" />
-  <MonoDevelop.Ide.ItemProperties.HappyPets.Data FirstBuild="True" />
   <MultiItemStartupConfigurations />
 </Properties>
