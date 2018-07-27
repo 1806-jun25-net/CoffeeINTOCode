@@ -3,9 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2035
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HappyPets.WepApi", "HappyPets.WepApi\HappyPets.WepApi.csproj", "{0D666422-A915-44D1-821A-B126BA546D42}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyPets.WepApi", "HappyPets.WepApi\HappyPets.WepApi.csproj", "{0D666422-A915-44D1-821A-B126BA546D42}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyPetsApi.Test", "HappyPetsApi.Test\HappyPetsApi.Test.csproj", "{9D126F17-5DFA-4A15-89D8-BC1E1FBED545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyPets.Data", "HappyPets.Data\HappyPets.Data.csproj", "{60F26A1A-4493-409D-BC6B-09418213EB4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HappyPets.Library", "HappyPets.Library\HappyPets.Library.csproj", "{DCF2CEBA-D401-44E3-8B30-C668F57DEE21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{9D126F17-5DFA-4A15-89D8-BC1E1FBED545}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D126F17-5DFA-4A15-89D8-BC1E1FBED545}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D126F17-5DFA-4A15-89D8-BC1E1FBED545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60F26A1A-4493-409D-BC6B-09418213EB4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60F26A1A-4493-409D-BC6B-09418213EB4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60F26A1A-4493-409D-BC6B-09418213EB4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60F26A1A-4493-409D-BC6B-09418213EB4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCF2CEBA-D401-44E3-8B30-C668F57DEE21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF2CEBA-D401-44E3-8B30-C668F57DEE21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF2CEBA-D401-44E3-8B30-C668F57DEE21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF2CEBA-D401-44E3-8B30-C668F57DEE21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

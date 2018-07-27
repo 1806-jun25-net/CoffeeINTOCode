@@ -1,0 +1,11 @@
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/bin/Debug/netcoreapp2.1/HappyPets.Data.deps.json
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/bin/Debug/netcoreapp2.1/HappyPets.Data.dll
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/bin/Debug/netcoreapp2.1/HappyPets.Data.pdb
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/obj/Debug/netcoreapp2.1/HappyPets.Data.csprojAssemblyReference.cache
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/obj/Debug/netcoreapp2.1/HappyPets.Data.csproj.CoreCompileInputs.cache
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/obj/Debug/netcoreapp2.1/HappyPets.Data.AssemblyInfoInputs.cache
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/obj/Debug/netcoreapp2.1/HappyPets.Data.AssemblyInfo.cs
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/obj/Debug/netcoreapp2.1/HappyPets.Data.dll
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/obj/Debug/netcoreapp2.1/HappyPets.Data.pdb
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/bin/Debug/netcoreapp2.1/HappyPets.Data.runtimeconfig.json
+/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/bin/Debug/netcoreapp2.1/HappyPets.Data.runtimeconfig.dev.json
