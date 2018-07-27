@@ -7,3 +7,8 @@ C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Library\obj\Debug\netcoreapp2
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Library\obj\Debug\netcoreapp2.1\HappyPets.Library.AssemblyInfo.cs
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Library\obj\Debug\netcoreapp2.1\HappyPets.Library.dll
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Library\obj\Debug\netcoreapp2.1\HappyPets.Library.pdb
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Library\bin\Debug\netcoreapp2.1\HappyPets.Library.runtimeconfig.json
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Library\bin\Debug\netcoreapp2.1\HappyPets.Library.runtimeconfig.dev.json
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Library\bin\Debug\netcoreapp2.1\HappyPets.Data.dll
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Library\bin\Debug\netcoreapp2.1\HappyPets.Data.pdb
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Library\obj\Debug\netcoreapp2.1\HappyPets.Library.csproj.CopyComplete

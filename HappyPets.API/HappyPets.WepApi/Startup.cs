@@ -31,13 +31,19 @@ namespace HappyPets.WepApi
         {
             services.AddDbContext<HappyPetsDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HappyPetsDB")));
 
+            services.AddDbContext<IdentityDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("HappyPetsAuth"),
+                b => b.MigrationsAssembly("HappyPets.Data")));
+
+            // Add-Migration <diff-migration-name> -Context IdentityDbContext
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
-            services.AddDbContext<IdentityDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("HappyPetsAuth"),
-                    b => b.MigrationsAssembly("HappyPets.Data")));
+
+
+            // Add-Migration HP-migration -Context IdentityDbContext
+            // Update-Database -Context IdentityDbContext
 
 
             services.AddSwaggerGen(c =>
