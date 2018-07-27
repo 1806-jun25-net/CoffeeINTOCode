@@ -681,28 +681,30 @@
     ]
   },
   "packageFolders": {
-    "/Users/yessy/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Kevin\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Library/HappyPets.Library.csproj",
+      "projectUniqueName": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.Library\\HappyPets.Library.csproj",
       "projectName": "HappyPets.Library",
-      "projectPath": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Library/HappyPets.Library.csproj",
-      "packagesPath": "/Users/yessy/.nuget/packages/",
-      "outputPath": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Library/obj",
+      "projectPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.Library\\HappyPets.Library.csproj",
+      "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
+      "outputPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.Library\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/yessy/.config/NuGet/NuGet.Config"
+        "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -722,7 +724,7 @@
           "Microsoft.NETCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "2.1.0",
+            "version": "[2.1.0, )",
             "autoReferenced": true
           }
         },
