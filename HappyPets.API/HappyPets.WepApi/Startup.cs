@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HappyPets.Data;
+using HappyPets.Library;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,11 +30,17 @@ namespace HappyPets.WepApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //            services.AddScoped<IRestaurantRepository, RestaurantRepository>();
+            services.AddScoped<Repository>();
+
             services.AddDbContext<HappyPetsDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HappyPetsDB")));
 
             services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("HappyPetsAuth"),
                 b => b.MigrationsAssembly("HappyPets.Data")));
+
+
 
             // Add-Migration <diff-migration-name> -Context IdentityDbContext
 

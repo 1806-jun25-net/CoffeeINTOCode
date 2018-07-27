@@ -6907,30 +6907,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kevin\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/yessy/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPetsApi.Test\\HappyPetsApi.Test.csproj",
+      "projectUniqueName": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPetsApi.Test/HappyPetsApi.Test.csproj",
       "projectName": "HappyPetsApi.Test",
-      "projectPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPetsApi.Test\\HappyPetsApi.Test.csproj",
-      "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPetsApi.Test\\obj\\",
+      "projectPath": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPetsApi.Test/HappyPetsApi.Test.csproj",
+      "packagesPath": "/Users/yessy/.nuget/packages/",
+      "outputPath": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPetsApi.Test/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/yessy/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6947,50 +6945,51 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Design": {
-            "target": "Package",
-            "version": "[2.1.1, )"
-          },
-          "Microsoft.EntityFrameworkCore.SqlServer": {
-            "target": "Package",
-            "version": "[2.1.1, )"
-          },
-          "Microsoft.EntityFrameworkCore.Tools": {
-            "target": "Package",
-            "version": "[2.1.1, )"
-          },
-          "Microsoft.Extensions.Configuration": {
-            "target": "Package",
-            "version": "[2.1.1, )"
-          },
-          "Microsoft.Extensions.Configuration.FileExtensions": {
-            "target": "Package",
-            "version": "[2.1.1, )"
-          },
-          "Microsoft.Extensions.Configuration.Json": {
-            "target": "Package",
-            "version": "[2.1.1, )"
-          },
-          "Microsoft.NET.Test.Sdk": {
-            "target": "Package",
-            "version": "[15.7.0, )"
-          },
           "Microsoft.NETCore.App": {
+            "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.0, )",
+            "version": "2.1.0",
             "autoReferenced": true
           },
           "coverlet.msbuild": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "2.1.1"
+          },
+          "Microsoft.EntityFrameworkCore.Design": {
+            "target": "Package",
+            "version": "2.1.1"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "2.1.1"
+          },
+          "Microsoft.EntityFrameworkCore.Tools": {
+            "target": "Package",
+            "version": "2.1.1"
+          },
+          "Microsoft.Extensions.Configuration": {
+            "target": "Package",
+            "version": "2.1.1"
+          },
+          "Microsoft.Extensions.Configuration.FileExtensions": {
+            "target": "Package",
+            "version": "2.1.1"
+          },
+          "Microsoft.Extensions.Configuration.Json": {
+            "target": "Package",
+            "version": "2.1.1"
+          },
+          "Microsoft.NET.Test.Sdk": {
+            "target": "Package",
+            "version": "15.7.0"
           },
           "xunit": {
             "target": "Package",
-            "version": "[2.3.1, )"
+            "version": "2.3.1"
           },
           "xunit.runner.visualstudio": {
             "target": "Package",
-            "version": "[2.3.1, )"
+            "version": "2.3.1"
           }
         },
         "imports": [

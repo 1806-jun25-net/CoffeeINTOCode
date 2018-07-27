@@ -12426,40 +12426,38 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kevin\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/yessy/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.WepApi\\HappyPets.WepApi.csproj",
+      "projectUniqueName": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.WepApi/HappyPets.WepApi.csproj",
       "projectName": "HappyPets.WepApi",
-      "projectPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.WepApi\\HappyPets.WepApi.csproj",
-      "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.WepApi\\obj\\",
+      "projectPath": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.WepApi/HappyPets.WepApi.csproj",
+      "packagesPath": "/Users/yessy/.nuget/packages/",
+      "outputPath": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.WepApi/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/yessy/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
           "projectReferences": {
-            "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.Data\\HappyPets.Data.csproj": {
-              "projectPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.Data\\HappyPets.Data.csproj"
+            "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/HappyPets.Data.csproj": {
+              "projectPath": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Data/HappyPets.Data.csproj"
             },
-            "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.Library\\HappyPets.Library.csproj": {
-              "projectPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.Library\\HappyPets.Library.csproj"
+            "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Library/HappyPets.Library.csproj": {
+              "projectPath": "/Users/yessy/Documents/Revature/CoffeeINTOCode/HappyPets.API/HappyPets.Library/HappyPets.Library.csproj"
             }
           }
         }
@@ -12473,52 +12471,52 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "Microsoft.NETCore.App": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "2.1.0",
+            "autoReferenced": true
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.1, )",
-            "autoReferenced": true
+            "version": "2.1.1"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "2.1.1"
           },
           "Microsoft.EntityFrameworkCore.Design": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "2.1.1"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "2.1.1"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "2.1.1"
           },
           "Microsoft.Extensions.Configuration": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "2.1.1"
           },
           "Microsoft.Extensions.Configuration.FileExtensions": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "2.1.1"
           },
           "Microsoft.Extensions.Configuration.Json": {
             "target": "Package",
-            "version": "[2.1.1, )"
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "[2.1.0, )",
-            "autoReferenced": true
+            "version": "2.1.1"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
-            "version": "[2.1.1, )"
+            "version": "2.1.1"
           },
           "Swashbuckle.AspNetCore": {
             "target": "Package",
-            "version": "[3.0.0, )"
+            "version": "3.0.0"
           }
         },
         "imports": [
