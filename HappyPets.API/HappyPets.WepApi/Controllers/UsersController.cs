@@ -16,10 +16,10 @@ namespace HappyPets.WepApi.Controllers
     {
         //private readonly HappyPetsDBContext _context;
        
-        public URepository Repo { get; set; }
+        public Repository Repo { get; set; }
 
 
-        public UsersController(URepository repo)
+        public UsersController(Repository repo)
         {
             //_context = context;
             Repo = repo;
