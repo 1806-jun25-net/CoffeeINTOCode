@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{0D666422-A915-44D1-821A-B126BA546D42}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="HappyPets.WepApi/Program.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
       <File FileName="HappyPets.WepApi/Controllers/ValuesController.cs" Line="1" Column="1" />
       <File FileName="HappyPets.WepApi/Startup.cs" Line="68" Column="46" />
@@ -8,7 +8,7 @@
       <File FileName="HappyPets.Library/UserRepository.cs" Line="11" Column="1" />
       <File FileName="HappyPets.Library/OrderRepository.cs" Line="6" Column="9" />
       <File FileName="HappyPets.Library/ServiceRepository.cs" Line="7" Column="1" />
-      <File FileName="HappyPets.WepApi/Program.cs" Line="17" Column="1" />
+      <File FileName="HappyPets.WepApi/Program.cs" Line="25" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.ItemProperties.HappyPets.WepApi PreferredExecutionTarget="MonoDevelop.Default" />
