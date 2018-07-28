@@ -1,13 +1,14 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "8f202c265817a0d783f1a3d3fdd1f65a558ea872"
+    "signature": "6f99433bfb6554373231ebd28fbb05263e932554"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.1": {
       "HappyPetsApi.Test/1.0.0": {
         "dependencies": {
+          "EntityFramework": "6.2.0",
           "Microsoft.EntityFrameworkCore.Design": "2.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",
           "Microsoft.EntityFrameworkCore.Tools": "2.1.1",
@@ -24,6 +25,18 @@
         }
       },
       "coverlet.msbuild/2.1.1": {},
+      "EntityFramework/6.2.0": {
+        "runtime": {
+          "lib/net45/EntityFramework.SqlServer.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.2.61023.0"
+          },
+          "lib/net45/EntityFramework.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.2.61023.0"
+          }
+        }
+      },
       "Microsoft.CodeCoverage/1.0.3": {
         "runtime": {
           "lib/netstandard1.0/Microsoft.VisualStudio.CodeCoverage.Shim.dll": {
@@ -1398,6 +1411,13 @@
       "sha512": "sha512-FgMET+euEaaTHd3Tjy2h3ikv0J6U/Cz5Bhr5yV9BzvlnOr5CD8+/zb6x71T0kKNcHCgo3cdAHXAHPKQKyTrrjA==",
       "path": "coverlet.msbuild/2.1.1",
       "hashPath": "coverlet.msbuild.2.1.1.nupkg.sha512"
+    },
+    "EntityFramework/6.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
+      "path": "entityframework/6.2.0",
+      "hashPath": "entityframework.6.2.0.nupkg.sha512"
     },
     "Microsoft.CodeCoverage/1.0.3": {
       "type": "package",

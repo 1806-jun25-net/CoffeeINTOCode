@@ -66,5 +66,4 @@ C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.csproj.CopyComplete
 <<<<<<< HEAD
 =======
-C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 >>>>>>> 2072320d5befbb6444f24dfc55ffefa201c9f725
