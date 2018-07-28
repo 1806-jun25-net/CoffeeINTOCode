@@ -4712,6 +4712,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.1",
         "dependencies": {
+          "EntityFramework": "6.2.0",
           "HappyPets.Data": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",
@@ -12410,6 +12411,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "EntityFramework >= 6.2.0",
       "HappyPets.Data >= 1.0.0",
       "HappyPets.Library >= 1.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
@@ -12426,7 +12428,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kevin\\.nuget\\packages\\": {},
+    "C:\\Users\\yessy\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -12435,14 +12437,14 @@
       "projectUniqueName": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.WepApi\\HappyPets.WepApi.csproj",
       "projectName": "HappyPets.WepApi",
       "projectPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.WepApi\\HappyPets.WepApi.csproj",
-      "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\yessy\\.nuget\\packages\\",
       "outputPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.WepApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yessy\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -12473,6 +12475,10 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "EntityFramework": {
+            "target": "Package",
+            "version": "[6.2.0, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",

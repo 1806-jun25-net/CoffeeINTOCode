@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v2.1": {
       "HappyPets.Library/1.0.0": {
         "dependencies": {
+          "EntityFramework": "6.2.0",
           "HappyPets.Data": "1.0.0",
           "Microsoft.EntityFrameworkCore.Design": "2.1.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "2.1.1",

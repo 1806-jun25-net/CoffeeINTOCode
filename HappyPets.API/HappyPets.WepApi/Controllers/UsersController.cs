@@ -31,7 +31,8 @@ namespace HappyPets.WepApi.Controllers
             var user = Repo.GetUsertable();
             var TheUser = user.FirstOrDefault(x => x.FirstName == "YESSEBELL");
             return new string[] { $"Name: {TheUser.FirstName}" + $" Last Name: {TheUser.LastName}"
-                + $" Registration Date: {TheUser.Email}"};
-        } // Print in webpage
+                + $" Registration Email: {TheUser.Email}"};
+        } 
+
     }
 }
