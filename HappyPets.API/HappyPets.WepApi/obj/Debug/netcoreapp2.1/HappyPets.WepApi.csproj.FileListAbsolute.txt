@@ -64,3 +64,6 @@ C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.RazorTargetAssemblyInfo.cs
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.Views.pdb
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.csproj.CopyComplete
+<<<<<<< HEAD
+=======
+>>>>>>> 2072320d5befbb6444f24dfc55ffefa201c9f725
