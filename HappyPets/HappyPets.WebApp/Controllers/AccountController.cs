@@ -41,7 +41,7 @@ namespace HappyPets.WebApp.Controllers
                 return View("Error");
             }
 
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Account/Register", account);
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "WebApi/Account/Register", account);
 
             HttpResponseMessage apiResponse;
             try

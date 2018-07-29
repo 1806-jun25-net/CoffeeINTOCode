@@ -12,7 +12,7 @@ namespace TodoMvc.Controllers
 {
     public abstract class AServiceController : Controller
     {
-        private static readonly Uri s_serviceUri = new Uri("http://localhost:61443/");
+        private static readonly Uri s_serviceUri = new Uri("https://localhost:44316/");
         protected static readonly string s_CookieName = "TodoApiAuth";
 
         protected HttpClient HttpClient { get; }
