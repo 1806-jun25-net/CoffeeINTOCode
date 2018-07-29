@@ -35,6 +35,7 @@ C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.csproj.CoreCompileInputs.cache
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.RazorAssemblyInfo.cache
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.RazorAssemblyInfo.cs
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\UserSecretsAssemblyInfo.cs
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.AssemblyInfoInputs.cache
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.AssemblyInfo.cs
 C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.WepApi\obj\Debug\netcoreapp2.1\HappyPets.WepApi.dll

@@ -4598,7 +4598,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yessy\\.nuget\\packages\\": {},
+    "C:\\Users\\Kevin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -4607,14 +4607,14 @@
       "projectUniqueName": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.Data\\HappyPets.Data.csproj",
       "projectName": "HappyPets.Data",
       "projectPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.Data\\HappyPets.Data.csproj",
-      "packagesPath": "C:\\Users\\yessy\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
       "outputPath": "C:\\Revature\\CoffeeINTOCode\\HappyPets.API\\HappyPets.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\yessy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
