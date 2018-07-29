@@ -1,0 +1,11 @@
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\bin\Debug\netcoreapp2.1\HappyPetsData.deps.json
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\bin\Debug\netcoreapp2.1\HappyPetsData.runtimeconfig.json
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\bin\Debug\netcoreapp2.1\HappyPetsData.runtimeconfig.dev.json
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\bin\Debug\netcoreapp2.1\HappyPetsData.dll
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\bin\Debug\netcoreapp2.1\HappyPetsData.pdb
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\obj\Debug\netcoreapp2.1\HappyPetsData.csprojAssemblyReference.cache
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\obj\Debug\netcoreapp2.1\HappyPetsData.csproj.CoreCompileInputs.cache
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\obj\Debug\netcoreapp2.1\HappyPetsData.AssemblyInfoInputs.cache
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\obj\Debug\netcoreapp2.1\HappyPetsData.AssemblyInfo.cs
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\obj\Debug\netcoreapp2.1\HappyPetsData.dll
+C:\Revature\CoffeeINTOCode\HappyPets.API\HappyPets.Data\obj\Debug\netcoreapp2.1\HappyPetsData.pdb
