@@ -51,7 +51,7 @@ namespace HappyPets.WepApi.Controllers
         public async Task<ActionResult> Register(User input,
             [FromServices] UserManager<IdentityUser> userManager,
             [FromServices] RoleManager<IdentityRole> roleManager, bool admin = false)
-        {
+        {b
             // with an [ApiController], model state is always automatically checked
             // and return 400 if any errors.
 
