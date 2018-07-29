@@ -36,7 +36,8 @@ namespace HappyPets.WepApi
             //            services.AddScoped<IRestaurantRepository, RestaurantRepository>();
             services.AddScoped<Repository>();
 
-            services.AddDbContext<HappyPetsDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("HappyPetsDB")));
+            services.AddDbContext<HappyPetsDBContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("HappyPetsDB")));
 
             services.AddDbContext<IdentityDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("HappyPetsAuth"),
@@ -56,8 +57,8 @@ namespace HappyPets.WepApi
                 options.Password.RequiredLength = 6;
                 options.Password.RequiredUniqueChars = 1;
                 options.Password.RequireLowercase = true;
-                options.Password.RequireNonAlphanumeric = true;
-                options.Password.RequireUppercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
 
                 options.User.AllowedUserNameCharacters =
                     "abcdefghijklmnopqrstuvwxyz" +
