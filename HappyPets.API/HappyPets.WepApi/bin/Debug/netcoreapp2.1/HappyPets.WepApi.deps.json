@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "13e7c7a9cc333d816a733b07f7516ea5e59f1c3e"
+    "signature": "403b63708808346cd8d3300362c9481f6e5a19a2"
   },
   "compilationOptions": {
     "defines": [
@@ -24,7 +24,6 @@
     ".NETCoreApp,Version=v2.1": {
       "HappyPets.WepApi/1.0.0": {
         "dependencies": {
-          "EntityFramework": "6.2.0",
           "HappyPets.Data": "1.0.0",
           "HappyPets.Library": "1.0.0",
           "Microsoft.AspNetCore.App": "2.1.1",
@@ -46,22 +45,6 @@
         },
         "compile": {
           "HappyPets.WepApi.dll": {}
-        }
-      },
-      "EntityFramework/6.2.0": {
-        "runtime": {
-          "lib/net45/EntityFramework.SqlServer.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.2.61023.0"
-          },
-          "lib/net45/EntityFramework.dll": {
-            "assemblyVersion": "6.0.0.0",
-            "fileVersion": "6.2.61023.0"
-          }
-        },
-        "compile": {
-          "lib/net45/EntityFramework.SqlServer.dll": {},
-          "lib/net45/EntityFramework.dll": {}
         }
       },
       "Microsoft.AspNetCore.Identity/2.1.2": {
@@ -679,7 +662,6 @@
       },
       "HappyPets.Data/1.0.0": {
         "dependencies": {
-          "EntityFramework": "6.2.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "2.1.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.1.2",
           "Microsoft.EntityFrameworkCore.Design": "2.1.1",
@@ -698,7 +680,6 @@
       },
       "HappyPets.Library/1.0.0": {
         "dependencies": {
-          "EntityFramework": "6.2.0",
           "HappyPets.Data": "1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "2.1.1",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "2.1.2",
@@ -3620,13 +3601,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "EntityFramework/6.2.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-ptGyXOf26qLrtn+2doAmylIlCxOnBJANwlyyLrXDmqIk9O18IzLWHyxDwwAyhgXkxmbiaA0WNpRy67WRReInBw==",
-      "path": "entityframework/6.2.0",
-      "hashPath": "entityframework.6.2.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity/2.1.2": {
       "type": "package",
