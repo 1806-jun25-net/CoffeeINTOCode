@@ -1,0 +1,93 @@
+
+// Variable Modification
+$primary: #396C9C;
+$secondary: #FF2121;
+$font-family-sans-serif: "Open Sans";
+@import "node_modules/bootstrap/scss/bootstrap";
+
+.HP-Sponsors-trademark {
+  background-color: #FF2121;
+  color: white;
+  height: 60px;
+}
+
+
+body {
+  max-width: 2560px;
+  min-width: 320px;
+  margin: 0 auto;
+}
+
+.logo {
+  max-width: 171px;
+  max-height: 56px;
+  width: 100%;
+
+  img {
+    @include media-breakpoint-down(xs) {
+      width: 130px;
+    }
+  }
+}
+
+
+
+%HP-SearchForm_BaseClass {
+  border-radius: 10px;
+  background: $white;
+  border: none;
+}
+
+.HP-SearchForm {
+  @extend %HP-SearchForm_BaseClass;
+  position: relative;
+  border: 1px solid $primary;
+  max-width: 458px;
+  min-width: 175px;
+  max-height: 56px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+.HP-SearchForm_input {
+  @extend %HP-SearchForm_BaseClass;
+  color: $primary;
+  max-width: 410px;
+  min-width: 175px;
+  max-height: 56px;
+  margin-left: auto;
+  margin-right: 25px;
+}
+
+.HP-SearchForm_button {
+  @extend %HP-SearchForm_BaseClass;
+  position:absolute;
+  padding: 0;
+  right: 0;
+
+  &:focus, &:active {
+    background: $white;
+  }
+}
+
+.HP-nav-item {
+  font-size: 24px;
+
+  @include media-breakpoint-down(lg) {
+    font-size: 18px;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 12px;
+  }
+}
+
+.HP-Footer-Content {
+  height: 300px;
+}
+
+.HP-Footer-extra-info {
+  font-size: 24px;
+  width: 100%;
+}
