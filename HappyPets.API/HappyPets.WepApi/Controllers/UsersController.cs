@@ -27,7 +27,7 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public IEnumerable<Users> GetUsers()
         {
             var user = Repo.GetUsertable().ToList();

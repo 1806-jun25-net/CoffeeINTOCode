@@ -47,7 +47,7 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        //[Authorize]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public async Task<ActionResult> Register(User input,
