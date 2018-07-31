@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using HappyPets.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using TodoMvc.Controllers;
+using HappyPets.Controllers;
 
 
 namespace HappyPets.WebApp.Controllers

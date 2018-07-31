@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HappyPets.WepApi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +47,7 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]
         public async Task<ActionResult> Register(User input,

@@ -10,7 +10,7 @@ using HappyPets.Library;
 
 namespace HappyPets.WepApi.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
@@ -26,12 +26,13 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Users> GetUsers()
         {
-            var user = Repo.GetUsertable();
-            var TheUser = user.FirstOrDefault(x => x.FirstName == "YESSEBELL");
-            return new string[] { $"Name: {TheUser.FirstName}" + $" Last Name: {TheUser.LastName}"
-                + $" Registration Email: {TheUser.Email}"};
+            List<Users> user = Repo.GetUsertable().ToList();
+            return user;
+            //var TheUser = user.FirstOrDefault(x => x.FirstName == "YESSEBELL");
+            //return new string[] { $"Name: {TheUser.FirstName}" + $" Last Name: {TheUser.LastName}"
+            //    + $" Registration Email: {TheUser.Email}"};
         } 
 
     }

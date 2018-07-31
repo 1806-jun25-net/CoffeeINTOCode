@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
-namespace TodoMvc.Controllers
+namespace HappyPets.WebApp.Controllers
 {
     public abstract class AServiceController : Controller
     {
         private static readonly Uri s_serviceUri = new Uri("https://localhost:44316/");
-        protected static readonly string s_CookieName = "TodoApiAuth";
+        protected static readonly string s_CookieName = "HPApiAuth";
 
         protected HttpClient HttpClient { get; }
 
