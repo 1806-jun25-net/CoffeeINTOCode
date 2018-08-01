@@ -81,6 +81,63 @@ namespace HappyPets.Library.Repository
 
 
         // Employee
+        public Employee GetEmployee(int id)
+        {
+            return _repo.GetEmployeeByID(id);
+        }
+
+        public IEnumerable<Employee> GetEmployees(string value, int option = 0)
+        {
+            IEnumerable<Employee> employees;
+
+            switch (option)
+            {
+                case 1:
+                    employees = _repo.GetEmployeeByLastName(value);
+                    break;
+
+                default:
+                    employees = _repo.GetEmployeeByName(value);
+                    break;
+            }
+
+            return employees;
+        }
+
+        public IEnumerable<Employee> GetEmployees(int locationId)
+        {
+            var employees = _repo.GetEmployeeByLocation(locationId);
+            return employees;
+        }
+
+        public IEnumerable<Employee> GetAllEmployee()
+        {
+            var employees = _repo.GetAllEmployee();
+            return employees;
+        }
+
+        public void EditEmployee(Employee employee)
+        {
+            _repo.UpdateEmployee(employee);
+        }
+
+        public void CreateNewEmployee(Employee employee)
+        {
+            _repo.CreateEmployee(employee);
+        }
+
+        public void CreateNewEmployee(
+            string firstName,
+            string lastName,
+            int locationId)
+        {
+            _repo.CreateEmployee(
+                firstName,
+                lastName,
+                locationId
+            );
+        }
+
     }
 }
 
