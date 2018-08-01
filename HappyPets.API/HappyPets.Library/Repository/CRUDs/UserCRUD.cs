@@ -93,5 +93,17 @@ namespace HappyPets.Library.Repository.CRUDs
             var users = _db.Users.Where(n => n.LastName == lastName).ToList();
             return users;
         }
+
+        public IEnumerable<Users> GetUserByEmail(string email)
+        {
+            var users = _db.Users.Where(n => n.Email == email).ToList();
+            return users;
+        }
+
+        public IEnumerable<Users> GetUserByLocation(int id)
+        {
+            var users = _db.Users.Where(n => n.LocationId == id).ToList();
+            return users;
+        }
     }
 }

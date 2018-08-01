@@ -1,7 +1,4 @@
-﻿using HappyPets.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using HappyPets.Library.Repository.CRUDs;
 
 namespace HappyPets.Library.Repository
