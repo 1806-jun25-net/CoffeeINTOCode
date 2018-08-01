@@ -70,5 +70,44 @@ namespace HappyPets.Library.Repository.CRUDs
 
             _db.Remove(employee);
         }
+
+        public IEnumerable<Employee> GetEmployeeByName(string name)
+        {
+            var employee = _db.Employee.Where(n => n.FirstName == name).ToList();
+            string errMsg = "Not Employee found with that Name";
+
+            // In case of return no user
+            if (employee == null)
+            {
+                throw new ArgumentException(errMsg, nameof(name));
+            }
+            return employee;
+        }
+
+        public IEnumerable<Employee> GetEmployeeByLastName(string lastname)
+        {
+            var employee = _db.Employee.Where(n => n.LastName == lastname).ToList();
+            string errMsg = "Not Employee found with that Name";
+
+            // In case of return no user
+            if (employee == null)
+            {
+                throw new ArgumentException(errMsg, nameof(lastname));
+            }
+            return employee;
+        }
+
+        public IEnumerable<Employee> GetEmployeeByLocation(int locationId)
+        {
+            var employee = _db.Employee.Where(n => n.LocationId == locationId).ToList();
+            string errMsg = "Not Employee found with that Name";
+
+            // In case of return no user
+            if (employee == null)
+            {
+                throw new ArgumentException(errMsg, nameof(locationId));
+            }
+            return employee;
+        }
     }
 }
