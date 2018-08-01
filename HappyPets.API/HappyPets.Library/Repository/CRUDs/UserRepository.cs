@@ -5,10 +5,6 @@ using System.Linq;
 
 namespace HappyPets.Library
 {
-    public partial class Repository
-    {
-
-    }
 }
 
  
