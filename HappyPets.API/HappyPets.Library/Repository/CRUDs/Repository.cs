@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HappyPets.Library
+namespace HappyPets.Library.Repository.CRUDs
 {
     public partial class Repository
     {
@@ -12,16 +12,7 @@ namespace HappyPets.Library
         public Repository(HappyPetsDBContext db)
         {
             _db = db ?? throw new ArgumentNullException(nameof(db));
-        }
-
-        public IEnumerable<Users> GetUsertable()
-        {
-            List<Users> user = _db.Users.ToList();
-            return user;
 
         }
-
     }
 }
-
- 
