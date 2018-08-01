@@ -21,6 +21,7 @@ namespace HappyPets.Library.Repository
             {
                 TypesName = typeName
             };
+            _db.Add(userType);
         }
 
         // Read Single
