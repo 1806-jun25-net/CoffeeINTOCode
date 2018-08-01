@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using HappyPets.Data;
 
-namespace HappyPets.Library.Repository
+namespace HappyPets.Library.Repository.CRUDs
 {
-    public partial class Repository
+    public partial class RepositoryCRUDs
     {
         // CRUD operation for Location
         // Create
         public void CreateLocation(Location location)
         {
             _db.Add(location);
+            SaveChanges();
 
         }
 
@@ -23,6 +24,7 @@ namespace HappyPets.Library.Repository
             };
 
             _db.Add(location);
+            SaveChanges();
 
         }
 
@@ -52,6 +54,7 @@ namespace HappyPets.Library.Repository
         public void UpdateLocation(Location location)
         {
             _db.Location.Update(location);
+            SaveChanges();
         }
 
 
@@ -67,6 +70,7 @@ namespace HappyPets.Library.Repository
             }
 
             _db.Remove(location);
+            SaveChanges();
         }
     }
 }

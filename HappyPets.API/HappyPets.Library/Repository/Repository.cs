@@ -1,18 +1,19 @@
-﻿using HappyPets.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using HappyPets.Library.Repository.CRUDs;
 
 namespace HappyPets.Library.Repository
 {
+
     public partial class Repository
     {
-        private readonly HappyPetsDBContext _db;
+        private readonly RepositoryCRUDs _repo;
 
-        public Repository(HappyPetsDBContext db)
+        public Repository(RepositoryCRUDs repo)
         {
-            _db = db ?? throw new ArgumentNullException(nameof(db));
+            _repo = repo ?? throw new ArgumentException(nameof(repo));
 
         }
     }
 }
+
+

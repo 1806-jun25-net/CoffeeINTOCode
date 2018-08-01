@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using HappyPets.Data;
-namespace HappyPets.Library.Repository
+namespace HappyPets.Library.Repository.CRUDs
 {
-    public partial class Repository
+    public partial class RepositoryCRUDs
     {
         // CRUD operation for Employee Rating
 
@@ -12,6 +12,7 @@ namespace HappyPets.Library.Repository
         public void CreateEmployeeRating(EmployeeRating employeeRating)
         {
             _db.Add(employeeRating);
+            SaveChanges();
         }
 
         public void CreateEmployeeRating(int employeeId, int rating)
@@ -22,6 +23,7 @@ namespace HappyPets.Library.Repository
                 Rating = rating
             };
             _db.Add(employeeRating);
+            SaveChanges();
         }
 
         // Read Single
@@ -49,6 +51,7 @@ namespace HappyPets.Library.Repository
         public void UpdateEmployeeRating(EmployeeRating employeeRating)
         {
             _db.EmployeeRating.Update(employeeRating);
+            SaveChanges();
         }
 
         // Delete
@@ -63,6 +66,7 @@ namespace HappyPets.Library.Repository
             }
 
             _db.Remove(employeeRating);
+            SaveChanges();
         }
     }
 }

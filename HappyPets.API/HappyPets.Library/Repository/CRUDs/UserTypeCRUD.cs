@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using HappyPets.Data;
 
-namespace HappyPets.Library.Repository
+namespace HappyPets.Library.Repository.CRUDs
 {
-    public partial class Repository
+    public partial class RepositoryCRUDs
     {
         // CRUD operation for User Type
 
@@ -13,6 +13,7 @@ namespace HappyPets.Library.Repository
         public void CreateUserType(UserType userType)
         {
             _db.Add(userType);
+            SaveChanges();
         }
 
         public void CreateUserType( string typeName)
@@ -22,6 +23,7 @@ namespace HappyPets.Library.Repository
                 TypesName = typeName
             };
             _db.Add(userType);
+            SaveChanges();
         }
 
         // Read Single
@@ -49,6 +51,7 @@ namespace HappyPets.Library.Repository
         public void UpdateUserType(UserType userType)
         {
             _db.UserType.Update(userType);
+            SaveChanges();
         }
 
         // Delete
@@ -63,6 +66,7 @@ namespace HappyPets.Library.Repository
             }
 
             _db.Remove(userType);
+            SaveChanges();
         }
     }
 }

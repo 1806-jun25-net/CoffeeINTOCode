@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using HappyPets.Data;
 
-namespace HappyPets.Library.Repository
+namespace HappyPets.Library.Repository.CRUDs
 {
-    public partial class Repository
+    public partial class RepositoryCRUDs
     {
         // CRUD operation for Users
         // Create
         public void CreateUser(Users user)
         {
             _db.Add(user);
-            
+            SaveChanges();
+
         }
 
         public void CreateUser(
@@ -34,7 +35,8 @@ namespace HappyPets.Library.Repository
             };
 
             _db.Add(user);
-            
+            SaveChanges();
+
         }
 
         // Read Single
@@ -63,6 +65,7 @@ namespace HappyPets.Library.Repository
         public void UpdateUser(Users user) 
         {
             _db.Users.Update(user);
+            SaveChanges();
         }
 
 
@@ -78,6 +81,33 @@ namespace HappyPets.Library.Repository
             }
 
             _db.Remove(userToDelete);
+            SaveChanges();
+        }
+
+        // Others Operations
+        public IEnumerable<Users> GetUserByName(string firstname)
+        {
+            var users = _db.Users.Where(n => n.FirstName == firstname).ToList();
+            return users;
+        }
+
+
+        public IEnumerable<Users> GetUserByLastName(string lastName)
+        {
+            var users = _db.Users.Where(n => n.LastName == lastName).ToList();
+            return users;
+        }
+
+        public IEnumerable<Users> GetUserByEmail(string email)
+        {
+            var users = _db.Users.Where(n => n.Email == email).ToList();
+            return users;
+        }
+
+        public IEnumerable<Users> GetUserByLocation(int id)
+        {
+            var users = _db.Users.Where(n => n.LocationId == id).ToList();
+            return users;
         }
     }
 }

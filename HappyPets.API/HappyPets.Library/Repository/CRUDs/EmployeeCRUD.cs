@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using HappyPets.Data;
 
-namespace HappyPets.Library.Repository
+namespace HappyPets.Library.Repository.CRUDs
 {
-    public partial class Repository
+    public partial class RepositoryCRUDs
     {
         // CRUD operation for Employee
         // Create
         public void CreateEmployee(Employee employee)
         {
             _db.Add(employee);
+            SaveChanges();
         }
 
         public void CreateEmployee(
@@ -27,6 +28,7 @@ namespace HappyPets.Library.Repository
             };
 
             _db.Add(employee);
+            SaveChanges();
         }
 
         // Read Single
@@ -54,6 +56,7 @@ namespace HappyPets.Library.Repository
         public void UpdateEmployee( Employee employee)
         {
             _db.Employee.Update(employee);
+            SaveChanges();
         }
 
         // Delete
@@ -69,6 +72,46 @@ namespace HappyPets.Library.Repository
             }
 
             _db.Remove(employee);
+            SaveChanges();
+        }
+
+        public IEnumerable<Employee> GetEmployeeByName(string name)
+        {
+            var employee = _db.Employee.Where(n => n.FirstName == name).ToList();
+            string errMsg = "Not Employee found with that Name";
+
+            // In case of return no user
+            if (employee == null)
+            {
+                throw new ArgumentException(errMsg, nameof(name));
+            }
+            return employee;
+        }
+
+        public IEnumerable<Employee> GetEmployeeByLastName(string lastname)
+        {
+            var employee = _db.Employee.Where(n => n.LastName == lastname).ToList();
+            string errMsg = "Not Employee found with that Name";
+
+            // In case of return no user
+            if (employee == null)
+            {
+                throw new ArgumentException(errMsg, nameof(lastname));
+            }
+            return employee;
+        }
+
+        public IEnumerable<Employee> GetEmployeeByLocation(int locationId)
+        {
+            var employee = _db.Employee.Where(n => n.LocationId == locationId).ToList();
+            string errMsg = "Not Employee found with that Name";
+
+            // In case of return no user
+            if (employee == null)
+            {
+                throw new ArgumentException(errMsg, nameof(locationId));
+            }
+            return employee;
         }
     }
 }
