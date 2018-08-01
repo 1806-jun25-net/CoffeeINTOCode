@@ -7,7 +7,7 @@ namespace HappyPets.Library.Repository
 {
     public partial class Repository
     {
-        // CRUD operation for users_id
+        // CRUD operation for Users
         // Create
         public void CreateUser(Users user)
         {
