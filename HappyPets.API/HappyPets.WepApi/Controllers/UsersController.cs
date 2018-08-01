@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using HappyPets.Data;
 using HappyPets.Library;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HappyPets.WepApi.Controllers
 {
@@ -26,9 +27,10 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpGet]
+        //[Authorize]
         public IEnumerable<Users> GetUsers()
         {
-            List<Users> user = Repo.GetUsertable().ToList();
+            var user = Repo.GetUsertable().ToList();
             return user;
             //var TheUser = user.FirstOrDefault(x => x.FirstName == "YESSEBELL");
             //return new string[] { $"Name: {TheUser.FirstName}" + $" Last Name: {TheUser.LastName}"

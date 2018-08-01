@@ -33,3 +33,4 @@ C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.WebApp\obj\Debug\netcoreapp2.1\Ha
 C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.WebApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
 C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.WebApp\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
 C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.WebApp\obj\Debug\netcoreapp2.1\Razor\Views\Shared\AccessDenied.g.cshtml.cs
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.WebApp\obj\Debug\netcoreapp2.1\Razor\Views\Users\GetUsers.g.cshtml.cs
