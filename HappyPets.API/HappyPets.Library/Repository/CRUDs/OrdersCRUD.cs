@@ -34,10 +34,16 @@ namespace HappyPets.Library.Repository.CRUDs
 
 
         /////////////////////// Edit Order ////////////////////////////////////
-        public void Edit(Orders order)
+        public void EditOrders(Orders order)
         {
             //updates the current order 
             _db.Update(order);
+            SaveChanges();
+        }
+
+        public void DeleteOrders(Orders order)
+        {
+            _db.Remove(order);
             SaveChanges();
         }
 

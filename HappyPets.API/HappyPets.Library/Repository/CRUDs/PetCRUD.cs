@@ -12,7 +12,7 @@ namespace HappyPets.Library.Repository.CRUDs
         public IEnumerable<Pet> GetPets()
         {
             var pets = _db.Pet.ToList();
-            return pets
+            return pets;
         }
 
 
@@ -34,12 +34,19 @@ namespace HappyPets.Library.Repository.CRUDs
 
 
         /////////////////////// Edit Pet ////////////////////////////////////
-        public void Edit(Pet pet)
+        public void EditPet(Pet pet)
         {
             //updates the current pet
             _db.Update(pet);
             SaveChanges();
         }
+
+        public void DeletePet(Pet pet)
+        {
+            _db.Remove(pet);
+            SaveChanges();
+        }
+
 
     }
 }

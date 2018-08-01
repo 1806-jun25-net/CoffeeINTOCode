@@ -35,10 +35,11 @@ namespace HappyPets.Library.Repository.CRUDs
 
         }
 
-        //public IEnumerable<Services> DeleteService()
-        //{
-
-        //}
+        public void DeletePet(Services services)
+        {
+            _db.Remove(services);
+            SaveChanges();
+        }
 
     }
 }
