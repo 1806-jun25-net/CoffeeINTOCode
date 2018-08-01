@@ -5,7 +5,7 @@ using HappyPets.Data;
 
 namespace HappyPets.Library.Repository.CRUDs
 {
-    public partial class Repository
+    public partial class RepositoryCRUDs
     {
         // CRUD operation for Users
         // Create
@@ -78,6 +78,20 @@ namespace HappyPets.Library.Repository.CRUDs
             }
 
             _db.Remove(userToDelete);
+        }
+
+        // Others Operations
+        public IEnumerable<Users> GetUserByName(string firstname)
+        {
+            var users = _db.Users.Where(n => n.FirstName == firstname).ToList();
+            return users;
+        }
+
+
+        public IEnumerable<Users> GetUserByLastName(string lastName)
+        {
+            var users = _db.Users.Where(n => n.LastName == lastName).ToList();
+            return users;
         }
     }
 }

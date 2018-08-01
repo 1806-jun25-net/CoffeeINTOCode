@@ -4,7 +4,7 @@ using System.Linq;
 using HappyPets.Data;
 namespace HappyPets.Library.Repository.CRUDs
 {
-    public partial class Repository
+    public partial class RepositoryCRUDs
     {
         // CRUD operation for Employee Rating
 

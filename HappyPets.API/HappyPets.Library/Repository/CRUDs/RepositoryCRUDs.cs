@@ -5,11 +5,11 @@ using System.Linq;
 
 namespace HappyPets.Library.Repository.CRUDs
 {
-    public partial class Repository
+    public partial class RepositoryCRUDs
     {
         private readonly HappyPetsDBContext _db;
 
-        public Repository(HappyPetsDBContext db)
+        public RepositoryCRUDs(HappyPetsDBContext db)
         {
             _db = db ?? throw new ArgumentNullException(nameof(db));
 
