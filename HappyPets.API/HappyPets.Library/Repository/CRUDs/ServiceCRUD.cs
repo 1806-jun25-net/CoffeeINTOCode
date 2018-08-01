@@ -6,7 +6,7 @@ using System.Text;
 
 namespace HappyPets.Library.Repository.CRUDs
 {
-   public partial class Repository
+    public partial class RepositoryCRUDs
     {
         public IEnumerable<Services> GetServices()
         {
