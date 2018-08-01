@@ -12,6 +12,8 @@ namespace HappyPets.Library
         public IEnumerable<Orders> GetOrderById(int id)
         {
 
+
+                         
             var order = _db.Orders.Where(g => g.OrderId == id);
             if (order == null)
             {
@@ -31,6 +33,7 @@ namespace HappyPets.Library
 
         public int? GetActiveCart(int userid)
         {
+
             var order = _db.Orders.Last();
             var orderId = order.OrderId;
             var activeCart = _db.Cart.Last(g=> g.OrderId == orderId);
@@ -70,14 +73,14 @@ namespace HappyPets.Library
 
         //}
 
-        //public decimal GetPricebyProductId(int id)
-        //{
+        public decimal GetPricebyProductId(int id)
+        {
+            //var price = _db.Products
+        }
+        public decimal GetPricebyServiceId(int id)
+        {
 
-        //}
-        //public decimal GetPricebyServiceId(int id)
-        //{
-
-        //}
+        }
 
 
 
