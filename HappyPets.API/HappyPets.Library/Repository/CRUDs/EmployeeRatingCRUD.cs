@@ -12,6 +12,7 @@ namespace HappyPets.Library.Repository.CRUDs
         public void CreateEmployeeRating(EmployeeRating employeeRating)
         {
             _db.Add(employeeRating);
+            SaveChanges();
         }
 
         public void CreateEmployeeRating(int employeeId, int rating)
@@ -22,6 +23,7 @@ namespace HappyPets.Library.Repository.CRUDs
                 Rating = rating
             };
             _db.Add(employeeRating);
+            SaveChanges();
         }
 
         // Read Single
@@ -49,6 +51,7 @@ namespace HappyPets.Library.Repository.CRUDs
         public void UpdateEmployeeRating(EmployeeRating employeeRating)
         {
             _db.EmployeeRating.Update(employeeRating);
+            SaveChanges();
         }
 
         // Delete
@@ -63,6 +66,7 @@ namespace HappyPets.Library.Repository.CRUDs
             }
 
             _db.Remove(employeeRating);
+            SaveChanges();
         }
     }
 }

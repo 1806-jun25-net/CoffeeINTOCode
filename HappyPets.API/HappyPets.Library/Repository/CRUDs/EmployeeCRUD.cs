@@ -12,6 +12,7 @@ namespace HappyPets.Library.Repository.CRUDs
         public void CreateEmployee(Employee employee)
         {
             _db.Add(employee);
+            SaveChanges();
         }
 
         public void CreateEmployee(
@@ -27,6 +28,7 @@ namespace HappyPets.Library.Repository.CRUDs
             };
 
             _db.Add(employee);
+            SaveChanges();
         }
 
         // Read Single
@@ -54,6 +56,7 @@ namespace HappyPets.Library.Repository.CRUDs
         public void UpdateEmployee( Employee employee)
         {
             _db.Employee.Update(employee);
+            SaveChanges();
         }
 
         // Delete
@@ -69,6 +72,7 @@ namespace HappyPets.Library.Repository.CRUDs
             }
 
             _db.Remove(employee);
+            SaveChanges();
         }
 
         public IEnumerable<Employee> GetEmployeeByName(string name)

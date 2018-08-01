@@ -13,6 +13,7 @@ namespace HappyPets.Library.Repository.CRUDs
         public void CreateUserType(UserType userType)
         {
             _db.Add(userType);
+            SaveChanges();
         }
 
         public void CreateUserType( string typeName)
@@ -22,6 +23,7 @@ namespace HappyPets.Library.Repository.CRUDs
                 TypesName = typeName
             };
             _db.Add(userType);
+            SaveChanges();
         }
 
         // Read Single
@@ -49,6 +51,7 @@ namespace HappyPets.Library.Repository.CRUDs
         public void UpdateUserType(UserType userType)
         {
             _db.UserType.Update(userType);
+            SaveChanges();
         }
 
         // Delete
@@ -63,6 +66,7 @@ namespace HappyPets.Library.Repository.CRUDs
             }
 
             _db.Remove(userType);
+            SaveChanges();
         }
     }
 }
