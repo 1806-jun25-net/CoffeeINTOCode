@@ -45,10 +45,11 @@ namespace HappyPets.Library.Repository.CRUDs
 
     }
 
-        //public IEnumerable<Cart> DeleteCart()
-        //{
-
-        //}
+        public void DeleteCart(Cart cart)
+        {
+            _db.Remove(cart);
+            SaveChanges();
+        }
         public void SaveChanges()
         {
             _db.SaveChanges();

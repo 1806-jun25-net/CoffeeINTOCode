@@ -33,12 +33,18 @@ namespace HappyPets.Library.Repository.CRUDs
 
 
         /////////////////////// Edit Pet Sizes ////////////////////////////////////
-        public void Edit(PetSize size)
+        public void EditPetsize(PetSize size)
         {
             //updates the current pet
             _db.Update(size);
             SaveChanges();
         }
+        public void DeletePetsize(PetSize size)
+        {
+            _db.Remove(size);
+            SaveChanges();
+        }
+
 
     }
 }
