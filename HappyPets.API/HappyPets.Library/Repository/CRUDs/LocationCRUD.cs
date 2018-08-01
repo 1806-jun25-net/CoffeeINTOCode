@@ -12,6 +12,7 @@ namespace HappyPets.Library.Repository.CRUDs
         public void CreateLocation(Location location)
         {
             _db.Add(location);
+            SaveChanges();
 
         }
 
@@ -23,6 +24,7 @@ namespace HappyPets.Library.Repository.CRUDs
             };
 
             _db.Add(location);
+            SaveChanges();
 
         }
 
@@ -52,6 +54,7 @@ namespace HappyPets.Library.Repository.CRUDs
         public void UpdateLocation(Location location)
         {
             _db.Location.Update(location);
+            SaveChanges();
         }
 
 
@@ -67,6 +70,7 @@ namespace HappyPets.Library.Repository.CRUDs
             }
 
             _db.Remove(location);
+            SaveChanges();
         }
     }
 }

@@ -12,7 +12,8 @@ namespace HappyPets.Library.Repository.CRUDs
         public void CreateUser(Users user)
         {
             _db.Add(user);
-            
+            SaveChanges();
+
         }
 
         public void CreateUser(
@@ -34,7 +35,8 @@ namespace HappyPets.Library.Repository.CRUDs
             };
 
             _db.Add(user);
-            
+            SaveChanges();
+
         }
 
         // Read Single
@@ -63,6 +65,7 @@ namespace HappyPets.Library.Repository.CRUDs
         public void UpdateUser(Users user) 
         {
             _db.Users.Update(user);
+            SaveChanges();
         }
 
 
@@ -78,6 +81,7 @@ namespace HappyPets.Library.Repository.CRUDs
             }
 
             _db.Remove(userToDelete);
+            SaveChanges();
         }
 
         // Others Operations
