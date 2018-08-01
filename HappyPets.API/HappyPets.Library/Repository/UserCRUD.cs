@@ -41,6 +41,13 @@ namespace HappyPets.Library.Repository
         public Users GetUsersByID(int id)
         {
             var user = _db.Users.Find(id);
+            string errMsg = "Not User found with that ID";
+
+            if (user == null)
+            {
+                throw new ArgumentException(errMsg, nameof(id));
+            }
+
             return user;
 
         }
@@ -63,7 +70,7 @@ namespace HappyPets.Library.Repository
         public void DeleteUser(int Id)
         {
             var userToDelete = _db.Users.Find(Id);
-            string errMsg = "Not User found with thad ID";
+            string errMsg = "Not User found with that ID";
 
             if(userToDelete == null)
             {
