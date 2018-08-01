@@ -44,10 +44,6 @@ namespace HappyPets.Library.Repository.CRUDs
             _db.Remove(cart);
             SaveChanges();
         }
-        public void SaveChanges()
-        {
-            _db.SaveChanges();
-        }
 
 
 

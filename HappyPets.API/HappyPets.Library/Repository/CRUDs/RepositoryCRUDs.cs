@@ -14,5 +14,11 @@ namespace HappyPets.Library.Repository.CRUDs
             _db = db ?? throw new ArgumentNullException(nameof(db));
 
         }
+
+        public void SaveChanges()
+        {
+            _db.SaveChanges();
+        }
+
     }
 }
