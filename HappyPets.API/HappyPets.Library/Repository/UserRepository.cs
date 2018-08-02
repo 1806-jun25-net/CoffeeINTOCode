@@ -20,13 +20,11 @@ namespace HappyPets.Library.Repository
             switch(option)
             {
                 case 1:
-                    user = _repo.GetUserByEmail(value);
-                    break;
-
-                case 2:
                     user = _repo.GetUserByLastName(value);
                     break;
-
+                case 2:
+                    user = _repo.GetUserByEmail(value);
+                    break;
                 default:
                     user = _repo.GetUserByName(value);
                     break;
@@ -63,7 +61,9 @@ namespace HappyPets.Library.Repository
             string email,
             string password,
             string streetAddress,
-            int locationId)
+            int locationId,
+            int userType,
+            int? employeeId)
         {
             _repo.CreateUser(
                 firstName,
@@ -71,11 +71,26 @@ namespace HappyPets.Library.Repository
                 email,
                 password,
                 streetAddress,
-                locationId
+                locationId,
+                userType,
+                employeeId
             );
         }
 
+        public Employee GetUserFavoriteEmployee(int userId)
+        {
+            var user = _repo.GetUsersByID(userId);
+            var employeeId = (int) user.EmployeeId;
+            var employee = _repo.GetEmployeeByID(employeeId);
+            return employee;
+        }
 
+
+        public EmployeeRating GetEmployeeRatingByEmployeeId(int id)
+        {
+            var employeeRating = _repo.GetEmployeeRatingByEmployeeId(id);
+            return employeeRating;
+        }
 
 
 
