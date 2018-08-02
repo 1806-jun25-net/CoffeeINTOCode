@@ -22,7 +22,9 @@ namespace HappyPets.Library.Repository.CRUDs
             string email,
             string password, 
             string streetAddress, 
-            int locationId)
+            int locationId,
+            int userType,
+            int? employeeId)
         {
             var user = new Users
             {
@@ -31,7 +33,9 @@ namespace HappyPets.Library.Repository.CRUDs
                 Email = email,
                 Passwords = password,
                 StreetAddress = streetAddress,
-                LocationId = locationId
+                LocationId = locationId,
+                EmployeeId = employeeId,
+                UserType = userType,
             };
 
             _db.Add(user);
@@ -107,6 +111,12 @@ namespace HappyPets.Library.Repository.CRUDs
         public IEnumerable<Users> GetUserByLocation(int id)
         {
             var users = _db.Users.Where(n => n.LocationId == id).ToList();
+            return users;
+        }
+
+        public IEnumerable<Users> GetUserByUserTypeId(int id)
+        {
+            var users = _db.Users.Where(n => n.UserType == id).ToList();
             return users;
         }
     }

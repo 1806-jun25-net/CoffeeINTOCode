@@ -44,5 +44,16 @@ namespace HappyPets.Library.Repository.CRUDs
             _db.Update(appointment);
             SaveChanges();
         }
+
+        public IEnumerable<Appointments> GetAppointmentsByEmployeeID(int id)
+        {
+            var appointment = _db.Appointments.Where(
+                a =>
+                a.EmployeeId == id
+            ).ToList();
+
+            return appointment;
+
+        }
     }
 }
