@@ -102,6 +102,7 @@ namespace HappyPets.Library.Repository.CRUDs
             return users;
         }
 
+
         public IEnumerable<Users> GetUserByEmail(string email)
         {
             var users = _db.Users.Where(n => n.Email == email).ToList();

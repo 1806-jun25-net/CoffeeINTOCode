@@ -1,83 +1,155 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+
     <title>@ViewData["Title"] - HappyPets.WebApp</title>
 
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
-    </environment>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
+    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/css/styles.css" />
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">HappyPets.WebApp</a>
+    <!--Header Block -->
+    <header class="mb-3">
+        <section class="row align-items-center">
+            <!-- Logo -->
+            <div class="col">
+                <!-- Mobile Header-->
+                <div class="d-sm-block d-md-none">
+                    <div class="row align-items-center">
+                        <div class="col-3 p-0">
+                            <nav class="navbar navbar-dark">
+                                <button class="navbar-toggler bg-primary collapsed" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+
+                                    <span class="navbar-toggler-icon">&nbsp;</span>
+
+                                </button>
+                            </nav>
+                        </div>
+                        <div class="col-6">
+                            <div class="logo mr-auto ml-auto">
+
+                                <img alt="Logo" src="~/images/Logo.svg">
+
+                            </div>
+                        </div>
+                        <!-- Mobile Cart -->
+                        <div class="col-3 text-right">
+
+                            <a class="font-weight-bold" href="#">Cart</a>
+
+                        </div>
+                        <!-- End Mobile Cart -->
+                    </div>
+                </div>
+                <!-- End Mobile Header-->
+                <!-- Desktop Logo -->
+                <div class="logo d-none d-md-block">
+
+                    <img alt="Logo" src="~/images/Logo.svg">
+
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
-                    <li><a asp-area="" asp-controller="Account" asp-action="Register">Register</a></li>
-                    <li><a asp-area="" asp-controller="Account" asp-action="Login">Login</a></li>
-                    <li><a asp-area="" asp-controller="Users" asp-action="GetUsers">AllUsers</a></li>
-<<<<<<< HEAD
-=======
-                    <li><a asp-area="" asp-controller="Account" asp-action="Logout">AllUsers</a></li>
+            <!-- End Desktop Logo -->
+            <!-- End Logo -->
+            <!-- Search Form -->
+            <div class="col-sm-12 col-md-4">
+                <form class="form-inline HP-SearchForm" action="">
+                    <input class="HP-SearchForm_input text-right"
+                           type="search"
+                           placeholder="Search"
+                           aria-label="Search" />
+                    <button class="HP-SearchForm_button justify-content-end"
+                            type="submit">
 
+                        <i class="fa fa-search text-primary">&nbsp;</i>
 
->>>>>>> d5e757cd97bf5a21e50b4d6fba1b69ba574a34e0
-                </ul>
+                    </button>
+                </form>
+                <!-- Mobile Dropdown Menu -->
+                <div class="d-md-none collapse mt-2" id="navbarToggleExternalContent">
+                    <ul class="nav flex-column bg-primary p-4">
+                        <li><a class="font-weight-bold text-white" href="#">Shop By Pet <span class="sr-only">(current)</span></a></li>
+                        <li><a class="font-weight-bold text-white" href="#">Pet Services</a></li>
+                        <li><a class="font-weight-bold text-white" href="#">Pet Products</a></li>
+                        <li><a class="font-weight-bold text-white" href="#">My Gromming</a></li>
+                        <li><a class="font-weight-bold text-white" href="#">Sign Up</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End Mobile Dropdown Menu -->
+            <!-- End Search Form -->
+            <!-- Cart -->
+            <div class="col-sm-12 col-md-4 text-right d-none d-md-block">
+
+                <a class="font-weight-bold" href="#">Cart</a>
+
+            </div>
+            <!-- End Cart -->
+        </section>
+    </header>
+    <!-- End Header Block -->
+    <!-- Navigation bar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary d-none d-md-block">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
+            <div class="navbar-nav align-items-center">
+                <a class="nav-item ml-4 mr-4 nav-link active font-weight-bold HP-nav-item" href="#">Shop By Pet <span class="sr-only">(current)</span></a>
+                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" href="#">Pet Services</a>
+                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" href="#">Pet Products</a>
+                <span class="navbar-text ml-4 mr-4 font-weight-bold HP-nav-item"> | </span>
+                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" href="#">My Gromming</a>
+                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" href="#">Sign Up</a>
             </div>
         </div>
     </nav>
+    <!-- End Navigation bar -->
 
-    <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2018 - HappyPets.WebApp</p>
-        </footer>
-    </div>
+    @RenderBody()
 
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js"
-                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
-                asp-fallback-test="window.jQuery"
-                crossorigin="anonymous"
-                integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT">
-        </script>
-        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
-                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
-                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
-                crossorigin="anonymous"
-                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
-        </script>
-        <script src="~/js/site.min.js" asp-append-version="true"></script>
-    </environment>
 
-    @RenderSection("Scripts", required: false)
+    <Footer class="container-fluid">
+
+        <!-- Sponsor Trade Mark -->
+        <section class="row align-items-center HP-Sponsors-trademark"></section>
+        <!-- End Sponsor Trade Mark -->
+        <!-- Newsletter, Social Network, Footer Links -->
+        <section class="HP-Footer-Content row align-items-center">
+            <div class="col-md-4 HP-Footer-extra-info text-center">
+                <a class="text-primary font-weight-bold align-middle" href="#">Sign Up Newsletter</a>
+            </div>
+            <div class="col-md-4 HP-Footer-extra-info">
+                <img class="align-middle mx-auto d-block" src="~/images/social_network.png" alt="social network">
+            </div>
+            <div class="col-md-4 HP-Footer-extra-info">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active font-weight-bold HP-nav-item" href="#">Shop By Pet <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link font-weight-bold HP-nav-item" href="#">Pet Services</a>
+                    <a class="nav-item nav-link font-weight-bold HP-nav-item" href="#">Pet Products</a>
+                    <a class="nav-item nav-link font-weight-bold HP-nav-item" href="#">My Gromming</a>
+                    <a class="nav-item nav-link font-weight-bold HP-nav-item" href="#">Sign Up</a>
+                </div>
+            </div>
+        </section>
+        <!-- End Newsletter, Social Network, Footer Links -->
+        <!-- Copyright -->
+        <section class="row bg-primary align-items-center">
+            <div class="col-12 align-items-center">
+                <p class="text-center text-white mt-3">Copyright &copy; 2018</p>
+            </div>
+        </section>
+        <!-- End Copyright -->
+
+    </Footer>
+
+    <!-- JS file for Bootstrap work correctly -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/js/popper.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
 </body>
 </html>

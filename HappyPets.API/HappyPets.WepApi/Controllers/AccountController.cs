@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HappyPets.Data;
+using HappyPets.Library.Repository;
 using HappyPets.WepApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -10,15 +12,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HappyPets.WepApi.Controllers
 {
+    
+
+
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class AccountController : ControllerBase
+    public class AccountController : Controller
     {
         private SignInManager<IdentityUser> _signInManager { get; }
+        public Repository Repo;
 
-        public AccountController(SignInManager<IdentityUser> signInManager)
+        public AccountController(SignInManager<IdentityUser> signInManager, Repository repo)
         {
             _signInManager = signInManager;
+            Repo = repo;
         }
 
         [HttpPost]
@@ -26,6 +33,8 @@ namespace HappyPets.WepApi.Controllers
         [ProducesResponseType(403)]
         public async Task<ActionResult> Login(User input)
         {
+            TempData["current_user"] = input.Username;
+
             var result = await _signInManager.PasswordSignInAsync(input.Username, input.Password,
                 isPersistent: false, lockoutOnFailure: false);
 
@@ -74,8 +83,10 @@ namespace HappyPets.WepApi.Controllers
                     result = await roleManager.CreateAsync(adminRole);
                     if (!result.Succeeded)
                     {
+
                         return StatusCode(500, result);
                     }
+
                 }
                 result = await userManager.AddToRoleAsync(user, "admin");
                 if (!result.Succeeded)
@@ -83,6 +94,12 @@ namespace HappyPets.WepApi.Controllers
                     return StatusCode(500, result);
                 }
             }
+            Users newUser = new Users
+            {
+                UserName = input.Username
+            };
+
+            Repo.CreateNewUser(newUser);
 
             await _signInManager.SignInAsync(user, isPersistent: false);
 

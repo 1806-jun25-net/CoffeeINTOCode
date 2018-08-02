@@ -20,6 +20,7 @@ namespace HappyPets.Data
         public int? LocationId { get; set; }
         public int? EmployeeId { get; set; }
         public int? UserType { get; set; }
+        public string UserName { get; set; }
 
         public Employee Employee { get; set; }
         public Location Location { get; set; }

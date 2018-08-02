@@ -31,7 +31,10 @@ namespace HappyPets.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-           
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer("Server=tcp:rios-1806.database.windows.net,1433;Initial Catalog=HappyPetsDB;Persist Security Info=False;User ID=rios;Password=Yes12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
+            }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -325,6 +328,11 @@ namespace HappyPets.Data
                 entity.Property(e => e.StreetAddress)
                     .HasColumnName("street_address")
                     .HasMaxLength(120)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserName)
+                    .HasColumnName("userName")
+                    .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.UserType).HasColumnName("user_type");
