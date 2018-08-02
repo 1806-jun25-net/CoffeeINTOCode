@@ -63,7 +63,7 @@ using HappyPets.WebApp.Models;
             WriteLiteral("\r\n<!-- Main Content -->\r\n<!-- TODO check responsive on mobile, After fix footer section -->\r\n<main class=\"row\">\r\n    <section class=\"col-4\">\r\n        <div class=\"row col-12 my-3\">\r\n            <h2>Find Services</h2>\r\n            ");
             EndContext();
             BeginContext(274, 375, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f6d38e5b2ea2465a82275d7963bef8e1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae40bc7388eb43518e3893d20ea72a80", async() => {
                 BeginContext(324, 318, true);
                 WriteLiteral(@"
                 <input class=""HP-SearchForm_input text-right"" type=""search"" placeholder=""Search"" aria-label=""Search"">
@@ -92,7 +92,7 @@ using HappyPets.WebApp.Models;
             WriteLiteral("\r\n        </div>\r\n        <div class=\"row col-12 my-3\">\r\n            <p>\r\n                Order By Price:\r\n                <span>\r\n                    <select>\r\n                        ");
             EndContext();
             BeginContext(834, 27, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e86a900f95f9447e80fa2bdde13c462b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ebdf04d42c9144d79313498c5ecdd06b", async() => {
                 BeginContext(842, 10, true);
                 WriteLiteral("Low Price ");
                 EndContext();
@@ -112,7 +112,7 @@ using HappyPets.WebApp.Models;
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(887, 29, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "338310970cfa4c9db0ced2242f84198e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ef5f09ce0b7f456e9cf30c4548a79fa2", async() => {
                 BeginContext(895, 12, true);
                 WriteLiteral("Hight Price ");
                 EndContext();
@@ -132,7 +132,7 @@ using HappyPets.WebApp.Models;
             WriteLiteral("\r\n                    </select>\r\n                </span>\r\n            </p>\r\n            <p>\r\n                Order By Pet Type:\r\n                <span>\r\n                    <select>\r\n                        ");
             EndContext();
             BeginContext(1123, 20, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "79e0d39ff1674344ad91b1e97c05265e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1687d021349b4fd98004851a69f274ef", async() => {
                 BeginContext(1131, 3, true);
                 WriteLiteral("Cat");
                 EndContext();
@@ -152,7 +152,7 @@ using HappyPets.WebApp.Models;
             WriteLiteral("\r\n                        ");
             EndContext();
             BeginContext(1169, 20, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "df256e0ab2824821955f120568a93257", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "94a4f54ed9454262bc44be54eac60109", async() => {
                 BeginContext(1177, 3, true);
                 WriteLiteral("Dog");
                 EndContext();

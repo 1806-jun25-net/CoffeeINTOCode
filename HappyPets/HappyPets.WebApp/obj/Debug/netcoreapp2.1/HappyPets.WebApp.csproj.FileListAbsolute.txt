@@ -71,3 +71,7 @@ C:/Revature/CoffeeINTOCode/HappyPets/HappyPets.WebApp/obj/Debug/netcoreapp2.1/Ra
 /Volumes/MacExtraStorage/HappyPets/HappyPets/HappyPets.WebApp/obj/Debug/netcoreapp2.1/Razor/Views/Home/ProductCatalog.g.cshtml.cs
 /Volumes/MacExtraStorage/HappyPets/HappyPets/HappyPets.WebApp/obj/Debug/netcoreapp2.1/Razor/Views/Home/ProductDetails.g.cshtml.cs
 /Volumes/MacExtraStorage/HappyPets/HappyPets/HappyPets.WebApp/obj/Debug/netcoreapp2.1/Razor/Views/Home/ServicesDetails.g.cshtml.cs
+/Volumes/MacExtraStorage/HappyPets/HappyPets/HappyPets.WebApp/obj/Debug/netcoreapp2.1/Razor/Views/Account/Login.g.cshtml.cs
+/Volumes/MacExtraStorage/HappyPets/HappyPets/HappyPets.WebApp/obj/Debug/netcoreapp2.1/Razor/Views/Account/Register.g.cshtml.cs
+/Volumes/MacExtraStorage/HappyPets/HappyPets/HappyPets.WebApp/obj/Debug/netcoreapp2.1/Razor/Views/Shared/AccessDenied.g.cshtml.cs
+/Volumes/MacExtraStorage/HappyPets/HappyPets/HappyPets.WebApp/obj/Debug/netcoreapp2.1/Razor/Views/Users/GetUsers.g.cshtml.cs
