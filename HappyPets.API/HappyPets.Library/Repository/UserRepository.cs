@@ -17,7 +17,6 @@ namespace HappyPets.Library.Repository
         public IEnumerable<Users> GetUsers(string value, int option = 0)
         {
             IEnumerable<Users> user;
-            Users myuser = new Users;
 
             switch(option)
             {
