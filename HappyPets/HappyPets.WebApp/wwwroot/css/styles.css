@@ -6319,8 +6319,8 @@ a.text-dark:hover, a.text-dark:focus {
 
 body {
   max-width: 2560px;
-  min-width: 320px;
-  margin: 0 auto; }
+  min-width: 300px;
+  margin: 0 16px; }
 
 .logo {
   max-width: 171px;
