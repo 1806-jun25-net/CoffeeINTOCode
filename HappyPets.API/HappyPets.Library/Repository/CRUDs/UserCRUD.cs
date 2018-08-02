@@ -36,7 +36,6 @@ namespace HappyPets.Library.Repository.CRUDs
                 LocationId = locationId,
                 EmployeeId = employeeId,
                 UserType = userType,
-                Employee = employeeId
             };
 
             _db.Add(user);
