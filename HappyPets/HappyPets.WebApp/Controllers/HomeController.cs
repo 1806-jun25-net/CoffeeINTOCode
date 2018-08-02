@@ -39,5 +39,37 @@ namespace HappyPets.WebApp.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+
+
+
+        // Controllers for test Design
+        public IActionResult Cart()
+        {
+            return View();
+        }
+
+        public IActionResult CatalogServices()
+        {
+            return View();
+        }
+
+        public IActionResult ProductCatalog()
+        {
+            return View();
+        }
+
+        public IActionResult ServicesDetails()
+        {
+            return View();
+        }
+
+        public IActionResult ProductDetails()
+        {
+            return View();
+        }
+
+
     }
 }

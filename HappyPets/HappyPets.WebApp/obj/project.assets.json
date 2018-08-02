@@ -11500,30 +11500,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Kevin\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/sempjc/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Revature\\HappyPets\\HappyPets.WebApp\\HappyPets.WebApp.csproj",
+      "projectUniqueName": "/Volumes/MacExtraStorage/HappyPets/HappyPets/HappyPets.WebApp/HappyPets.WebApp.csproj",
       "projectName": "HappyPets.WebApp",
-      "projectPath": "C:\\Revature\\HappyPets\\HappyPets.WebApp\\HappyPets.WebApp.csproj",
-      "packagesPath": "C:\\Users\\Kevin\\.nuget\\packages\\",
-      "outputPath": "C:\\Revature\\HappyPets\\HappyPets.WebApp\\obj\\",
+      "projectPath": "/Volumes/MacExtraStorage/HappyPets/HappyPets/HappyPets.WebApp/HappyPets.WebApp.csproj",
+      "packagesPath": "/Users/sempjc/.nuget/packages/",
+      "outputPath": "/Volumes/MacExtraStorage/HappyPets/HappyPets/HappyPets.WebApp/obj",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Kevin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/sempjc/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -11540,16 +11538,16 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "Microsoft.NETCore.App": {
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "2.1.0",
+            "autoReferenced": true
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[2.1.1, )",
-            "autoReferenced": true
-          },
-          "Microsoft.NETCore.App": {
-            "target": "Package",
-            "version": "[2.1.0, )",
-            "autoReferenced": true
+            "version": "2.1.1"
           }
         },
         "imports": [
