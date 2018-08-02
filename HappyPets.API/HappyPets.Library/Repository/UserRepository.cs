@@ -1,5 +1,6 @@
 ﻿using HappyPets.Data;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace HappyPets.Library.Repository
 {
@@ -16,6 +17,7 @@ namespace HappyPets.Library.Repository
         public IEnumerable<Users> GetUsers(string value, int option = 0)
         {
             IEnumerable<Users> user;
+            Users myuser = new Users;
 
             switch(option)
             {
@@ -30,6 +32,12 @@ namespace HappyPets.Library.Repository
                     break;
             }
 
+            return user;
+
+        }
+        public Users GetUserByUserName(string username)
+        {
+            var user = _db.Users.First(n => n.UserName == username);
             return user;
         }
 
