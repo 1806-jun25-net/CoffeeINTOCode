@@ -36,6 +36,12 @@ namespace HappyPets.Library.Repository
 
         }
 
+        public IEnumerable<Products> GetAllProducts()
+        {
+            var p = _repo.GetProducts();
+            return p;
+        }
+
         public IEnumerable<Employee>  GetAvailableEmployees(DateTime date, bool time, int location)
         {
             var allEmployees = _repo.GetAllEmployee();

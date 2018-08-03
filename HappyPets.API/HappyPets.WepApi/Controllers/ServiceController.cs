@@ -32,6 +32,13 @@ namespace HappyPets.WepApi.Controllers
             return services;
         }
 
+        public IEnumerable<Products> GetAllProducts()
+        {
+            var products = Repo.GetAllProducts();
+            return products;
+        }
+        
+
 
         //[HttpPost]
         ////[Authorize]
