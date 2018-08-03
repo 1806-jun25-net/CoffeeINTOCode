@@ -28,6 +28,7 @@ namespace HappyPets.WepApi.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public IEnumerable<Cart> ShowCart()
         {
@@ -42,6 +43,7 @@ namespace HappyPets.WepApi.Controllers
 
             return cart;
         }
+<<<<<<< HEAD
 
         public async Task<ActionResult> Choose(IFormCollection viewCollection)
         {
@@ -68,59 +70,27 @@ namespace HappyPets.WepApi.Controllers
 
 
                 // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Order/Edit/5
-        public ActionResult Edit(int id)
+=======
+        public IEnumerable<Location> OptionsLocation()
         {
-            return View();
-        }
+            var locations = Repo.GetLocations();
+>>>>>>> ed646bf7aea9e3d4e36bfa77764254cffdd10e49
 
-        // POST: Order/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+            return locations;
+        }
+        
+        public  IEnumerable<Employee> Choose([FromBody] int location, bool time, DateTime date)
         {
-            try
-            {
-                // TODO: Add update logic here
+            //get data from form
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var employees = Repo.GetAvailableEmployees(date, time, location);
+
+            return employees;
         }
 
-        // GET: Order/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
 
-        // POST: Order/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
 
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+      
+        
     }
 }
