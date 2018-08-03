@@ -33,7 +33,10 @@ namespace HappyPets.WepApi.Controllers
         {
             var user = Repo.GetAllUsers();
             return user;
-        } 
+        }
+        
+
+
 
     }
 }

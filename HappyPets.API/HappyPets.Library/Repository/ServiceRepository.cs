@@ -87,8 +87,17 @@ namespace HappyPets.Library.Repository
             return revenue;
         }
 
+        public IEnumerable<Services> GetAllServices()
+        {
+            var services = _repo.GetServices();
+            return services;
+        }
 
-
+        //public IEnumerable<Services> AddServices()
+        //{
+        //    var services = _repo.AddService();
+        //    return services;
+        //}
 
     }
 }

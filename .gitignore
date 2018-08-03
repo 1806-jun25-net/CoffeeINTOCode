@@ -38,7 +38,11 @@ testem.log
 .LSOverride
 
 # Icon must end with two \r
+<<<<<<< HEAD
 Icon
+=======
+Icon
+>>>>>>> d5e757cd97bf5a21e50b4d6fba1b69ba574a34e0
 
 # Thumbnails
 ._*
