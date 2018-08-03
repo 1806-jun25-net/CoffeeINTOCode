@@ -43,38 +43,10 @@ namespace HappyPets.WepApi.Controllers
 
             return cart;
         }
-<<<<<<< HEAD
 
-        public async Task<ActionResult> Choose(IFormCollection viewCollection)
-        {
-            //get data from form
-            var location = viewCollection["selectedLocation"];
-            var time = viewCollection["selectedTime"];
-            var date = viewCollection["selectedDate"];
-
-            Repo.
-
-        }
-
-      
-
-
-        // POST: Order/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateOrder()
-        {
-            try
-            {
-
-
-
-                // TODO: Add insert logic here
-=======
         public IEnumerable<Location> OptionsLocation()
         {
             var locations = Repo.GetLocations();
->>>>>>> ed646bf7aea9e3d4e36bfa77764254cffdd10e49
 
             return locations;
         }
