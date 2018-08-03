@@ -42,7 +42,70 @@ namespace HappyPets.WebApp.Controllers
                 return View("Error");
             }
         }
+        public async Task<ActionResult> Options ()//show options to user: locations, date, time
+        {
+            
 
-        
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/OptionsLocation");
+
+            HttpResponseMessage apiResponse;
+            try
+            {
+                apiResponse = await HttpClient.SendAsync(apiRequest);
+
+                if (!apiResponse.IsSuccessStatusCode)
+                {
+                    return View("AccessDenied");
+                }
+
+                string jsonString = await apiResponse.Content.ReadAsStringAsync();
+
+                IEnumerable<Location> Locations= JsonConvert.DeserializeObject<IEnumerable<Location>>(jsonString);
+                return View(Locations); //send options to view: choose location, date, time 
+            }
+            catch (AggregateException ex)
+            {
+                return View("Error");
+            }
+
+          
+
+        }
+
+        public async Task<ActionResult> Choosen(IFormCollection viewCollection)
+        {
+            //receive selected options from view, selected location, time and date
+            int location = int.Parse(viewCollection["selectedLocation"]);
+            bool time = bool.Parse(viewCollection["selectedTime"]);
+            DateTime date = DateTime.Parse(viewCollection["selectedDate"]);
+
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/Choose/{location}/{time}/{date}");
+
+            HttpResponseMessage apiResponse;
+            try
+            {
+                apiResponse = await HttpClient.SendAsync(apiRequest);
+
+                if (!apiResponse.IsSuccessStatusCode)
+                {
+                    return View("AccessDenied");
+                }
+
+                string jsonString = await apiResponse.Content.ReadAsStringAsync();
+
+                IEnumerable<Employee> employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(jsonString);
+                return View(employees); //send available employees to view
+            }
+            catch (AggregateException ex)
+            {
+                return View("Error");
+            }
+
+
+        }
+
+
+
+
     }
 }

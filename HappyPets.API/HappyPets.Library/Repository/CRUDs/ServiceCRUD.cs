@@ -41,5 +41,9 @@ namespace HappyPets.Library.Repository.CRUDs
             SaveChanges();
         }
 
+        public IEnumerable<Employee> GetAllLocationEmployee(int location)
+        {
+           var Employees = _db
+        }
     }
 }

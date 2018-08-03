@@ -1,4 +1,5 @@
 ﻿using HappyPets.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -34,10 +35,24 @@ namespace HappyPets.Library.Repository
             return user;
 
         }
+
+        public IEnumerable<Employee>  GetAvailableEmployees(DateTime date, bool time, int location)
+        {
+            var allEmployees = _repo.GetAllEmployee();
+            var allLocationEmployee = _repo.GetAllLocationEmployee(location);
+
+            return allLocationEmployee;
+        }
         public Users GetUserByUserName(string username)
         {
             var user = _db.Users.First(n => n.UserName == username);
             return user;
+        }
+
+        public IEnumerable<Location> GetLocations()
+        {
+            var locations = _repo.GetAllLocation();
+            return locations;
         }
 
         public IEnumerable<Users> GetUsers(int locationId)
