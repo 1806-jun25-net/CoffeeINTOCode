@@ -36,7 +36,7 @@ namespace HappyPets.WepApi.Controllers
             string username = TempData.Peek("current_user").ToString();
             var user = Repo.GetUserByUserName(username);
             var userid = user.UsersId;
-            var cartOrderId = Repo.GetActiveCartOrderId(userid);
+            var cartOrderId = Repo.GetActiveCartOrderId(userid);//fix this - check active column 
             var cart = Repo.GetCartByOrderId(cartOrderId);
             
             //send cart to the mvc frontend
@@ -59,6 +59,11 @@ namespace HappyPets.WepApi.Controllers
 
             return employees;
         }
+
+
+
+
+        
 
 
 

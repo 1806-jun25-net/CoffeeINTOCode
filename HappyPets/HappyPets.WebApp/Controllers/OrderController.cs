@@ -42,6 +42,7 @@ namespace HappyPets.WebApp.Controllers
                 return View("Error");
             }
         }
+
         public async Task<ActionResult> Options ()//show options to user: locations, date, time
         {
             
@@ -94,6 +95,7 @@ namespace HappyPets.WebApp.Controllers
                 string jsonString = await apiResponse.Content.ReadAsStringAsync();
 
                 IEnumerable<Employee> employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(jsonString);
+
                 return View(employees); //send available employees to view
 
             }
@@ -104,6 +106,26 @@ namespace HappyPets.WebApp.Controllers
 
 
         }
+
+        //public ActionResult SelectEmployee(IFormCollection viewCollection)
+        //{
+        //    var selectedEmployeeid = int.Parse(viewCollection["selectedEmployee"]);
+
+
+        //    HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/SelectEmployee/{selectedEmployeeid}");
+
+
+        //    RedirectToAction("PlaceOrder", "Order", );
+
+
+        //}
+
+        //public ActionResult PlaceOrder()
+        //{
+
+        //}
+
+
 
 
 
