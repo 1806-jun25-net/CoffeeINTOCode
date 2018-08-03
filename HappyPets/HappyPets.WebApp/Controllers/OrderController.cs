@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using HappyPets.Data;
+using HappyPets.WebApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -20,27 +20,28 @@ namespace HappyPets.WebApp.Controllers
 
         public async Task<ActionResult> ShowCart()
         {
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/ShowCart");
+            //HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/ShowCart");
 
-            HttpResponseMessage apiResponse;
-            try
-            {
-                apiResponse = await HttpClient.SendAsync(apiRequest);
+            //HttpResponseMessage apiResponse;
+            //try
+            //{
+            //    apiResponse = await HttpClient.SendAsync(apiRequest);
 
-                if (!apiResponse.IsSuccessStatusCode)
-                {
-                    return View("AccessDenied");
-                }
+            //    if (!apiResponse.IsSuccessStatusCode)
+            //    {
+            //        return View("AccessDenied");
+            //    }
 
-                string jsonString = await apiResponse.Content.ReadAsStringAsync();
-                
-                IEnumerable<Cart> GetCart = JsonConvert.DeserializeObject<IEnumerable<Cart>>(jsonString);
-                return View(GetCart);
-            }
-            catch (AggregateException ex)
-            {
-                return View("Error");
-            }
+            //    string jsonString = await apiResponse.Content.ReadAsStringAsync();
+
+            //    IEnumerable<Cart> GetCart = JsonConvert.DeserializeObject<IEnumerable<Cart>>(jsonString);
+            //    return View(GetCart);
+            //}
+            //catch (AggregateException ex)
+            //{
+            //    return View("Error");
+            //}
+            return View();
         }
 
         public async Task<ActionResult> Options ()//show options to user: locations, date, time
