@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HappyPets.Data;
 using HappyPets.Library.Repository;
+using HappyPets.Library.Repository.CRUDs;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,7 @@ namespace HappyPets.WepApi
 
             //            services.AddScoped<IRestaurantRepository, RestaurantRepository>();
             services.AddScoped<Repository>();
+            services.AddScoped<RepositoryCRUDs>();
 
             services.AddDbContext<HappyPetsDBContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("HappyPetsDB")));

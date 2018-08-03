@@ -43,6 +43,7 @@ namespace HappyPets.WepApi.Controllers
 
             return cart;
         }
+
         public IEnumerable<Location> OptionsLocation()
         {
             var locations = Repo.GetLocations();

@@ -46,6 +46,6 @@ namespace HappyPets.Library.Repository.CRUDs
             var employees = _db.Employee.Where(g => g.LocationId == locationid);
             return employees;
         }
-
+        
     }
 }
