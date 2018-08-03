@@ -28,6 +28,7 @@ namespace HappyPets.WepApi.Controllers
         {
             return View();
         }
+
         [HttpGet]
         public IEnumerable<Cart> ShowCart()
         {
@@ -42,85 +43,25 @@ namespace HappyPets.WepApi.Controllers
 
             return cart;
         }
+        public IEnumerable<Location> OptionsLocation()
+        {
+            var locations = Repo.GetLocations();
 
-        public async Task<ActionResult> Choose(IFormCollection viewCollection)
+            return locations;
+        }
+        
+        public  IEnumerable<Employee> Choose([FromBody] int location, bool time, DateTime date)
         {
             //get data from form
-            var location = viewCollection["selectedLocation"];
-            var time = viewCollection["selectedTime"];
-            var date = viewCollection["selectedDate"];
 
-            Repo.
+            var employees = Repo.GetAvailableEmployees(date, time, location);
 
+            return employees;
         }
+
+
 
       
-
-
-        // POST: Order/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateOrder()
-        {
-            try
-            {
-
-
-
-                // TODO: Add insert logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Order/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: Order/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: Order/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Order/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
     }
 }

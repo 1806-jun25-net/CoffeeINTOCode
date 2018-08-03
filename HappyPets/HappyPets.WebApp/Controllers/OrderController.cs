@@ -95,6 +95,7 @@ namespace HappyPets.WebApp.Controllers
 
                 IEnumerable<Employee> employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(jsonString);
                 return View(employees); //send available employees to view
+                //this return must be change to redirect to view 
             }
             catch (AggregateException ex)
             {
