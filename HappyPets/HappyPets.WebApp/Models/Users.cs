@@ -17,6 +17,8 @@ namespace HappyPets.WebApp.Models
         public string Email { get; set; }
         public string Passwords { get; set; }
         public string StreetAddress { get; set; }
+        public string UserName { get; set; }
+
         public int? LocationId { get; set; }
         public int? EmployeeId { get; set; }
         public int? UserType { get; set; }

@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using HappyPets.WebApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using HappyPets.WebApp.Models;
+using System.Diagnostics;
 
 namespace HappyPets.WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index(Currentuser user)
         {
+            //string user = Request.QueryString("username");
+            
+            TempData["current_user"] = user.Username;
             return View();
         }
 
