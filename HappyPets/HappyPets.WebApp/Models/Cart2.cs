@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HappyPets.Data
+namespace HappyPets.WebApp.Models
 {
-    public partial class Cart
+    public partial class Cart2
     {
         public int CartId { get; set; }
         public int? OrderId { get; set; }
@@ -13,8 +13,6 @@ namespace HappyPets.Data
         public bool? ItemType { get; set; }
         public bool? Active { get; set; }
         public decimal? ItemTotalCost { get; set; }
-
-        public Orders Order { get; set; }
-        public Users Users { get; set; }
+        
     }
 }

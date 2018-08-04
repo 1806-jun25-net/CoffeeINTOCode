@@ -24,7 +24,7 @@ namespace HappyPets.Library.Repository
 
         } 
 
-        public IEnumerable<Cart> GetCartByOrderId(int? orderid)
+        public IEnumerable<Cart2> GetCartByOrderId(int? orderid)
         {
             var allCarts = _repo.GetCart();
             var myCart = new List<Cart>();
@@ -37,7 +37,23 @@ namespace HappyPets.Library.Repository
                 }
             }
 
-            return myCart;
+            IEnumerable<Cart2> thecart = myCart.Select(x => new Cart2
+            {
+                Active = x.Active,
+                CartId = x.CartId,
+                ItemId = x.ItemId,
+                ItemTotalCost = x.ItemTotalCost,
+                ItemType = x.ItemType,
+                OrderId = x.OrderId,
+                Quantity = x.Quantity,
+                UsersId = x.UsersId
+            });
+            
+
+
+            
+
+            return thecart;
 
         }
         public (int?,bool) GetActiveCartOrderId(int userid)
