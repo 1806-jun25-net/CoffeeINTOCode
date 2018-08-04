@@ -123,14 +123,29 @@ namespace HappyPets.WepApi.Controllers
             return employees;
         }
 
+        public Services GetServiceDetails([FromBody] int itemid)
+        {
+
+            var service = Repo.GetServiceById(itemid);
+            return service;
+;        }
+
+        public Products GetProductDetails([FromBody] int itemid)
+        {
+
+            var product = Repo.GetProductById(itemid);
+            return product;
+            
+        }
 
 
 
-        
 
 
 
-      
-        
+
+
+
+
     }
 }

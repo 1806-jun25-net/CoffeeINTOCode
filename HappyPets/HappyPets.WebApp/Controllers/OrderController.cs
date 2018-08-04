@@ -17,10 +17,11 @@ namespace HappyPets.WebApp.Controllers
         {
 
         }
-
+        //[HttpGet("username")]
         public async Task<ActionResult> ShowCart()
         {
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/ShowCart");
+            string username = TempData["current_user"].ToString();
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/ShowCart/{username}");
 
             HttpResponseMessage apiResponse;
             try

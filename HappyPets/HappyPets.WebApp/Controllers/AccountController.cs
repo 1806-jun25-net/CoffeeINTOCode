@@ -73,7 +73,7 @@ namespace HappyPets.WebApp.Controllers
         public async Task<ActionResult> Login(Login account)
         {
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Account/Login", account);
-
+            
             HttpResponseMessage apiResponse;
             try
             {
@@ -94,8 +94,14 @@ namespace HappyPets.WebApp.Controllers
             }
 
             PassCookiesToClient(apiResponse);
+            //string username= account.Username;
+            Currentuser user = new Currentuser
+            {
 
-            return RedirectToAction("Index", "Home");
+                Username = account.Username
+                
+            };
+            return RedirectToAction("Index", "Home",user);
         }
 
         // GET: Account/Logout
