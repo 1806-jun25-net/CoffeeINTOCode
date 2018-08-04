@@ -9,10 +9,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HappyPets.WepApi.Controllers
 {
+    [Route("api/[controller]/[action]")]
+    [ApiController]
     public class OrderController : Controller
     {
         public Repository Repo;
 
+   
         public OrderController(Repository repo)
         {
             Repo = repo;
@@ -83,6 +86,7 @@ namespace HappyPets.WepApi.Controllers
             return " ";
         }
 
+        [HttpGet]
         public IEnumerable<Location> OptionsLocation()
         {
             var locations = Repo.GetLocations();
