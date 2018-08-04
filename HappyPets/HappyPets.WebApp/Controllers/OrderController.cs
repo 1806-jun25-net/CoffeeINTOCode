@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using HappyPets.Data;
 using HappyPets.WebApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -64,7 +63,6 @@ namespace HappyPets.WebApp.Controllers
               
 
 
-                //if cart is null => no item added yet
                 return View(Cart);
             }
             catch (AggregateException ex)
