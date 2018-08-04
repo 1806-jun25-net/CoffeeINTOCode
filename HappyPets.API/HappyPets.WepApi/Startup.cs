@@ -72,7 +72,7 @@ namespace HappyPets.WepApi
 
             services.ConfigureApplicationCookie(options =>
             {
-                options.Cookie.Name = "TodoApiAuth";
+                options.Cookie.Name = "HPApiAuth";
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
                 options.Events = new CookieAuthenticationEvents
                 {
