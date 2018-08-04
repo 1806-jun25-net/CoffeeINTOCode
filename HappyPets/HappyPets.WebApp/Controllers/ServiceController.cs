@@ -24,7 +24,7 @@ namespace HappyPets.WebApp.Controllers
         public async Task<ActionResult> GetAllProducts()
         {
 
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Service/GetAllProducts");
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Services/GetAllProducts");
 
             HttpResponseMessage apiResponse;
             try
@@ -48,7 +48,7 @@ namespace HappyPets.WebApp.Controllers
         }
         public async Task<ActionResult> GetAllServices()
         {
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Service/GetAllServices");
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Services/GetAllServices");
 
             HttpResponseMessage apiResponse;
             try
