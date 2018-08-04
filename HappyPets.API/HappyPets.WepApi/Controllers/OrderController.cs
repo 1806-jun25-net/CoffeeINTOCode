@@ -39,7 +39,8 @@ namespace HappyPets.WepApi.Controllers
             int? cartOrderId;
             bool newCart;
             //get user current cart
-            string username = TempData.Peek("current_user").ToString();
+            //string username = TempData.Peek("current_user").ToString();
+            string username = "Kevin";
             var user = Repo.GetUserByUserName(username);
             var userid = user.UsersId;
             (cartOrderId, newCart) = Repo.GetActiveCartOrderId(userid);//fix this - check active column 
