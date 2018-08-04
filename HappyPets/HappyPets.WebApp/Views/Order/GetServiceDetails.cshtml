@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!-- Main Content -->
+<main class="row">
+    <section class="col-12 col-md-8 my-3">
+        <div>
+            <img class="img-fluid" src="http://via.placeholder.com/932x567" alt="product" />
+        </div>
+        <div>
+            <H3>Description</H3>
+            <p>
+                @Model.ServiceDescription;
+            </p>
+        </div>
+    </section>
+    <section class="col-12 col-md-4 my-3">
+        <button class="btn btn-outline-primary btn-lg"> Add to Cart </button>
+        <H3 class="font-weight-bold">@Model.ServiceNames</H3>
+        <H3 class="font-weight-bold text-secondary">$@Model.ServicePrice</H3>
+    </section>
+</main>
+<!-- End Main Content -->
