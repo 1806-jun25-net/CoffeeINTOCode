@@ -63,8 +63,7 @@ namespace HappyPets.WebApp.Controllers
               
 
 
-                //if cart is null => no item added yet
-                return View(CartListModel);
+                return View(Cart);
             }
             catch (AggregateException ex)
             {
