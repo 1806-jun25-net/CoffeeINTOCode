@@ -33,14 +33,16 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Cart> ShowCart()
+        public IEnumerable<Cart> ShowCart([FromBody] string username)
         {
             IEnumerable<Cart> cart;
             int? cartOrderId;
             bool newCart;
             //get user current cart
             //string username = TempData.Peek("current_user").ToString();
-            string username = "Kevin";
+           // string username = "Kevin";
+           // string username = ViewData["current_user"].ToString();
+           
             var user = Repo.GetUserByUserName(username);
             var userid = user.UsersId;
             (cartOrderId, newCart) = Repo.GetActiveCartOrderId(userid);//fix this - check active column 
@@ -119,14 +121,29 @@ namespace HappyPets.WepApi.Controllers
             return employees;
         }
 
+        public Services GetServiceDetails([FromBody] int itemid)
+        {
+
+            var service = Repo.GetServiceById(itemid);
+            return service;
+;        }
+
+        public Products GetProductDetails([FromBody] int itemid)
+        {
+
+            var product = Repo.GetProductById(itemid);
+            return product;
+            
+        }
 
 
 
-        
 
 
 
-      
-        
+
+
+
+
     }
 }

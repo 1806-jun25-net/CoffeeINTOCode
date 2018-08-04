@@ -33,7 +33,11 @@ namespace HappyPets.WepApi.Controllers
         [ProducesResponseType(403)]
         public async Task<ActionResult> Login(User input)
         {
-            TempData["current_user"] = input.Username;
+            
+            ViewData["current_user"] = input.Username;
+           // string username = input.Username;
+           // string user = HttpContext.User.Identity.Name;
+           
 
             var result = await _signInManager.PasswordSignInAsync(input.Username, input.Password,
                 isPersistent: false, lockoutOnFailure: false);
@@ -44,6 +48,7 @@ namespace HappyPets.WepApi.Controllers
             }
 
             return NoContent();
+
         }
 
         [HttpPost]
@@ -108,6 +113,7 @@ namespace HappyPets.WepApi.Controllers
             };
 
             Repo.CreateNewUser(newUser);
+
 
             await _signInManager.SignInAsync(user, isPersistent: false);
 
