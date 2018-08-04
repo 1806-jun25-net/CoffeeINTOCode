@@ -1,18 +1,6 @@
-﻿@model HappyPets.WebApp.Models.Cart
-
-@{
-    ViewData["Title"] = "Home Page";
-
-    Cart [] cartList = {
-new Cart { ItemTotalCost = (decimal) 11.00, ItemType = false},
-new Cart { ItemTotalCost = (decimal) 22.00, ItemType = true},
-new Cart { ItemTotalCost = (decimal) 33.00, ItemType = true},
-new Cart { ItemTotalCost = (decimal) 44.00, ItemType = false},
-new Cart { ItemTotalCost = (decimal) 55.00, ItemType = false},
-new Cart { ItemTotalCost = (decimal) 66.00, ItemType = false},
-};
+﻿@{
+    ViewData["Title"] = "Cart";
 }
-
 
 <!-- Main Content -->
 <main class="row">
@@ -27,13 +15,13 @@ new Cart { ItemTotalCost = (decimal) 66.00, ItemType = false},
                 </tr>
             </thead>
             <tbody>
-                @foreach (var c in cartList)
+                @foreach (var c in @Model)
                 {
-                    @if (c.ItemType == false)
+                    @if (c.itemType == false)
                     {
                         <tr>
-                            <td>@c.ItemType <p><small class="text-primary">detele</small></p></td>
-                            <td>@c.ItemTotalCost</td>
+                            <td>@c.itemName <p><small class="text-primary">detele</small></p></td>
+                            <td>@c.itemPrice</td>
                         </tr>
                     }
                 }
@@ -49,13 +37,13 @@ new Cart { ItemTotalCost = (decimal) 66.00, ItemType = false},
                 </tr>
             </thead>
             <tbody>
-                @foreach (var c in cartList)
+                @foreach (var c in @Model)
                 {
-                    @if (c.ItemType == true)
+                    @if (c.itemType == true)
                     {
                         <tr>
-                            <td>@c.ItemType <p><small class="text-primary">detele</small></p></td>
-                            <td>@c.ItemTotalCost</td>
+                            <td>@c.itemName <p><small class="text-primary">detele</small></p></td>
+                            <td>@c.itemPrice</td>
                         </tr>
                     }
                 }

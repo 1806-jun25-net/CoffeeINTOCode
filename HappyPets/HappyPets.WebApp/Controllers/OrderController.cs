@@ -42,13 +42,13 @@ namespace HappyPets.WebApp.Controllers
 
                 int cartSize = Cart.Count();
 
-                List<CartList> cartList = new List<CartList>(cartSize);
+                List<CartList> CartListModel = new List<CartList>(cartSize);
 
 
                 foreach (var item in Cart)
                 {
                    
-                    foreach(var c in cartList)
+                    foreach(var c in CartListModel)
                     {
                         c.itemType = item.ItemType;
                         var itemCost = GetItemCostAsync(item.ItemId, item.ItemType,item.CartId);
