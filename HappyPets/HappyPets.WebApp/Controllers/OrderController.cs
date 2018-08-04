@@ -35,9 +35,15 @@ namespace HappyPets.WebApp.Controllers
 
                 string jsonString = await apiResponse.Content.ReadAsStringAsync();
                 
-                IEnumerable<Cart> Cart = JsonConvert.DeserializeObject<IEnumerable<Cart>>(jsonString);
+                IEnumerable<Cart> Cart = JsonConvert.DeserializeObject<IEnumerable<Cart>>(jsonString);//null if cart is empty
+                if (Cart == null)
+                {
+                    return View("EmptyCart");// empty cart view
+                }
 
-                List<CartList> cartList = null;
+                int cartSize = Cart.Count();
+
+                List<CartList> cartList = new List<CartList>(cartSize);
 
 
                 foreach (var item in Cart)
@@ -47,7 +53,10 @@ namespace HappyPets.WebApp.Controllers
                     {
                         c.itemType = item.ItemType;
                         var itemCost = GetItemCostAsync(item.ItemId, item.ItemType,item.CartId);
-                        c.itemPrice = itemCost;
+                        c.itemPrice = decimal.Parse(itemCost.ToString());
+                        var itemName = GetItemNameAsync();
+                        c.itemName = itemName.ToString();
+
                             
                     }
                    
@@ -64,30 +73,46 @@ namespace HappyPets.WebApp.Controllers
             }
         }
 
+        private async Task<string> GetItemNameAsync()
+        {
+
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetItemName/{itemId}/{itemType}/{cartId}");
+
+            HttpResponseMessage apiResponse;
+
+
+            apiResponse = await HttpClient.SendAsync(apiRequest);
+
+
+            string jsonString = await apiResponse.Content.ReadAsStringAsync();
+
+            string name = JsonConvert.DeserializeObject<string>(jsonString);
+
+
+
+
+            return name;
+
+
+
+        }
+
         private async Task<decimal> GetItemCostAsync(int? itemId, bool? itemType, int cartId)
         {
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetItemCost/{itemId}/{itemType}/{cartId}");
 
             HttpResponseMessage apiResponse;
-            try
-            {
+            
+            
                 apiResponse = await HttpClient.SendAsync(apiRequest);
 
-                if (!apiResponse.IsSuccessStatusCode)
-                {
-                    return View("AccessDenied");
-                }
-
+              
                 string jsonString = await apiResponse.Content.ReadAsStringAsync();
 
-                IEnumerable<Cart> Cart = JsonConvert.DeserializeObject<IEnumerable<Cart>>(jsonString);
+                decimal cost = JsonConvert.DeserializeObject<decimal>(jsonString);
 
-               
-
-
-                //if cart is null => no item added yet
-                return View(Cart);
-            }
+                return cost;
+            
             
 
        }

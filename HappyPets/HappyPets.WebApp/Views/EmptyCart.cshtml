@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewData["Title"] = "EmptyCart";
+}
+
+<h2>Your cart is Empty </h2>
+
+
+<!--send to products catalog-->
+<button onclick="Products()">Shop Products</button>
+<!--send to services catalog-->
+<button onclick="Services()">Order Services</button>
+
+
+<script>
+    Products(){
+        window.location.href = "/home/ProductCatalog.cshtml";
+
+
+    }
+
+    Services(){
+        window.location.href = "/home/CatalogServices.cshtml";
+
+    }
+
+</script>

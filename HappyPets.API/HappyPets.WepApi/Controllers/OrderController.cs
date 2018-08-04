@@ -83,7 +83,22 @@ namespace HappyPets.WepApi.Controllers
         }
         public string GetItemName([FromBody] int itemId, bool? itemType)
         {
-            return " ";
+           
+                string itemName = " ";
+                if (itemType == true)//if service
+                {
+                    var service = Repo.GetServiceById(itemId);
+                    itemName = service.ServiceNames;
+
+                }
+                else if (itemType == false)//if product
+                {
+                    var item = Repo.GetProductById(itemId);
+
+                    itemName = item.ProductNames;
+                }
+                return itemName;
+            
         }
 
         [HttpGet]
