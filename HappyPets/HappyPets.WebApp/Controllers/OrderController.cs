@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using HappyPets.Data;
+using HappyPets.WebApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -34,14 +35,62 @@ namespace HappyPets.WebApp.Controllers
 
                 string jsonString = await apiResponse.Content.ReadAsStringAsync();
                 
-                IEnumerable<Cart> GetCart = JsonConvert.DeserializeObject<IEnumerable<Cart>>(jsonString);
-                return View(GetCart);
+                IEnumerable<Cart> Cart = JsonConvert.DeserializeObject<IEnumerable<Cart>>(jsonString);
+
+                List<CartList> cartList = null;
+
+
+                foreach (var item in Cart)
+                {
+                   
+                    foreach(var c in cartList)
+                    {
+                        c.itemType = item.ItemType;
+                        var itemCost = GetItemCostAsync(item.ItemId, item.ItemType,item.CartId);
+                        c.itemPrice = itemCost;
+                            
+                    }
+                   
+                }
+              
+
+
+                //if cart is null => no item added yet
+                return View(Cart);
             }
             catch (AggregateException ex)
             {
                 return View("Error");
             }
         }
+
+        private async Task<decimal> GetItemCostAsync(int? itemId, bool? itemType, int cartId)
+        {
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetItemCost/{itemId}/{itemType}/{cartId}");
+
+            HttpResponseMessage apiResponse;
+            try
+            {
+                apiResponse = await HttpClient.SendAsync(apiRequest);
+
+                if (!apiResponse.IsSuccessStatusCode)
+                {
+                    return View("AccessDenied");
+                }
+
+                string jsonString = await apiResponse.Content.ReadAsStringAsync();
+
+                IEnumerable<Cart> Cart = JsonConvert.DeserializeObject<IEnumerable<Cart>>(jsonString);
+
+               
+
+
+                //if cart is null => no item added yet
+                return View(Cart);
+            }
+            
+
+       }
 
         public async Task<ActionResult> Options ()//show options to user: locations, date, time
         {
@@ -62,7 +111,11 @@ namespace HappyPets.WebApp.Controllers
                 string jsonString = await apiResponse.Content.ReadAsStringAsync();
 
                 IEnumerable<Location> Locations= JsonConvert.DeserializeObject<IEnumerable<Location>>(jsonString);
+
+
                 return View(Locations); //send options to view: choose location, date, time 
+
+
             }
             catch (AggregateException ex)
             {

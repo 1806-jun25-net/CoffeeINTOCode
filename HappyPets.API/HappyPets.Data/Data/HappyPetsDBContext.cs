@@ -33,6 +33,7 @@ namespace HappyPets.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseSqlServer("Server=tcp:rios-1806.database.windows.net,1433;Initial Catalog=HappyPetsDB;Persist Security Info=False;User ID=rios;Password=Yes12345;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             }
         }
@@ -143,6 +144,10 @@ namespace HappyPets.Data
                 entity.Property(e => e.EmployeeId).HasColumnName("employee_id");
 
                 entity.Property(e => e.Rating).HasColumnName("rating");
+
+                entity.Property(e => e.RatingCount).HasColumnName("rating_count");
+
+                entity.Property(e => e.RatingPoint).HasColumnName("rating_point");
 
                 entity.HasOne(d => d.Employee)
                     .WithMany(p => p.EmployeeRating)
@@ -255,6 +260,11 @@ namespace HappyPets.Data
 
                 entity.Property(e => e.ProductId).HasColumnName("product_id");
 
+                entity.Property(e => e.ImgPath)
+                    .HasColumnName("img_path")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.InventoryQuantity).HasColumnName("inventory_quantity");
 
                 entity.Property(e => e.ProductDescription)
@@ -280,6 +290,11 @@ namespace HappyPets.Data
 
                 entity.Property(e => e.ServiceId).HasColumnName("service_id");
 
+                entity.Property(e => e.ImgPath)
+                    .HasColumnName("img_path")
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.ServiceDescription)
                     .HasColumnName("service_description")
                     .HasMaxLength(300)
@@ -293,6 +308,11 @@ namespace HappyPets.Data
                 entity.Property(e => e.ServicePrice)
                     .HasColumnName("service_price")
                     .HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.Size)
+                    .HasColumnName("size")
+                    .HasMaxLength(10)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Users>(entity =>
@@ -322,7 +342,7 @@ namespace HappyPets.Data
 
                 entity.Property(e => e.Passwords)
                     .HasColumnName("passwords")
-                    .HasMaxLength(60)
+                    .HasMaxLength(100)
                     .IsUnicode(false);
 
                 entity.Property(e => e.StreetAddress)

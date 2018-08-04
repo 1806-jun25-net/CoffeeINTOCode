@@ -9,5 +9,7 @@ namespace HappyPets.Data
         public string ServiceNames { get; set; }
         public string ServiceDescription { get; set; }
         public decimal? ServicePrice { get; set; }
+        public string ImgPath { get; set; }
+        public string Size { get; set; }
     }
 }

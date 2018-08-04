@@ -15,12 +15,12 @@ namespace HappyPets.Data
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Passwords { get; set; }
         public string StreetAddress { get; set; }
         public int? LocationId { get; set; }
         public int? EmployeeId { get; set; }
         public int? UserType { get; set; }
         public string UserName { get; set; }
+        public string Passwords { get; set; }
 
         public Employee Employee { get; set; }
         public Location Location { get; set; }

@@ -40,14 +40,32 @@ namespace HappyPets.Library.Repository
             return myCart;
 
         }
-        public int? GetActiveCartOrderId(int userid)
+        public (int?,bool) GetActiveCartOrderId(int userid)
         {
 
             var order = _db.Orders.Last();
             var orderId = order.OrderId;
-            var activeCart = _db.Cart.Last(g=> g.OrderId == orderId);
-            
-            return activeCart.OrderId;
+            var lastCart = _db.Cart.Last(g=> g.OrderId == orderId);
+            var isActive = lastCart.Active;
+            int? id=0;
+
+            bool newcart = false;
+            if (isActive == true)
+            {
+                id = lastCart.OrderId;
+            }
+            else if (isActive == false)
+            {
+                //id = CreateOrderId();
+                id = null;
+                newcart = true;
+
+
+            }
+
+
+
+            return (id, newcart); 
 
         }
         public IEnumerable<Products> GetCurrentProduct(int userorderId)

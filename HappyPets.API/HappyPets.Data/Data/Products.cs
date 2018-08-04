@@ -10,5 +10,6 @@ namespace HappyPets.Data
         public string ProductDescription { get; set; }
         public decimal? ProductPrice { get; set; }
         public int? InventoryQuantity { get; set; }
+        public string ImgPath { get; set; }
     }
 }
