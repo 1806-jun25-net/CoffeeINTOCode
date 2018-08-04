@@ -12,11 +12,9 @@
   <ItemGroup>
     <Compile Remove="Views\Home\Cart.cs" />
   </ItemGroup>
-<<<<<<< HEAD
+
 
   <ItemGroup>
     <Folder Include="Views\NewFolder\" />
   </ItemGroup>
-=======
->>>>>>> 7ed2c2abb090ffd8f952aab0c7d35d1f434fa45e
 </Project>
