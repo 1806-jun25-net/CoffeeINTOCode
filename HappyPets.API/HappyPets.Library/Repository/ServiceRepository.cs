@@ -47,10 +47,10 @@ namespace HappyPets.Library.Repository
 
 
         }
-        public IEnumerable<Services> GetServiceById(int id)
+        public Services GetServiceById(int id)
         {
 
-            var service = _db.Services.Where(g => g.ServiceId == id);
+            var service = _db.Services.First(g => g.ServiceId == id);
             if (service == null)
             {
                 return null;
@@ -65,8 +65,27 @@ namespace HappyPets.Library.Repository
 
 
         }
+        public Products GetProductById(int id)
+        {
 
-        public IEnumerable<Products> GetAvailableItems()
+            var Product = _db.Products.First(g => g.ProductId == id);
+            if (Product == null)
+            {
+                return null;
+            }
+
+            else
+            {
+                return Product;
+            }
+
+
+
+
+        }
+
+
+        public IEnumerable<Products> GetAvailableItems()//available products
         {
             var items = _db.Products.Where(g => g.InventoryQuantity > 0);
 

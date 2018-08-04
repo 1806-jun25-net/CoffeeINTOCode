@@ -96,7 +96,15 @@ namespace HappyPets.WepApi.Controllers
             }
             Users newUser = new Users
             {
-                UserName = input.Username
+                UserName = input.Username,
+
+                FirstName = " ",
+                LastName = " ",
+                Email = " ",
+                LocationId = 1,
+                Passwords = " "
+                //int ? employeeId)
+
             };
 
             Repo.CreateNewUser(newUser);
