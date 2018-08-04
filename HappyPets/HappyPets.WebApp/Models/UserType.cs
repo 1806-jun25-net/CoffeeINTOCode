@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HappyPets.Data
+namespace HappyPets.WebApp.Models
 {
     public partial class UserType
     {
