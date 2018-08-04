@@ -33,13 +33,13 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Cart> ShowCart()
+        public IEnumerable<Cart2> ShowCart()
         {
-            IEnumerable<Cart> cart;
+            IEnumerable<Cart2> cart;
             int? cartOrderId;
             bool newCart;
             //get user current cart
-            string username = TempData.Peek("current_user").ToString();
+            string username = "Kevin";//TempData.Peek("current_user").ToString();
             var user = Repo.GetUserByUserName(username);
             var userid = user.UsersId;
             (cartOrderId, newCart) = Repo.GetActiveCartOrderId(userid);//fix this - check active column 
