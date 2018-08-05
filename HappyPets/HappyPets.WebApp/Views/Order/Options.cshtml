@@ -32,13 +32,13 @@
         new SelectListItem()
         {
             Text = "Morning",
-            Value = "0"
+            Value = "false"
         },
 
         new SelectListItem()
         {
             Text = "Afternoon",
-            Value = "1"
+            Value = "true"
         }
     };
 }
@@ -53,7 +53,7 @@
     <br />
 
     <label for="selectedDate"> Select a Day </label>
-    <input requried
+    <input requried="true"
            id="selectedDate"
            name="selectedDate"
            type="date"
