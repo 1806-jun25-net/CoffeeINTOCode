@@ -21,7 +21,8 @@ namespace HappyPets.WebApp.Controllers
         public async Task<ActionResult> ShowCart()
         {
             string username = TempData["current_user"].ToString();
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/ShowCart");
+            Users user = new Users { UserName = username };
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/ShowCart", user);
 
             HttpResponseMessage apiResponse;
             try
@@ -50,49 +51,7 @@ namespace HappyPets.WebApp.Controllers
             }
         }
 
-        private async Task<string> GetItemNameAsync()
-        {
-
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetItemName/{itemId}/{itemType}/{cartId}");
-
-            HttpResponseMessage apiResponse;
-
-
-            apiResponse = await HttpClient.SendAsync(apiRequest);
-
-
-            string jsonString = await apiResponse.Content.ReadAsStringAsync();
-
-            string name = JsonConvert.DeserializeObject<string>(jsonString);
-
-
-
-
-            return name;
-
-
-
-        }
-
-        private async Task<decimal> GetItemCostAsync(int? itemId, bool? itemType, int cartId)
-        {
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetItemCost/{itemId}/{itemType}/{cartId}");
-
-            HttpResponseMessage apiResponse;
-
-
-            apiResponse = await HttpClient.SendAsync(apiRequest);
-
-
-            string jsonString = await apiResponse.Content.ReadAsStringAsync();
-
-            decimal cost = JsonConvert.DeserializeObject<decimal>(jsonString);
-
-            return cost;
-
-
-
-        }
+       
 
         public async Task<ActionResult> Options()//show options to user: locations, date, time
         {
@@ -135,7 +94,15 @@ namespace HappyPets.WebApp.Controllers
             bool time = bool.Parse(viewCollection["selectedTime"]);
             DateTime date = DateTime.Parse(viewCollection["selectedDate"]);
 
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/Choose/{location}/{time}/{date}");
+            Choosen choosen = new Choosen
+            {
+                LocationId = location,
+                Time = time,
+                Date = date
+            };
+
+
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/Choose", choosen);
 
             HttpResponseMessage apiResponse;
             try
@@ -151,7 +118,12 @@ namespace HappyPets.WebApp.Controllers
 
                 IEnumerable<Employee> employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(jsonString);
 
-                return View(employees); //send available employees to view
+                if (employees == null)
+                {
+                    return View("NoEmployees");
+                }
+                else
+                   return View(employees); //send available employees to view
 
             }
             catch (AggregateException ex)
@@ -228,7 +200,7 @@ namespace HappyPets.WebApp.Controllers
         //    var selectedEmployeeid = int.Parse(viewCollection["selectedEmployee"]);
 
 
-        //    HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/SelectEmployee/{selectedEmployeeid}");
+        //    HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/SelectEmployee", employee);
 
 
         //    RedirectToAction("PlaceOrder", "Order", );

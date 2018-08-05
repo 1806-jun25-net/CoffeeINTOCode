@@ -36,9 +36,10 @@ namespace HappyPets.WepApi.Controllers
         }
        //[Route("api/[controller]/[action]/{username}")]
         [HttpPost]
-        public IEnumerable<CartList> ShowCart(string username)
+        public IEnumerable<CartList> ShowCart(Users users)
         {
-            username = "Kevin";
+
+            string username = users.UserName;
             IEnumerable<Cart2> cart;
             List<CartList> myCart = new List<CartList>();
 
@@ -50,15 +51,6 @@ namespace HappyPets.WepApi.Controllers
             var user = Repo.GetUserByUserName(username);
             var userid = user.UsersId;
             (cartOrderId, newCart) = Repo.GetActiveCartOrderId(userid);
-
-            /*
-                  List<Address> addressList = new List<Address>();
-
-        addressList.Add(new Address() { 
-            Street = "Main Street",
-            Zip = "1234"
-        });
-             */
 
 
             if (newCart == false)
@@ -144,31 +136,34 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpGet]
-        [Route("api/[controller]/[action]")]
-        public IEnumerable<Location> OptionsLocation()
+        //[Route("api/[controller]/[action]")]
+        public IEnumerable<Location> OptionsLocation()//options in mvc
         {
             var locations = Repo.GetLocations();
 
             return locations;
         }
-        [Route("api/[controller]/[action]")]
-        public  IEnumerable<Employee> Choose([FromBody] int location, bool time, DateTime date)
+      // [Route("api/[controller]/[action]")]
+      [HttpPost]
+        public  IEnumerable<Employee> Choose( Choosen choosen)
         {
-            //get data from form
+            var date = choosen.Date;
+            var time = choosen.Time;
+            var location = choosen.LocationId;
 
             var employees = Repo.GetAvailableEmployees(date, time, location);
 
             return employees;
         }
 
-        [Route("api/[controller]/[action]")]
+       // [Route("api/[controller]/[action]")]
         public Services GetServiceDetails([FromBody] int itemid)
         {
 
             var service = Repo.GetServiceById(itemid);
             return service;
 ;        }
-        [Route("api/[controller]/[action]")]
+       // [Route("api/[controller]/[action]")]
         public Products GetProductDetails([FromBody] int itemid)
         {
 
