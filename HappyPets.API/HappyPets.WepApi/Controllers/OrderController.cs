@@ -157,17 +157,18 @@ namespace HappyPets.WepApi.Controllers
         }
 
        // [Route("api/[controller]/[action]")]
-        public Services GetServiceDetails([FromBody] int itemid)
+        public Services GetServiceDetails( ItemDetails id)
         {
+            var itemId = id.ItemId;
 
-            var service = Repo.GetServiceById(itemid);
+            var service = Repo.GetServiceById(itemId);
             return service;
 ;        }
        // [Route("api/[controller]/[action]")]
-        public Products GetProductDetails([FromBody] int itemid)
+        public Products GetProductDetails(ItemDetails id)
         {
-
-            var product = Repo.GetProductById(itemid);
+            var itemId = id.ItemId;
+            var product = Repo.GetProductById(itemId);
             return product;
             
         }

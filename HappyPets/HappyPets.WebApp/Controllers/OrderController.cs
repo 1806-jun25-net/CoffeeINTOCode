@@ -133,11 +133,12 @@ namespace HappyPets.WebApp.Controllers
 
 
         }
-        [HttpGet("{id}")]
+        //[HttpGet("{id}")]
         public async Task<ActionResult> GetProductDetails(int id)
         {
 
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetProductsDetails/{id}");
+            ItemDetails item = new ItemDetails { ItemId = id };
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetProductDetails", item);
 
             HttpResponseMessage apiResponse;
             try
@@ -164,11 +165,11 @@ namespace HappyPets.WebApp.Controllers
             }
 
         }
-        [HttpGet("{id}")]
+        //[HttpGet("{id}")]
         public async Task<ActionResult> GetServiceDetails(int id)
         {
-
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetServiceDetails/{id}");
+            ItemDetails item = new ItemDetails { ItemId = id };
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetServiceDetails", item);
 
             HttpResponseMessage apiResponse;
             try
@@ -195,15 +196,15 @@ namespace HappyPets.WebApp.Controllers
             }
         }
 
-        //public ActionResult SelectEmployee(IFormCollection viewCollection)
+        //public actionresult checkout(iformcollection viewcollection)
         //{
-        //    var selectedEmployeeid = int.Parse(viewCollection["selectedEmployee"]);
+        //    var selectedemployeeid = int.parse(viewcollection["selectedEmployee"]);
 
 
-        //    HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/SelectEmployee", employee);
+        //    httprequestmessage apirequest = createrequesttoservice(httpmethod.get, "api/order/selectemployee", employee);
 
 
-        //    RedirectToAction("PlaceOrder", "Order", );
+        //    redirecttoaction("placeorder", "order", );
 
 
         //}

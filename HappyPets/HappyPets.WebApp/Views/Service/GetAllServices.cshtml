@@ -51,7 +51,7 @@
                     <div class="card-body">
                         <h5 class="card-title">@item.ServiceNames</h5>
                         <p class="card-text text-secondary">$@item.ServicePrice</p>
-                        <a asp-controller="Service" asp-action="GetServiceDetails" asp-route-id="@item.ServiceId" class="btn btn-primary">View More</a>
+                        <a asp-controller="Order" asp-action="GetServiceDetails" asp-route-id="@item.ServiceId" class="btn btn-primary">View More</a>
                     </div>
                 </div>
             </div>
