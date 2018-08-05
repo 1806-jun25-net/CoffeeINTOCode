@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HappyPets.WebApp.Controllers
 {
-    public class MyGromming : Controller
+    public class MyGrooming : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()

@@ -1,187 +1,3 @@
-<<<<<<< HEAD
-﻿@{ 
-    var isLogin = TempData.Peek("current_user") != null;
-
-}
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-
-    <title> @ViewData["Title"] - HappyPets.WebApp</title>
-
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet">
-    <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="~/css/styles.css" />
-</head>
-<body>
-    <partial name="_CookieConsentPartial" />
-    <!--Header Block -->
-    <header class="mb-3">
-        <section class="row align-items-center">
-            <!-- Logo -->
-            <div class="col">
-                <!-- Mobile Header-->
-                <div class="d-sm-block d-md-none">
-                    <div class="row align-items-center">
-                        <div class="col-3 p-0">
-                            <nav class="navbar navbar-dark">
-                                <button class="navbar-toggler bg-primary collapsed" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon">&nbsp;</span>
-                                </button>
-                            </nav>
-                        </div>
-                        <div class="col-6">
-                            <div class="logo mr-auto ml-auto">
-                                <a asp-controller="Home" asp-action="Index">
-                                    <img alt="Logo" src="~/images/Logo.svg">
-                                </a>
-                            </div>
-                        </div>
-                        <!-- Mobile Cart -->
-                        <div class="col-3 text-right">
-                            <a class="font-weight-bold" href="#">Cart</a>
-                        </div>
-                        <!-- End Mobile Cart -->
-                    </div>
-                </div>
-                <!-- End Mobile Header-->
-                <!-- Desktop Logo -->
-                <div class="logo d-none d-md-block">
-                    <a asp-controller="Home" asp-action="Index">
-                        <img alt="Logo" src="~/images/Logo.svg">
-                    </a>
-                </div>
-            </div>
-            <!-- End Desktop Logo -->
-            <!-- End Logo -->
-            <!-- Search Form -->
-            <div class="col-sm-12 col-md-4">
-                <form class="form-inline HP-SearchForm" action="">
-                    <input class="HP-SearchForm_input text-right"
-                           type="search"
-                           placeholder="Search"
-                           aria-label="Search" />
-                    <button class="HP-SearchForm_button justify-content-end"
-                            type="submit">
-                        <i class="fa fa-search text-primary">&nbsp;</i>
-                    </button>
-                </form>
-                <!-- Mobile Dropdown Menu -->
-                <div class="d-md-none collapse mt-2" id="navbarToggleExternalContent">
-                    <ul class="nav flex-column bg-primary p-4">
-                        <li><a class="font-weight-bold text-white" href="#">Shop By Pet <span class="sr-only">(current)</span></a></li>
-                        <li><a class="font-weight-bold text-white" asp-controller="Service" asp-action="GetAllServices">Pet Services</a></li>
-                        <li><a class="font-weight-bold text-white" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a></li>
-                        <li><a class="font-weight-bold text-white" href="#">My Gromming</a></li>
-                        <li><a class="font-weight-bold text-white" asp-controller="Account" asp-action="Register">Sign Up</a></li>
-                        <li><a class="font-weight-bold text-white" asp-controller="Account" asp-action="Login">Login</a></li>
-                    </ul>
-                </div>
-            </div>
-            <!-- End Mobile Dropdown Menu -->
-            <!-- End Search Form -->
-            <!-- Cart -->
-            <div class="col-sm-12 col-md-4 text-right d-none d-md-block">
-                <a class="font-weight-bold" asp-controller="Order" asp-action="ShowCart">Cart</a>
-            </div>
-            <!-- End Cart -->
-        </section>
-    </header>
-    <!-- End Header Block -->
-    <!-- Navigation bar -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-primary d-none d-md-block">
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNavAltMarkup">
-            <div class="navbar-nav align-items-center">
-                <a class="nav-item ml-4 mr-4 nav-link active font-weight-bold HP-nav-item" href="#">Shop By Pet <span class="sr-only">(current)</span></a>
-                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllServices">Pet Services</a>
-                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a>
-                <span class="navbar-text ml-4 mr-4 font-weight-bold HP-nav-item"> | </span>
-                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" href="#">My Gromming</a>
-                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Account" asp-action="Register">Sign Up</a>
-                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Account" asp-action="Login">Login</a>
-            </div>
-        </div>
-    </nav>
-    <!-- End Navigation bar -->
-
-    @RenderBody()
-
-    <Footer class="container-fluid">
-        <!-- Sponsor Trade Mark -->
-        <section class="row align-items-center HP-Sponsors-trademark"></section>
-        <!-- End Sponsor Trade Mark -->
-        <!-- Newsletter, Social Network, Footer Links -->
-        <section class="HP-Footer-Content row align-items-center">
-            <div class="col-md-4 HP-Footer-extra-info text-center">
-                <a class="text-primary font-weight-bold align-middle" href="#">Sign Up Newsletter</a>
-            </div>
-            <div class="col-md-4 HP-Footer-extra-info">
-                <img class="align-middle mx-auto d-block" src="~/images/social_network.png" alt="social network">
-            </div>
-            <div class="col-md-4 HP-Footer-extra-info">
-                <div class="navbar-nav">
-                    <a class="nav-item nav-link active font-weight-bold HP-nav-item" href="#">Shop By Pet <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllServices">Pet Services</a>
-                    <a class="nav-item nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a>
-                    <a class="nav-item nav-link font-weight-bold HP-nav-item" href="#">My Gromming</a>
-                    <a class="nav-item nav-link font-weight-bold HP-nav-item" asp-controller="Account" asp-action="Register">Sign Up</a>
-                </div>
-            </div>
-        </section>
-        <!-- End Newsletter, Social Network, Footer Links -->
-        <!-- Copyright -->
-        <section class="row bg-primary align-items-center">
-            <div class="col-12 align-items-center">
-                <p class="text-center text-white mt-3">Copyright &copy; 2018</p>
-            </div>
-        </section>
-        <!-- End Copyright -->
-    </Footer>
-    <!-- JS file for Bootstrap work correctly -->
-    <script src="~/js/jquery.min.js"></script>
-    <script src="~/js/popper.min.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
-    @RenderSection("Scripts", required: false);
-
-</body>
-</html>
-
-                    <ul class="nav flex-column bg-primary p-4">
-                        <li><a class="font-weight-bold text-white" href="#">Shop By Pet <span class="sr-only">(current)</span></a></li>
-                        <li><a class="font-weight-bold text-white" asp-controller="Service" asp-action="GetAllServices">Pet Services</a></li>
-                        <li><a class="font-weight-bold text-white" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a></li>
-                        <li><a class="font-weight-bold text-white" href="#">My Gromming</a></li>
-                        @if (isLogin)
-                        {
-                            <li><a class="font-weight-bold text-white" asp-controller="Account" asp-action="Logout">Logout</a></li>    
-                        }
-                        else
-                        {
-                            <li><a class="font-weight-bold text-white" asp-controller="Account" asp-action="Login">Login</a></li>
-                        }
-
-            <div class="navbar-nav align-items-center">
-                <a class="nav-item ml-4 mr-4 nav-link active font-weight-bold HP-nav-item" href="#">Shop By Pet <span class="sr-only">(current)</span></a>
-                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllServices">Pet Services</a>
-                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a>
-                <span class="navbar-text ml-4 mr-4 font-weight-bold HP-nav-item"> | </span>
-                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" href="#">My Gromming</a>
-                @if (isLogin)
-                {
-                    <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Account" asp-action="Logout">Logout</a>
-                }
-                else
-                {
-                    <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Account" asp-action="Login">Login</a>
-                }
-
-=======
 ﻿@{
     var isLogin = TempData.Peek("current_user") != null;
 
@@ -260,7 +76,7 @@
                         <li><a class="font-weight-bold text-white" href="#">Shop By Pet <span class="sr-only">(current)</span></a></li>
                         <li><a class="font-weight-bold text-white" asp-controller="Service" asp-action="GetAllServices">Pet Services</a></li>
                         <li><a class="font-weight-bold text-white" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a></li>
-                        <li><a class="font-weight-bold text-white" asp-controller="MyGromming" asp-action="Index">My Gromming</a></li>
+                        <li><a class="font-weight-bold text-white" asp-controller="MyGrooming" asp-action="Index">My Gromming</a></li>
                         @if (isLogin)
                         {
                             <li><a class="font-weight-bold text-white" asp-controller="Account" asp-action="Logout">Logout</a></li>
@@ -291,7 +107,7 @@
                 <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllServices">Pet Services</a>
                 <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a>
                 <span class="navbar-text ml-4 mr-4 font-weight-bold HP-nav-item"> | </span>
-                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="MyGromming" asp-action="Index">My Gromming</a>
+                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="MyGrooming" asp-action="Index">My Gromming</a>
                 @if (isLogin)
                 {
                     <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Account" asp-action="Logout">Logout</a>
@@ -348,4 +164,3 @@
 
 </body>
 </html>
->>>>>>> 3956218450dfe6ca4194b080f6e4f1d92497b953
