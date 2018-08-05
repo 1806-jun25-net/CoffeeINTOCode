@@ -32,7 +32,7 @@ namespace HappyPets.Library.Repository.CRUDs
         }
 
         // Read Single
-        public Employee GetEmployeeByID(int id)
+        public Employee GetEmployeeByID(int? id)
         {
             var employee = _db.Employee.Find(id);
             string errMsg = "Not Employee found with that ID";

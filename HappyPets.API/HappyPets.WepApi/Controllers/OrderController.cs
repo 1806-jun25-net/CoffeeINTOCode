@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using HappyPets.Data;
+using HappyPets.Data.Data;
 using HappyPets.Library.Repository;
 using HappyPets.WebApp.Models;
 using HappyPets.WepApi.Data;
@@ -267,6 +268,35 @@ namespace HappyPets.WepApi.Controllers
 
 
             View("Success");
+
+        }
+
+        public OrdersDetailsRating OrderDetailsRating(OrdersDetailsRating order)
+        {
+            
+
+            int? employeeid = Repo.GetEmployeeOfOrder(order.OrderId);
+            var Employee = Repo.GetEmployee(employeeid);
+            int? Rating = Repo.GetEmployeeRatingByEmployeeId(employeeid);
+
+            var products = Repo.GetCurrentProduct(order.OrderId);
+            var services = Repo.GetCurrentService(order.OrderId);
+
+            OrdersDetailsRating showOrder = new OrdersDetailsRating
+            {
+                Employee_Firstname = Employee.FirstName,
+                Employee_Lastname = Employee.LastName,
+                AppointmentDate = order.AppointmentDate,
+                OrderId = order.OrderId,
+                OrderTotal = order.OrderTotal,
+                ProductsItems = products,
+                ServicesItems = services,
+                Rating = Rating
+        
+            };
+
+
+            return showOrder;
 
         }
 

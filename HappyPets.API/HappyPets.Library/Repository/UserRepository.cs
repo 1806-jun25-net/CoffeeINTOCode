@@ -114,17 +114,18 @@ namespace HappyPets.Library.Repository
         }
 
 
-        public EmployeeRating GetEmployeeRatingByEmployeeId(int id)
+        public int? GetEmployeeRatingByEmployeeId(int? id)
         {
             var employeeRating = _repo.GetEmployeeRatingByEmployeeId(id);
-            return employeeRating;
+            int? rating = int.Parse(employeeRating.Rating.ToString());
+            return rating;
         }
 
       
 
 
         // Employee
-        public Employee GetEmployee(int id)
+        public Employee GetEmployee(int? id)
         {
             return _repo.GetEmployeeByID(id);
         }
@@ -195,6 +196,14 @@ namespace HappyPets.Library.Repository
             
             _repo.AddOrders(OrderTime, TotalCost,  location, employee, orderid);
             _repo.EditCart(orderid);
+
+        }
+
+        public int? GetEmployeeOfOrder(int?  orderid)
+        {
+            var Order = _db.Orders.First(g => g.OrderId == orderid);
+
+            return Order.EmployeeId;
 
         }
     }

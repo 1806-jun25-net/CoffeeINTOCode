@@ -298,7 +298,7 @@ namespace HappyPets.WebApp.Controllers
 
         public async Task<ActionResult> PlaceOrder(IFormCollection viewcollection)
         {
-            int? orderid = int.Parse(viewcollection["orderId"]);
+            int? orderid = int.Parse(viewcollection["OrderId"]);
 
             MyOrder order = new MyOrder { OrderId = orderid };
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/PlaceOrder", order);

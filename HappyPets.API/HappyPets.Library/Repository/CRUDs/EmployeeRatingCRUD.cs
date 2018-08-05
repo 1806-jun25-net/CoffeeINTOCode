@@ -69,7 +69,7 @@ namespace HappyPets.Library.Repository.CRUDs
             SaveChanges();
         }
 
-        public EmployeeRating GetEmployeeRatingByEmployeeId(int id)
+        public EmployeeRating GetEmployeeRatingByEmployeeId(int? id)
         {
             var employeeRating = _db.EmployeeRating.Where(
                 e => e.EmployeeId == id
