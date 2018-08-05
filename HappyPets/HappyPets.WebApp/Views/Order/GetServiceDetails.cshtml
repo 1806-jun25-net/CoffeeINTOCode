@@ -17,9 +17,18 @@
         </div>
     </section>
     <section class="col-12 col-md-4 my-3">
-        <button class="btn btn-outline-primary btn-lg"> Add to Cart </button>
-        <H3 class="font-weight-bold">@Model.ServiceNames</H3>
-        <H3 class="font-weight-bold text-secondary">$@Model.ServicePrice</H3>
+        <form asp-controller="Order" asp-action="AddServiceToCard" method="post">
+            <button type="submit" class="btn btn-outline-primary btn-lg"> Add to Cart </button>
+            <H3 class="font-weight-bold">@Model.ServiceNames</H3>
+            <H3 class="font-weight-bold text-secondary">$@Model.ServicePrice</H3>
+            <label>Size:</label>
+            @Html.DropDownList("selectedSize", new List<SelectListItem> { 
+                new SelectListItem() { Text= "Small", Value = "S"},
+                new SelectListItem() { Text= "Medium", Value = "M"},
+                new SelectListItem() { Text= "Large", Value = "L"},
+            })
+            <input hidden name="selectedId" value="@Model.ServiceId" />
+        </form>
     </section>
 </main>
 <!-- End Main Content -->
