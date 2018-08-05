@@ -37,7 +37,40 @@ namespace HappyPets.WepApi.Controllers
             var products = Repo.GetAllProducts();
             return products;
         }
-        
+
+        // Products Ordered by Most Expensive 
+        [HttpGet]
+        public IEnumerable<Products> GetAllProductsByMostExpensive()
+        {
+            var products = Repo.GetProductsByMostExpensive();
+            return products;
+        }
+
+        // Products Ordered by Cheapest 
+        [HttpGet]
+        public IEnumerable<Products> GetAllProductsByCheaper()
+        {
+            var products = Repo.GetProductsByCheapest();
+            return products;
+        }
+
+
+        // Services Ordered by Most Expensive 
+        [HttpGet]
+        public IEnumerable<Services> GetAllServicesByMostExpensive()
+        {
+            var services = Repo.GetServicesByMostExpensive();
+            return services;
+        }
+
+        // Services Ordered by Cheapest 
+        [HttpGet]
+        public IEnumerable<Services> GetAllServicesByCheaper()
+        {
+            var services = Repo.GetServicesByCheapest();
+            return services;
+        }
+
 
 
         //[HttpPost]
