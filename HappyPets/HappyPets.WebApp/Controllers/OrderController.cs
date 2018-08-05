@@ -20,7 +20,7 @@ namespace HappyPets.WebApp.Controllers
         //[HttpGet("username")]
         public async Task<ActionResult> ShowCart()
         {
-            string username = TempData["current_user"].ToString();
+            string username = TempData.Peek("current_user").ToString();
             Users user = new Users { UserName = username };
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/ShowCart", user);
 
@@ -199,7 +199,7 @@ namespace HappyPets.WebApp.Controllers
         {
             var quantity = int.Parse(viewcollection["selectedQuantity"]);
             var item = int.Parse(viewcollection["selectedId"]);
-            string username = TempData["current_user"].ToString();//verify if i can access this here
+            string username = TempData.Peek("current_user").ToString();//verify if i can access this here
             
             AddToCart add = new AddToCart
             {
@@ -227,7 +227,7 @@ namespace HappyPets.WebApp.Controllers
         {
             var size = viewcollection["selectedSize"];
             var item = int.Parse(viewcollection["selectedId"]);
-            string username = TempData["current_user"].ToString();
+            string username = TempData.Peek("current_user").ToString();
 
             AddToCart add = new AddToCart
             {
@@ -260,7 +260,7 @@ namespace HappyPets.WebApp.Controllers
 
             AddToCart add = new AddToCart { EmployeeId = selectedemployeeid, Username = username };
 
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/order/Checkout", add);
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/Checkout", add);
 
 
             HttpResponseMessage apiResponse;
