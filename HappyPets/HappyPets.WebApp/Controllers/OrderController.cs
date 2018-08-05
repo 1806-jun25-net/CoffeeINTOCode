@@ -255,7 +255,7 @@ namespace HappyPets.WebApp.Controllers
 
         public async Task<ActionResult> Checkout(IFormCollection viewcollection)
         {
-            string username = TempData["current_user"].ToString();
+            string username = TempData.Peek("current_user").ToString();
             var selectedemployeeid = int.Parse(viewcollection["selectedEmployee"]);
 
             AddToCart add = new AddToCart { EmployeeId = selectedemployeeid, Username = username };
