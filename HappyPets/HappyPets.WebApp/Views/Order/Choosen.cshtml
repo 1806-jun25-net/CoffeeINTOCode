@@ -1,0 +1,25 @@
+﻿@{
+    var EmployeeList = (IEnumerable<Employee>)Model;
+
+    var selectedEmployee = EmployeeList.Select(
+     item =>
+     {
+         var list = new SelectListItem()
+         {
+             Text = $"{item.FirstName} {item.LastName}",
+             Value = item.EmployeeId.ToString()
+         };
+         return list;
+     }
+    ).ToList();
+}
+
+
+<form asp-controller="Order"
+      asp-action="Checkout"
+      method="post">
+    <label for="selectedLocation">Select a Employee</label>
+    @Html.DropDownList("selectedEmployee", selectedEmployee)
+    <button type="submit">Continue</button>
+</form>
+
