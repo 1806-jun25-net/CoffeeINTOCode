@@ -20,7 +20,7 @@ namespace HappyPets.WebApp.Controllers
         //[HttpGet("username")]
         public async Task<ActionResult> ShowCart()
         {
-            string username = TempData["current_user"].ToString();
+            string username = TempData.Peek("current_user").ToString();
             Users user = new Users { UserName = username };
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/ShowCart", user);
 
@@ -133,11 +133,12 @@ namespace HappyPets.WebApp.Controllers
 
 
         }
-        [HttpGet("{id}")]
+        //[HttpGet("{id}")]
         public async Task<ActionResult> GetProductDetails(int id)
         {
 
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetProductsDetails/{id}");
+            ItemDetails item = new ItemDetails { ItemId = id };
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetProductDetails", item);
 
             HttpResponseMessage apiResponse;
             try
@@ -164,11 +165,11 @@ namespace HappyPets.WebApp.Controllers
             }
 
         }
-        [HttpGet("{id}")]
+        //[HttpGet("{id}")]
         public async Task<ActionResult> GetServiceDetails(int id)
         {
-
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetServiceDetails/{id}");
+            ItemDetails item = new ItemDetails { ItemId = id };
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/GetServiceDetails", item);
 
             HttpResponseMessage apiResponse;
             try
@@ -183,7 +184,7 @@ namespace HappyPets.WebApp.Controllers
                 string jsonString = await apiResponse.Content.ReadAsStringAsync();
 
                 Services service = JsonConvert.DeserializeObject<Services>(jsonString);
-
+                
 
                 return View(service); //send the selected product to view 
 
@@ -194,24 +195,142 @@ namespace HappyPets.WebApp.Controllers
                 return View("Error");
             }
         }
+        public  async Task<ActionResult> AddProductsToCart(IFormCollection viewcollection)
+        {
+            var quantity = int.Parse(viewcollection["selectedQuantity"]);
+            var item = int.Parse(viewcollection["selectedId"]);
+            string username = TempData.Peek("current_user").ToString();//verify if i can access this here
+            
+            AddToCart add = new AddToCart
+            {
+                Quantity = quantity,
+                ItemId = item,
+                Username = username,
+                ItemType = false
+                
+            };
 
-        //public ActionResult SelectEmployee(IFormCollection viewCollection)
-        //{
-        //    var selectedEmployeeid = int.Parse(viewCollection["selectedEmployee"]);
+
+            
+
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/AddProductToCart", add);
 
 
-        //    HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/SelectEmployee", employee);
+            HttpResponseMessage apiResponse;
+            
+                apiResponse = await HttpClient.SendAsync(apiRequest);
+
+            return NoContent();
+
+        }
 
 
-        //    RedirectToAction("PlaceOrder", "Order", );
+        public async Task<ActionResult> AddServiceToCart(IFormCollection viewcollection)
+        {
+            var size = viewcollection["selectedSize"];
+            var item = int.Parse(viewcollection["selectedId"]);
+            string username = TempData.Peek("current_user").ToString();
+
+            AddToCart add = new AddToCart
+            {
+                Size = size,
+                ItemId = item,
+                Username = username,
+                ItemType = true
+              
+            };
 
 
-        //}
 
-        //public ActionResult PlaceOrder()
-        //{
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/AddServiceToCart", add);
 
-        //}
+
+            HttpResponseMessage apiResponse;
+
+            apiResponse = await HttpClient.SendAsync(apiRequest);
+
+
+            return NoContent();
+
+
+
+        }
+
+
+        public async Task<ActionResult> Checkout(IFormCollection viewcollection)
+        {
+            string username = TempData.Peek("current_user").ToString();
+            var selectedemployeeid = int.Parse(viewcollection["selectedEmployee"]);
+
+            AddToCart add = new AddToCart { EmployeeId = selectedemployeeid, Username = username };
+
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/Checkout", add);
+
+
+            HttpResponseMessage apiResponse;
+            try
+            {
+                apiResponse = await HttpClient.SendAsync(apiRequest);
+
+                if (!apiResponse.IsSuccessStatusCode)
+                {
+                    return View("AccessDenied");
+                }
+
+                string jsonString = await apiResponse.Content.ReadAsStringAsync();
+
+               
+                OrderDetails order = JsonConvert.DeserializeObject<OrderDetails>(jsonString);
+
+
+                return View(order); //send the selected product to view 
+
+
+            }
+            catch (AggregateException ex)
+            {
+                return View("Error");
+            }
+
+
+
+        }
+
+        public async Task<ActionResult> PlaceOrder(IFormCollection viewcollection)
+        {
+            int? orderid = int.Parse(viewcollection["OrderId"]);
+
+            MyOrder order = new MyOrder { OrderId = orderid };
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/PlaceOrder", order);
+
+
+            HttpResponseMessage apiResponse;
+            try
+            {
+                apiResponse = await HttpClient.SendAsync(apiRequest);
+
+                if (!apiResponse.IsSuccessStatusCode)
+                {
+                    return View("AccessDenied");
+                }
+
+                string jsonString = await apiResponse.Content.ReadAsStringAsync();
+
+
+               // OrderDetails order = JsonConvert.DeserializeObject<OrderDetails>(jsonString);
+
+
+                return View();
+
+
+            }
+            catch (AggregateException ex)
+            {
+                return View("Error");
+            }
+
+
+        }
 
 
 

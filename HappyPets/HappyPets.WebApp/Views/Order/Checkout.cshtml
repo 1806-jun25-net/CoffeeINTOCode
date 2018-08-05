@@ -1,0 +1,44 @@
+﻿@model HappyPets.WebApp.Models.OrderDetails
+@{
+    var d = (DateTime) Model.appointmentDate;
+    var date = $"{d.Day}/{d.Month}/{d.Year}";
+}
+
+<!-- Main Content -->
+<main class="row my-4">
+    <div class="container-fluid">
+        <h2>Order: <span style="color:red;">@Model.OrderId</span></h2>
+        <p>Total: $<span>@Model.OrderTotal</span></p>
+        <p>Services Appointment: @date</p>
+        <p>Your Groomer: @Model.Employee_Firstname @Model.Employee_Lastname</p>
+    </div>
+
+    <div class="container-fluid my-4">
+        <form asp-controller="Order" asp-action="PlaceOrder" method="post">
+            <input hidden name="OrderId" type="number" value="@Model.OrderId" />
+            <button type="submit" class="btn btn-outline-primary btn-lg">Confirm Order</button>
+        </form>
+        <table class="table table-striped table-hover my-4">
+            <thead>
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var c in Model.ServicesItems)
+                {
+                <tr>
+                    <td>@c.ServiceNames</td>
+                    <td>@c.ServicePrice</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+        <p>Total: $<span>@Model.OrderTotal</span></p>
+        <form asp-controller="Order" asp-action="PlaceOrder" method="post">
+            <input hidden name="OrderId" type="number" value="@Model.OrderId"/>
+            <button type="submit" class="btn btn-outline-primary btn-lg">Confirm Order</button>
+        </form>
+    </div>
+</main>

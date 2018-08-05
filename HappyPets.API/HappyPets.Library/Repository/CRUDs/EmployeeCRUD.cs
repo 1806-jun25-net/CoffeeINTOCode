@@ -32,7 +32,7 @@ namespace HappyPets.Library.Repository.CRUDs
         }
 
         // Read Single
-        public Employee GetEmployeeByID(int id)
+        public Employee GetEmployeeByID(int? id)
         {
             var employee = _db.Employee.Find(id);
             string errMsg = "Not Employee found with that ID";
@@ -112,6 +112,13 @@ namespace HappyPets.Library.Repository.CRUDs
                 throw new ArgumentException(errMsg, nameof(locationId));
             }
             return employee;
+        }
+
+        public Employee GetLocationByEmployeeId(int? emId)
+        {
+            var employee = _db.Employee.First(g => g.EmployeeId == emId);
+            return employee;
+
         }
     }
 }

@@ -55,5 +55,15 @@ namespace HappyPets.Library.Repository.CRUDs
             return appointment;
 
         }
+        public Appointments GetAppointmentsByOrderId(int? orderid)
+        {
+            var appointment = _db.Appointments.First(
+                a =>
+                a.OrderId == orderid
+            );
+
+            return appointment;
+
+        }
     }
 }

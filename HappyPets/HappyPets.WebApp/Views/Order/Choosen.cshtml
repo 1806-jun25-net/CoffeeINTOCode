@@ -6,7 +6,7 @@
      {
          var list = new SelectListItem()
          {
-             Text = $"{item.FirstName} {item.LastName}",
+             Text = $"{item.FirstName} {item.LastName} - {1} Starts",
              Value = item.EmployeeId.ToString()
          };
          return list;
@@ -14,12 +14,19 @@
     ).ToList();
 }
 
+<main class="row my-4">
+    <div class="container-fluid">
+        <form asp-controller="Order"
+              asp-action="Checkout"
+              method="post">
+            <label>
+                <H3>Select an Employee</H3>
+            </label>
+            <br />
+            @Html.DropDownList("selectedEmployee", selectedEmployee)
+            <button class="btn btn-primary" type="submit">Continue</button>
+        </form>
+    </div>
+</main>
 
-<form asp-controller="Order"
-      asp-action="Checkout"
-      method="post">
-    <label for="selectedLocation">Select a Employee</label>
-    @Html.DropDownList("selectedEmployee", selectedEmployee)
-    <button type="submit">Continue</button>
-</form>
 

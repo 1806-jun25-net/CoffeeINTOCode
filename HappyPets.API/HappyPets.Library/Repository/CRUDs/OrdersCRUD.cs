@@ -16,12 +16,13 @@ namespace HappyPets.Library.Repository.CRUDs
         }
 
         /////////////////////// ADD Order ////////////////////////////////////
-        public void AddOrders(DateTime OrderTime, decimal TotalCost, int location, int employee)
+        public void AddOrders(DateTime OrderTime, decimal? TotalCost, int location, int? employee, int orderid)
         {
 
 
             var orders = new Orders
             {
+                OrderId = orderid,
                 LocationId = location,
                 EmployeeId = employee,
                 OrderTime = OrderTime,

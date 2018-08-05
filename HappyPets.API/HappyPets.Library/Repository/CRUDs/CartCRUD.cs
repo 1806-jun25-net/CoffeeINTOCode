@@ -28,14 +28,24 @@ namespace HappyPets.Library.Repository.CRUDs
 
             return mycart;
         }
-        public void EditCart(Cart cart)
+        public void EditCart(int orderid)
         {
 
-            _db.Update(cart);
+            List<Cart> result = (from p in _db.Cart
+                           where p.OrderId == orderid
+                           select p).ToList();
+
+            foreach (var item in result)
+            {
+
+                item.Active = false;
+            }
+
+         
             SaveChanges();
         }
 
-        public void AddCart(int orderid, int userid, int quantity, int itemid, bool itemType, bool active, decimal itemCost)
+        public void AddCart(int? orderid, int userid, int quantity, int itemid, bool itemType, bool active, decimal? itemCost)
         {
             var cart = new Cart
             {
@@ -43,6 +53,7 @@ namespace HappyPets.Library.Repository.CRUDs
                 UsersId = userid,
                 Quantity = quantity,
                 ItemId = itemid,
+                ItemType = itemType,
                 Active = active,
                 ItemTotalCost = itemCost
             };

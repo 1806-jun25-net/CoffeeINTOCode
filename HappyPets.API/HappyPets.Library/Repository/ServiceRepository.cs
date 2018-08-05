@@ -85,6 +85,7 @@ namespace HappyPets.Library.Repository
         }
 
 
+
         public IEnumerable<Products> GetAvailableItems()//available products
         {
             var items = _db.Products.Where(g => g.InventoryQuantity > 0);

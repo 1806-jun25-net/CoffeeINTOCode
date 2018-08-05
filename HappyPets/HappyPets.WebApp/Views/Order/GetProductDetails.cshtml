@@ -1,11 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-
 <!-- Main Content -->
 <main class="row">
-
     <section class="col-12 col-md-8 my-3">
         <div>
             <img class="img-fluid" src="http://via.placeholder.com/932x567" alt="product" />
@@ -13,48 +10,26 @@
         <div>
             <H3>Description</H3>
             <p>
-                You want the best for your dog, so feed him Authority Chicken Jerky treats. Rewarding him with one is not only great-tasting, but healthy for him. Give him the taste he craves while maintaining his health.
-                <br>
-                Food Type: Dog Treat
-                <br>
-                Life Stage: Adult
-                <br>
-                Flavor: Chicken
-                <br>
-                Primary Ingredient: Chicken Fillet
-                <br>
-                Package Weight: 6 oz
-                <br>
-                <br>
-
-                Ingredients:
-                <br>
-                Chicken Fillet, Vegetable Glycerin
-                <br>
-                <br>
-
-                Guaranteed Analysis:
-                <br>
-                Crude Protein (min) 64.0%
-                <br>
-                Crude Fat (min) 1.0%
-                <br>
-                Crude Fat (max) 5.0%
-                <br>
-                Crude Fiber (max) 4.0%
-                <br>
-                Moisture (max) 18.0%)
-                <br>
+                @Model.ProductDescription;
             </p>
         </div>
     </section>
-
     <section class="col-12 col-md-4 my-3">
-        <button class="btn btn-outline-primary btn-lg"> Add to Cart </button>
-        <H3 class="font-weight-bold">Authority® Chewy Dog Treat - Grain Free, Chicken Jerky</H3>
-        <H3 class="font-weight-bold text-secondary">$19.79</H3>
+        <form asp-controller="Order" asp-action="AddProductsToCart" method="post">
+            <button type="submit" class="btn btn-outline-primary btn-lg"> Add to Cart </button>
+            <H3 class="font-weight-bold">@Model.ProductNames</H3>
+            <H3 class="font-weight-bold text-secondary">$@Model.ProductPrice</H3>
+            <label>QTY:</label>
+            @Html.DropDownList("selectedQuantity", new List<SelectListItem> {
+                new SelectListItem() { Text= "1", Value = "1"},
+                new SelectListItem() { Text= "2", Value = "2"},
+                new SelectListItem() { Text= "3", Value = "3"},
+                new SelectListItem() { Text= "4", Value = "4"},
+                new SelectListItem() { Text= "5", Value = "5"},
+            })
+
+            <input hidden name="selectedId" value="@Model.ProductId" />
+        </form>
     </section>
-
 </main>
-
 <!-- End Main Content -->
