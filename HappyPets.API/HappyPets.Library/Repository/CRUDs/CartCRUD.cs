@@ -9,10 +9,24 @@ namespace HappyPets.Library.Repository.CRUDs
     public partial class RepositoryCRUDs
     {
 
-        public IEnumerable<Cart> GetCart()
+        public IEnumerable<Cart2> GetCart()
         {
             var cart = _db.Cart.ToList();
-            return cart;
+
+            IEnumerable<Cart2> mycart = cart.Select(x => new Cart2
+            {
+                Active = x.Active,
+                CartId = x.CartId,
+                ItemId = x.ItemId,
+                ItemTotalCost = x.ItemTotalCost,
+                ItemType = x.ItemType,
+                OrderId = x.OrderId,
+                Quantity = x.OrderId,
+                UsersId = x.UsersId
+
+            });
+
+            return mycart;
         }
         public void EditCart(Cart cart)
         {

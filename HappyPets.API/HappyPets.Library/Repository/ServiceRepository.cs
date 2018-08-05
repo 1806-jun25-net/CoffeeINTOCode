@@ -47,7 +47,7 @@ namespace HappyPets.Library.Repository
 
 
         }
-        public Services GetServiceById(int id)
+        public Services GetServiceById(int? id)
         {
 
             var service = _db.Services.First(g => g.ServiceId == id);
@@ -65,7 +65,7 @@ namespace HappyPets.Library.Repository
 
 
         }
-        public Products GetProductById(int id)
+        public Products GetProductById(int? id)
         {
 
             var Product = _db.Products.First(g => g.ProductId == id);

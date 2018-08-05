@@ -34,7 +34,7 @@ namespace HappyPets.WepApi.Controllers
         public async Task<ActionResult> Login(User input)
         {
             
-            ViewData["current_user"] = input.Username;
+            //ViewData["current_user"] = input.Username;
            // string username = input.Username;
            // string user = HttpContext.User.Identity.Name;
            

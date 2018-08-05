@@ -21,7 +21,7 @@ namespace HappyPets.WebApp.Controllers
         public async Task<ActionResult> ShowCart()
         {
             string username = TempData["current_user"].ToString();
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/ShowCart/{username}");
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/ShowCart");
 
             HttpResponseMessage apiResponse;
             try
@@ -35,33 +35,11 @@ namespace HappyPets.WebApp.Controllers
 
                 string jsonString = await apiResponse.Content.ReadAsStringAsync();
 
-                IEnumerable<Cart> Cart = JsonConvert.DeserializeObject<IEnumerable<Cart>>(jsonString);//null if cart is empty
+                IEnumerable<CartList> Cart = JsonConvert.DeserializeObject<IEnumerable<CartList>>(jsonString);//null if cart is empty
                 if (Cart == null)
                 {
                     return View("EmptyCart");// empty cart view
                 }
-
-                int cartSize = Cart.Count();
-
-                List<CartList> CartListModel = new List<CartList>(cartSize);
-
-
-                foreach (var item in Cart)
-                {
-
-                    foreach (var c in CartListModel)
-                    {
-                        c.itemType = item.ItemType;
-                        var itemCost = GetItemCostAsync(item.ItemId, item.ItemType, item.CartId);
-                        c.itemPrice = decimal.Parse(itemCost.ToString());
-                        var itemName = GetItemNameAsync();
-                        c.itemName = itemName.ToString();
-
-
-                    }
-
-                }
-
 
 
                 return View(Cart);

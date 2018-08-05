@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using HappyPets.Data;
 using HappyPets.Library.Repository;
+using HappyPets.WebApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,50 +22,88 @@ namespace HappyPets.WepApi.Controllers
             Repo = repo;
         }
         // GET: Order
+        [Route("api/[controller]/[action]")]
         public ActionResult Index()
         {
             return View();
         }
 
         // GET: Order/Details/5
+        [Route("api/[controller]/[action]")]
         public ActionResult Details(int id)
         {
             return View();
         }
-
-        [HttpGet]
-        public IEnumerable<Cart2> ShowCart()
+       //[Route("api/[controller]/[action]/{username}")]
+        [HttpPost]
+        public IEnumerable<CartList> ShowCart(string username)
         {
+            username = "Kevin";
             IEnumerable<Cart2> cart;
-            int? cartOrderId;
-            bool newCart;
-            //get user current cart
-
-            //string username = TempData.Peek("current_user").ToString();
-            string username = "Kevin";
-            var user = Repo.GetUserByUserName(username);
-            var userid = user.UsersId;
-            (cartOrderId, newCart) = Repo.GetActiveCartOrderId(userid);//fix this - check active column 
-
-
-            if (newCart == true)// if it is new order then create empty cart
-            {
-                cart = null;
-                return cart;
-            }
-            else
-            {
-                //get cart
-                cart = Repo.GetCartByOrderId(cartOrderId);
-            }
-
+            List<CartList> myCart = new List<CartList>();
 
            
-            
+
+            int? cartOrderId;
+            bool newCart;
+ 
+            var user = Repo.GetUserByUserName(username);
+            var userid = user.UsersId;
+            (cartOrderId, newCart) = Repo.GetActiveCartOrderId(userid);
+
+            /*
+                  List<Address> addressList = new List<Address>();
+
+        addressList.Add(new Address() { 
+            Street = "Main Street",
+            Zip = "1234"
+        });
+             */
+
+
+            if (newCart == false)
+            {
+
+                cart = Repo.GetCartByOrderId(cartOrderId);
+
+                foreach (var item in cart)
+                {
+                    var name = GetItemName(item.ItemId, item.ItemType);
+                    var  price = GetItemCost(item.ItemId, item.ItemType, item.CartId);
+
+                    myCart.Add(new CartList()
+                    {
+                        itemName = name,
+                        itemPrice = decimal.Parse(price.ToString()),
+                        itemType = item.ItemType,
+                        quantity = item.Quantity
+                
+                    });
+
+                }
+
+                IEnumerable<CartList> cartList = myCart.Select(x => new CartList
+                {
+                    itemType = x.itemType,
+                    itemName = x.itemName,
+                    itemPrice = x.itemPrice,
+                    quantity =x.quantity
+                 
+                });
+
+                return cartList;
+            }
+           else// if it is new order then create empty cart
+            {
+                IEnumerable<CartList> empty = null;
+                return empty;
+            }
+
             //send cart to the mvc frontend
-            return cart;
+          
         }
-        public decimal? GetItemCost([FromBody] int itemId, bool? itemType, int cartId )
+       // [Route("api/[controller]/[action]")]
+        public decimal? GetItemCost( int? itemId, bool? itemType, int cartId )
         {
             decimal? price =0;
            if (itemType == true)
@@ -83,7 +122,8 @@ namespace HappyPets.WepApi.Controllers
             return price;
             
         }
-        public string GetItemName([FromBody] int itemId, bool? itemType)
+        //[Route("api/[controller]/[action]")]
+        public string GetItemName( int? itemId, bool? itemType)
         {
            
                 string itemName = " ";
@@ -104,13 +144,14 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpGet]
+        [Route("api/[controller]/[action]")]
         public IEnumerable<Location> OptionsLocation()
         {
             var locations = Repo.GetLocations();
 
             return locations;
         }
-        
+        [Route("api/[controller]/[action]")]
         public  IEnumerable<Employee> Choose([FromBody] int location, bool time, DateTime date)
         {
             //get data from form
@@ -120,13 +161,14 @@ namespace HappyPets.WepApi.Controllers
             return employees;
         }
 
+        [Route("api/[controller]/[action]")]
         public Services GetServiceDetails([FromBody] int itemid)
         {
 
             var service = Repo.GetServiceById(itemid);
             return service;
 ;        }
-
+        [Route("api/[controller]/[action]")]
         public Products GetProductDetails([FromBody] int itemid)
         {
 
