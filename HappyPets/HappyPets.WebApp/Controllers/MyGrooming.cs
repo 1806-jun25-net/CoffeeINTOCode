@@ -15,5 +15,11 @@ namespace HappyPets.WebApp.Controllers
         {
             return View();
         }
+
+        // GET: /<controller>/
+        public IActionResult OrderDetailsRating()
+        {
+            return View();
+        }
     }
 }
