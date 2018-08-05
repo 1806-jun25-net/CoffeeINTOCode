@@ -6374,3 +6374,7 @@ body {
 .HP-Footer-extra-info {
   font-size: 24px;
   width: 100%; }
+
+main {
+    min-height: 75vh;
+}

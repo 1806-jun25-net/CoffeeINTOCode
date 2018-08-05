@@ -43,30 +43,31 @@
     };
 }
 
-
-<form asp-controller="Order"
-      asp-action="Choosen"
-      method="post">
-    <label for="selectedLocation">Select a Location</label>
-    @Html.DropDownList("selectedLocation", selectedLocation)
-
-    <br />
-
-    <label for="selectedDate"> Select a Day </label>
-    <input requried="true"
-           id="selectedDate"
-           name="selectedDate"
-           type="date"
-           value="@dateRangeMin"
-           min="@dateRangeMin"
-           max="@dateRangeMax" />
-    <br />
-
-
-    <label for="selectedTime"> Select a time</label>
-    @Html.DropDownList("selectedTime", selectedTime)
-
-    <br />
-    <button type="submit">Continue</button>
-</form>
+<main class="my-4">
+    <h3>Create your appointment</h3>
+    <hr></hr>
+    <form asp-controller="Order"
+          asp-action="Choosen"
+          method="post">
+        <label class="my-3"  for="selectedLocation">Select a Location</label>
+        <br />
+        @Html.DropDownList("selectedLocation", selectedLocation)
+        <br />
+        <label class="my-3" for="selectedDate"> Select a Day </label>
+        <br />
+        <input requried="true"
+               id="selectedDate"
+               name="selectedDate"
+               type="date"
+               value="@dateRangeMin"
+               min="@dateRangeMin"
+               max="@dateRangeMax" />
+        <br />
+        <label class="my-3" for="selectedTime"> Select a time</label>
+        <br />
+        @Html.DropDownList("selectedTime", selectedTime)
+        <br />
+        <button class="my-4 btn btn-primary" type="submit">Continue</button>
+    </form>
+</main>
 
