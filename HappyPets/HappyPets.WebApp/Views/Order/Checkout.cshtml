@@ -1,19 +1,21 @@
-﻿@{
+﻿@model HappyPets.WebApp.Models.OrderDetails
+@{
+    var d = (DateTime) Model.appointmentDate;
+    var date = $"{d.Day}/{d.Month}/{d.Year}";
 }
 
 <!-- Main Content -->
 <main class="row my-4">
     <div class="container-fluid">
-        <h2>Order Number: <span style="color:red;">12345</span></h2>
-        <p>Total: $13.00</p>
-        <p>Order Issued: 02/04/2018</p>
-        <p>Services Appointment: 04/04/2018</p>
-        <p>Your Groomer: Juan Rodriguez</p>
+        <h2>Order: <span style="color:red;">@Model.OrderId</span></h2>
+        <p>Total: $<span>@Model.OrderTotal</span></p>
+        <p>Services Appointment: @date</p>
+        <p>Your Groomer: @Model.Employee_Firstname @Model.Employee_Lastname</p>
     </div>
 
     <div class="container-fluid my-4">
         <form asp-controller="Order" asp-action="PlaceOrder" method="post">
-            <input hidden name="orderId" type="number" value="5" />
+            <input hidden name="@Model.OrderId" type="number" value="5" />
             <button type="submit" class="btn btn-outline-primary btn-lg">Confirm Order</button>
         </form>
         <table class="table table-striped table-hover my-4">
@@ -24,19 +26,18 @@
                 </tr>
             </thead>
             <tbody>
-                @*@foreach (var c in Model)*@
-                @for (int i = 0; i < 10; i++)
+                @foreach (var c in Model.ServicesItems)
                 {
                 <tr>
-                    <td>c.itemName</td>
-                    <td>c.itemPrice</td>
+                    <td>@c.ServiceNames</td>
+                    <td>@c.ServicePrice</td>
                 </tr>
                 }
             </tbody>
         </table>
-        <p>Total: $13.00</p>
+        <p>Total: $<span>@Model.OrderTotal</span></p>
         <form asp-controller="Order" asp-action="PlaceOrder" method="post">
-            <input hidden name="orderId" type="number" value="5"/>
+            <input hidden name="@Model.OrderId" type="number" value="5"/>
             <button type="submit" class="btn btn-outline-primary btn-lg">Confirm Order</button>
         </form>
     </div>
