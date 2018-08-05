@@ -4,8 +4,7 @@
     ViewData["Title"] = "Login";
 }
 
-<h2>Login</h2>
-<h4>Login</h4>
+<h3>Login</h3>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -19,12 +18,12 @@
                 <input asp-for="Password" class="form-control" />
             </div>
             <div class="form-group">
-                <input type="submit" value="Submit" class="btn btn-default" />
+                <input type="submit" value="Submit" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
-<div>
+<div class="my-4">
     <a asap-controller="Account" asp-action="Register">Don't have an account yet? Sing Up</a>
 </div>
 @section Scripts {
