@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    var isLogin = TempData.Peek("current_user") != null;
+
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -146,3 +150,33 @@
 
 </body>
 </html>
+
+                    <ul class="nav flex-column bg-primary p-4">
+                        <li><a class="font-weight-bold text-white" href="#">Shop By Pet <span class="sr-only">(current)</span></a></li>
+                        <li><a class="font-weight-bold text-white" asp-controller="Service" asp-action="GetAllServices">Pet Services</a></li>
+                        <li><a class="font-weight-bold text-white" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a></li>
+                        <li><a class="font-weight-bold text-white" href="#">My Gromming</a></li>
+                        @if (isLogin)
+                        {
+                            <li><a class="font-weight-bold text-white" asp-controller="Account" asp-action="Logout">Logout</a></li>    
+                        }
+                        else
+                        {
+                            <li><a class="font-weight-bold text-white" asp-controller="Account" asp-action="Login">Login</a></li>
+                        }
+
+            <div class="navbar-nav align-items-center">
+                <a class="nav-item ml-4 mr-4 nav-link active font-weight-bold HP-nav-item" href="#">Shop By Pet <span class="sr-only">(current)</span></a>
+                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllServices">Pet Services</a>
+                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a>
+                <span class="navbar-text ml-4 mr-4 font-weight-bold HP-nav-item"> | </span>
+                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" href="#">My Gromming</a>
+                @if (isLogin)
+                {
+                    <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Account" asp-action="Logout">Logout</a>
+                }
+                else
+                {
+                    <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Account" asp-action="Login">Login</a>
+                }
+
