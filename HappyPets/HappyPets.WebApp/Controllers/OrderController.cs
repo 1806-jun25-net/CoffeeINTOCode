@@ -184,7 +184,7 @@ namespace HappyPets.WebApp.Controllers
                 string jsonString = await apiResponse.Content.ReadAsStringAsync();
 
                 Services service = JsonConvert.DeserializeObject<Services>(jsonString);
-
+                
 
                 return View(service); //send the selected product to view 
 
@@ -195,19 +195,102 @@ namespace HappyPets.WebApp.Controllers
                 return View("Error");
             }
         }
+        public  async Task<ActionResult> AddProductsToCart(IFormCollection viewcollection)
+        {
+            var quantity = int.Parse(viewcollection["selectedQuantity"]);
+            var item = int.Parse(viewcollection["selectedId"]);
+            string username = TempData["current_user"].ToString();//verify if i can access this here
+            
+            AddToCart add = new AddToCart
+            {
+                Quantity = quantity,
+                ItemId = item,
+                Username = username
+            };
 
-        //public actionresult checkout(iformcollection viewcollection)
-        //{
-        //    var selectedemployeeid = int.parse(viewcollection["selectedEmployee"]);
+
+            
+
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/order/AddProductToCart", add);
 
 
-        //    httprequestmessage apirequest = createrequesttoservice(httpmethod.get, "api/order/selectemployee", employee);
+            HttpResponseMessage apiResponse;
+            
+                apiResponse = await HttpClient.SendAsync(apiRequest);
+
+            return NoContent();
+
+        }
 
 
-        //    redirecttoaction("placeorder", "order", );
+        public async Task<ActionResult> AddServiceToCart(IFormCollection viewcollection)
+        {
+            var size = viewcollection["selectedSize"];
+            var item = int.Parse(viewcollection["selectedId"]);
+            string username = TempData["current_user"].ToString();
+
+            AddToCart add = new AddToCart
+            {
+                Size = size,
+                ItemId = item,
+                Username = username
+            };
 
 
-        //}
+
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/order/AddServiceToCart", add);
+
+
+            HttpResponseMessage apiResponse;
+
+            apiResponse = await HttpClient.SendAsync(apiRequest);
+
+
+            return NoContent();
+
+
+
+        }
+
+
+        public async Task<ActionResult> Checkout(IFormCollection viewcollection)
+        {
+            string username = TempData["current_user"].ToString();
+            var selectedemployeeid = int.Parse(viewcollection["selectedEmployee"]);
+
+            AddToCart add = new AddToCart { EmployeeId = selectedemployeeid, Username = username };
+
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/order/Checkout", add);
+
+
+            HttpResponseMessage apiResponse;
+            try
+            {
+                apiResponse = await HttpClient.SendAsync(apiRequest);
+
+                if (!apiResponse.IsSuccessStatusCode)
+                {
+                    return View("AccessDenied");
+                }
+
+                string jsonString = await apiResponse.Content.ReadAsStringAsync();
+
+               
+                OrderDetails order = JsonConvert.DeserializeObject<OrderDetails>(jsonString);
+
+
+                return View(order); //send the selected product to view 
+
+
+            }
+            catch (AggregateException ex)
+            {
+                return View("Error");
+            }
+
+
+
+        }
 
         //public ActionResult PlaceOrder()
         //{

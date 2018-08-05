@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using HappyPets.Data;
 using HappyPets.Library.Repository;
 using HappyPets.WebApp.Models;
+using HappyPets.WepApi.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -61,7 +62,7 @@ namespace HappyPets.WepApi.Controllers
                 foreach (var item in cart)
                 {
                     var name = GetItemName(item.ItemId, item.ItemType);
-                    var  price = GetItemCost(item.ItemId, item.ItemType, item.CartId);
+                    var  price = GetItemCost(item.ItemId, item.ItemType);
 
                     myCart.Add(new CartList()
                     {
@@ -95,7 +96,7 @@ namespace HappyPets.WepApi.Controllers
           
         }
        // [Route("api/[controller]/[action]")]
-        public decimal? GetItemCost( int? itemId, bool? itemType, int cartId )
+        public decimal? GetItemCost( int? itemId, bool? itemType)
         {
             decimal? price =0;
            if (itemType == true)
@@ -156,7 +157,47 @@ namespace HappyPets.WepApi.Controllers
             return employees;
         }
 
-       // [Route("api/[controller]/[action]")]
+        public void AddProductToCart(AddToCart cart)
+        {
+            bool isNewCart;
+            int? orderid;
+            bool itemType = false;
+            var username = cart.Username;
+            var user = Repo.GetUserByUserName(username);
+            var userid = user.UsersId;
+            (orderid, isNewCart) = Repo.GetActiveCartOrderId(userid);
+            decimal? itemcost = GetItemCost(cart.ItemId, itemType);
+            if(isNewCart == true)
+            {
+                orderid = Repo.CreateOrderId();
+            }
+
+            
+            Repo.CreateCart(orderid, userid,cart.Quantity,cart.ItemId,itemType,true,itemcost);
+
+
+        }
+        public void AddServiceToCart(AddToCart add)
+        {
+            bool isNewCart;
+            int? orderid;
+            bool itemType = true;
+            var username = add.Username;
+            var user = Repo.GetUserByUserName(username);
+            var userid = user.UsersId;
+            (orderid, isNewCart) = Repo.GetActiveCartOrderId(userid);
+            decimal? itemcost = GetItemCost(add.ItemId, itemType);
+            if (isNewCart == true)
+            {
+                orderid = Repo.CreateOrderId();
+            }
+
+
+
+            Repo.CreateCart(orderid, userid, add.Quantity, add.ItemId, itemType, true, itemcost);
+        }
+
+        // [Route("api/[controller]/[action]")]
         public Services GetServiceDetails( ItemDetails id)
         {
             var itemId = id.ItemId;
@@ -172,6 +213,40 @@ namespace HappyPets.WepApi.Controllers
             return product;
             
         }
+        [HttpPost]
+        public OrderDetails Checkout(AddToCart details)
+        {
+            //details :employeeid and user stored
+            int? orderid;
+            bool newCart;
+            var employeeId = details.EmployeeId;
+            var employee = Repo.GetEmployee(employeeId);
+            var username = details.Username;
+            var user = Repo.GetUserByUserName(username);
+            int? userid = user.UsersId;
+            (orderid, newCart) = Repo.GetActiveCartOrderId(userid);
+            var appointment = Repo.GetApointmentByOrderId(orderid);
+            DateTime? appointmentDate = appointment.AppointmentDate;
+            var products = Repo.GetCurrentProduct(orderid);
+            var services = Repo.GetCurrentService(orderid);
+            var ordertotal = Repo.GetOrderTotal(orderid);
+
+
+            OrderDetails order = new OrderDetails
+            {
+                Employee_Firstname = employee.FirstName,
+                Employee_Lastname = employee.LastName,
+                appointmentDate = appointmentDate,
+                OrderId = orderid,
+                ProductsItems = products,
+                ServicesItems = services,
+                OrderTotal = ordertotal
+            };
+
+            //orderId, total, orderdate, appointment, item price, item name
+            return order; 
+
+    }
 
 
 

@@ -35,7 +35,7 @@ namespace HappyPets.Library.Repository.CRUDs
             SaveChanges();
         }
 
-        public void AddCart(int orderid, int userid, int quantity, int itemid, bool itemType, bool active, decimal itemCost)
+        public void AddCart(int? orderid, int userid, int quantity, int itemid, bool itemType, bool active, decimal? itemCost)
         {
             var cart = new Cart
             {

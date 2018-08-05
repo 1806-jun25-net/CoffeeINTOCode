@@ -39,6 +39,10 @@ namespace HappyPets.Library.Repository
             return myCart;
 
         }
+        public void CreateCart(int? orderid, int userid, int quantity, int itemid, bool itemType, bool active, decimal? itemcost)
+        {
+            _repo.AddCart( orderid,  userid,  quantity,  itemid,  itemType,  active,  itemcost);
+        }
 
         //public IEnumerable<Cart2> GetCartByOrderId(int? orderid)
         //{
@@ -72,7 +76,7 @@ namespace HappyPets.Library.Repository
         //    return thecart;
 
         //}
-        public (int?,bool) GetActiveCartOrderId(int userid)
+        public (int?,bool) GetActiveCartOrderId(int? userid)
         {
 
             var order = _db.Orders.Last();
@@ -100,7 +104,7 @@ namespace HappyPets.Library.Repository
             return (id, newcart); 
 
         }
-        public IEnumerable<Products> GetCurrentProduct(int userorderId)
+        public IEnumerable<Products> GetCurrentProduct(int? userorderId)
         {
             List<int?> productId = new List<int?>();
             var products = new List<Products>();
@@ -113,7 +117,7 @@ namespace HappyPets.Library.Repository
                productId.Add(item.ItemId);
             }
 
-            //get products in cart with the product
+            //get products in cart with the product id
             foreach (var product in productId)
             {
                  products.Add( _db.Products.FirstOrDefault(g => g.ProductId == product));
@@ -125,7 +129,7 @@ namespace HappyPets.Library.Repository
 
         }
 
-        public IEnumerable<Services> GetCurrentService(int userorderId)
+        public IEnumerable<Services> GetCurrentService(int? userorderId)
         {
             List<int?> serviceid = new List<int?>();
             var services = new List<Services>();
@@ -138,7 +142,7 @@ namespace HappyPets.Library.Repository
                 serviceid.Add(item.ItemId);
             }
 
-            //get products in cart with the product
+            //get service in cart with the service id
             foreach (var service in serviceid)
             {
                 services.Add(_db.Services.FirstOrDefault(g => g.ServiceId == service));
@@ -185,6 +189,11 @@ namespace HappyPets.Library.Repository
 
 
         }
+        public Appointments GetApointmentByOrderId(int? orderid)
+        {
+            var appointment =_repo.GetAppointmentsByOrderId(orderid);
+            return appointment;
+        }
 
         public int? CheckItemAvailability(int id)
         {
@@ -217,6 +226,21 @@ namespace HappyPets.Library.Repository
             max++;
 
             return max;
+        }
+
+        public decimal? GetOrderTotal(int? orderid)
+        {
+            decimal? orderTotal = 0;
+
+            var mycart = GetCartByOrderId(orderid);
+
+            foreach (var item in mycart)
+            {
+                orderTotal = orderTotal + item.ItemTotalCost;
+            }
+
+            return orderTotal;
+
         }
 
 
