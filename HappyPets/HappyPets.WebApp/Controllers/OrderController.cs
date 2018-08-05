@@ -118,7 +118,12 @@ namespace HappyPets.WebApp.Controllers
 
                 IEnumerable<Employee> employees = JsonConvert.DeserializeObject<IEnumerable<Employee>>(jsonString);
 
-                return View(employees); //send available employees to view
+                if (employees == null)
+                {
+                    return View("NoEmployees");
+                }
+                else
+                   return View(employees); //send available employees to view
 
             }
             catch (AggregateException ex)
@@ -195,7 +200,7 @@ namespace HappyPets.WebApp.Controllers
         //    var selectedEmployeeid = int.Parse(viewCollection["selectedEmployee"]);
 
 
-        //    HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/SelectEmployee/{selectedEmployeeid}");
+        //    HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/SelectEmployee", employee);
 
 
         //    RedirectToAction("PlaceOrder", "Order", );

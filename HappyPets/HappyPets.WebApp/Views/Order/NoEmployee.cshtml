@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewData["Title"] = "Select again";
+}
+
+<h2>There is no employees available for the specified location, date and time</h2>
+
+<form asp-controller="Order"
+      asp-action="Options"
+      method="get">
+
+
+    <button type="submit">Change options</button>
+
+    </form>
+<form asp-controller="Home"
+      asp-action="Index"
+      method="get">
+
+    <button type="submit">Cancel</button>
+
+</form>
