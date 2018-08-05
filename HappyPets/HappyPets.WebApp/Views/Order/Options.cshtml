@@ -1,0 +1,60 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    var now = DateTime.Now;
+    var month = now.Month;
+    var day = now.Day;
+    var year = now.Year;
+
+    var date = new DateTime(year, month, day);
+    var dateRangeMin = date.AddDays(1).ToString("yyyy-MM-dd");
+    var dateRangeMax = date.AddDays(7).ToString("yyyy-MM-dd");
+
+    var locationList = (IEnumerable<Location>)Model;
+
+    var selectedLocation = locationList.Select(
+     item =>
+     {
+         var list = new SelectListItem()
+         {
+             Text = item.LocationName,
+             Value = item.LocationId.ToString()
+         };
+         return list;
+     }
+    ).ToList();
+
+
+}
+
+
+<form asp-controller="Order"
+      asp-action="Choosen"
+      method="get">
+    <label for="selectedLocation">Select a Location</label>
+    @Html.DropDownList("selectedLocation", selectedLocation)
+
+    <br />
+
+    <label for="selectedDate"> Select a Day </label>
+    <input requried
+           id="selectedDate"
+           name="selectedDate"
+           type="date"
+           min="@dateRangeMin"
+           max="@dateRangeMax" />
+    <br />
+
+
+    <label for="selectedTime"> Select a time</label>
+    <select id="selectedTime"
+            name="selectedTime">
+        <option value=0>Morning</option>
+        <option value=1>After</option>
+    </select>
+    <br />
+    <button type="submit">Continue</button>
+</form>
+
