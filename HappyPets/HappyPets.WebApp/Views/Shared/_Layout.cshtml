@@ -76,7 +76,7 @@
                         <li><a class="font-weight-bold text-white" href="#">Shop By Pet <span class="sr-only">(current)</span></a></li>
                         <li><a class="font-weight-bold text-white" asp-controller="Service" asp-action="GetAllServices">Pet Services</a></li>
                         <li><a class="font-weight-bold text-white" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a></li>
-                        <li><a class="font-weight-bold text-white" href="#">My Gromming</a></li>
+                        <li><a class="font-weight-bold text-white" asp-controller="MyGromming" asp-action="Index">My Gromming</a></li>
                         @if (isLogin)
                         {
                             <li><a class="font-weight-bold text-white" asp-controller="Account" asp-action="Logout">Logout</a></li>
@@ -107,7 +107,7 @@
                 <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllServices">Pet Services</a>
                 <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Service" asp-action="GetAllProducts">Pet Products</a>
                 <span class="navbar-text ml-4 mr-4 font-weight-bold HP-nav-item"> | </span>
-                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" href="#">My Gromming</a>
+                <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="MyGromming" asp-action="Index">My Gromming</a>
                 @if (isLogin)
                 {
                     <a class="nav-item ml-4 mr-4 nav-link font-weight-bold HP-nav-item" asp-controller="Account" asp-action="Logout">Logout</a>
