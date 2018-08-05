@@ -9,7 +9,8 @@ namespace HappyPets.WebApp.Controllers
         public IActionResult Index(Currentuser user)
         {
             //string user = Request.QueryString("username");
-            
+
+
             TempData["current_user"] = user.Username;
             return View();
         }

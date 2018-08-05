@@ -22,12 +22,11 @@ namespace HappyPets.Library.Repository
                 return order;
             }
 
-        } 
-
+        }
         public IEnumerable<Cart2> GetCartByOrderId(int? orderid)
         {
             var allCarts = _repo.GetCart();
-            var myCart = new List<Cart>();
+            var myCart = new List<Cart2>();
 
             foreach (var cart in allCarts)
             {
@@ -37,25 +36,42 @@ namespace HappyPets.Library.Repository
                 }
             }
 
-            IEnumerable<Cart2> thecart = myCart.Select(x => new Cart2
-            {
-                Active = x.Active,
-                CartId = x.CartId,
-                ItemId = x.ItemId,
-                ItemTotalCost = x.ItemTotalCost,
-                ItemType = x.ItemType,
-                OrderId = x.OrderId,
-                Quantity = x.Quantity,
-                UsersId = x.UsersId
-            });
-            
-
-
-            
-
-            return thecart;
+            return myCart;
 
         }
+
+        //public IEnumerable<Cart2> GetCartByOrderId(int? orderid)
+        //{
+        //    var allCarts = _repo.GetCart();
+        //    var myCart = new List<Cart>();
+
+        //    foreach (var cart in allCarts)
+        //    {
+        //        if (cart.OrderId == orderid)
+        //        {
+        //            myCart.Add(cart);
+        //        }
+        //    }
+
+        //    IEnumerable<Cart2> thecart = myCart.Select(x => new Cart2
+        //    {
+        //        Active = x.Active,
+        //        CartId = x.CartId,
+        //        ItemId = x.ItemId,
+        //        ItemTotalCost = x.ItemTotalCost,
+        //        ItemType = x.ItemType,
+        //        OrderId = x.OrderId,
+        //        Quantity = x.Quantity,
+        //        UsersId = x.UsersId
+        //    });
+
+
+
+
+
+        //    return thecart;
+
+        //}
         public (int?,bool) GetActiveCartOrderId(int userid)
         {
 
