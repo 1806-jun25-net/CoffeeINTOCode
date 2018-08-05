@@ -6,6 +6,8 @@
         public int Quantity { get; set; }
         public string Size { get; set; }
         public int ItemId { get; set; }
+        public bool ItemType { get; set; }
+
         public string Username { get; set; }
 
     }

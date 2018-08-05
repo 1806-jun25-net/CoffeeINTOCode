@@ -120,7 +120,7 @@ namespace HappyPets.Library.Repository
             return employeeRating;
         }
 
-
+      
 
 
         // Employee
@@ -181,6 +181,22 @@ namespace HappyPets.Library.Repository
             );
         }
 
+        public int GetLocationOfEmployee(int? employeeid)
+        {
+            var  employee = _repo.GetLocationByEmployeeId(employeeid);
+            var locationid = employee.LocationId;
+            var locationId = int.Parse(locationid.ToString());
+            return locationId;
+
+        }
+
+        public void CreateOrder(DateTime OrderTime, decimal? TotalCost, int location, int? employee, int orderid )
+        {
+            
+            _repo.AddOrders(OrderTime, TotalCost,  location, employee, orderid);
+            _repo.EditCart(orderid);
+
+        }
     }
 }
 

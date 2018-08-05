@@ -6,6 +6,7 @@ using HappyPets.Data;
 using HappyPets.Library.Repository;
 using HappyPets.WebApp.Models;
 using HappyPets.WepApi.Data;
+using HappyPets.WepApi.Data.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -157,11 +158,12 @@ namespace HappyPets.WepApi.Controllers
             return employees;
         }
 
+        [HttpPost]
         public void AddProductToCart(AddToCart cart)
         {
             bool isNewCart;
             int? orderid;
-            bool itemType = false;
+            bool itemType = cart.ItemType;
             var username = cart.Username;
             var user = Repo.GetUserByUserName(username);
             var userid = user.UsersId;
@@ -177,6 +179,8 @@ namespace HappyPets.WepApi.Controllers
 
 
         }
+
+        [HttpPost]
         public void AddServiceToCart(AddToCart add)
         {
             bool isNewCart;
@@ -246,7 +250,26 @@ namespace HappyPets.WepApi.Controllers
             //orderId, total, orderdate, appointment, item price, item name
             return order; 
 
-    }
+        }
+
+        public void PlaceOrder(MyOrder order)
+        {
+            int? orderid = order.OrderId;
+            var appointment = Repo.GetApointmentByOrderId(orderid);
+            int? emploeyeeid = appointment.EmployeeId;
+            int locationid = Repo.GetLocationOfEmployee(emploeyeeid);
+            decimal? totalcost = Repo.GetOrderTotal(orderid);
+            DateTime ordertime = DateTime.Now;
+
+            //DateTime OrderTime, decimal TotalCost, int location, int employee
+            int norderid = int.Parse(orderid.ToString());
+            Repo.CreateOrder(ordertime,totalcost,locationid,emploeyeeid,norderid);
+
+
+            View("Success");
+
+        }
+
 
 
 

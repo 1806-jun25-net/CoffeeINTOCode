@@ -205,13 +205,15 @@ namespace HappyPets.WebApp.Controllers
             {
                 Quantity = quantity,
                 ItemId = item,
-                Username = username
+                Username = username,
+                ItemType = false
+                
             };
 
 
             
 
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/order/AddProductToCart", add);
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/AddProductToCart", add);
 
 
             HttpResponseMessage apiResponse;
@@ -233,12 +235,14 @@ namespace HappyPets.WebApp.Controllers
             {
                 Size = size,
                 ItemId = item,
-                Username = username
+                Username = username,
+                ItemType = true
+              
             };
 
 
 
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/order/AddServiceToCart", add);
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/AddServiceToCart", add);
 
 
             HttpResponseMessage apiResponse;
@@ -292,10 +296,41 @@ namespace HappyPets.WebApp.Controllers
 
         }
 
-        //public ActionResult PlaceOrder()
-        //{
+        public async Task<ActionResult> PlaceOrder(IFormCollection viewcollection)
+        {
+            int? orderid = int.Parse(viewcollection["orderId"]);
 
-        //}
+            MyOrder order = new MyOrder { OrderId = orderid };
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/PlaceOrder", order);
+
+
+            HttpResponseMessage apiResponse;
+            try
+            {
+                apiResponse = await HttpClient.SendAsync(apiRequest);
+
+                if (!apiResponse.IsSuccessStatusCode)
+                {
+                    return View("AccessDenied");
+                }
+
+                string jsonString = await apiResponse.Content.ReadAsStringAsync();
+
+
+               // OrderDetails order = JsonConvert.DeserializeObject<OrderDetails>(jsonString);
+
+
+                return View();
+
+
+            }
+            catch (AggregateException ex)
+            {
+                return View("Error");
+            }
+
+
+        }
 
 
 

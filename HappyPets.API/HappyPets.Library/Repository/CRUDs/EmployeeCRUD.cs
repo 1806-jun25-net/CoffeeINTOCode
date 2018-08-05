@@ -113,5 +113,12 @@ namespace HappyPets.Library.Repository.CRUDs
             }
             return employee;
         }
+
+        public Employee GetLocationByEmployeeId(int? emId)
+        {
+            var employee = _db.Employee.First(g => g.EmployeeId == emId);
+            return employee;
+
+        }
     }
 }
