@@ -1,5 +1,4 @@
-﻿
-@*
+﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
@@ -27,12 +26,27 @@
     ).ToList();
 
 
+
+    var selectedTime = new List<SelectListItem>()
+    {
+        new SelectListItem()
+        {
+            Text = "Morning",
+            Value = "0"
+        },
+
+        new SelectListItem()
+        {
+            Text = "Afternoon",
+            Value = "1"
+        }
+    };
 }
 
 
 <form asp-controller="Order"
       asp-action="Choosen"
-      method="get">
+      method="post">
     <label for="selectedLocation">Select a Location</label>
     @Html.DropDownList("selectedLocation", selectedLocation)
 
@@ -49,11 +63,8 @@
 
 
     <label for="selectedTime"> Select a time</label>
-    <select id="selectedTime"
-            name="selectedTime">
-        <option value=0>Morning</option>
-        <option value=1>After</option>
-    </select>
+    @Html.DropDownList("selectedTime", selectedTime)
+
     <br />
     <button type="submit">Continue</button>
 </form>
