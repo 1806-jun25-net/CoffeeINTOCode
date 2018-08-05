@@ -41,9 +41,6 @@ namespace HappyPets.WebApp.Controllers
         }
 
 
-
-
-
         // Controllers for test Design
         public IActionResult Cart()
         {
