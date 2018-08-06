@@ -154,8 +154,18 @@ namespace HappyPets.WepApi.Controllers
       [Authorize]
         public  IEnumerable<Employee> Choose( Choosen choosen)
         {
+            int? orderid;
+            bool newCart;
             var date = choosen.Date;
             var time = choosen.Time;
+            var username = choosen.Username;
+            var user = Repo.GetUserByUserName(username);
+            int? userid = user.UsersId;
+            (orderid, newCart) = Repo.GetActiveCartOrderId(userid);
+
+
+            int employeeId = 1;
+            Repo.CreateAppointment(time, orderid, userid, employeeId, date);
             var location = choosen.LocationId;
 
             var employees = Repo.GetAvailableEmployees(date, time, location);
