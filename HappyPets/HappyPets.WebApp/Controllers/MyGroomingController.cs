@@ -16,7 +16,7 @@ namespace HappyPets.WebApp.Controllers
 
         public MyGroomingController(HttpClient httpClient) : base(httpClient) {  }
         // GET: /<controller>/
-        public async Task<IActionResult> IndexAsync()
+        public async Task<IActionResult> Index()
         {
             string username = TempData.Peek("current_user").ToString();
             Users user = new Users { UserName = username };
@@ -47,6 +47,7 @@ namespace HappyPets.WebApp.Controllers
 
 
         // GET: /<controller>/
+        [HttpGet("{orderid}")]
         public async Task<IActionResult> OrderDetailsRating(int orderid)
         {
             string username = TempData.Peek("current_user").ToString();
