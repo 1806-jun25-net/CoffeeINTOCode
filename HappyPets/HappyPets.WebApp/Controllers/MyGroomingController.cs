@@ -16,7 +16,13 @@ namespace HappyPets.WebApp.Controllers
         public MyGroomingController(HttpClient httpClient) : base(httpClient) {  }
         // GET: /<controller>/
         [HttpGet]
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
+        {
+            return View();
+           
+        }
+
+        public async Task<IActionResult> History()
         {
             bool islog = TempData.Peek("current_user") == null;
 
@@ -31,27 +37,26 @@ namespace HappyPets.WebApp.Controllers
 
 
             HttpResponseMessage apiResponse;
-            
-                apiResponse = await HttpClient.SendAsync(apiRequest);
 
-                if (!apiResponse.IsSuccessStatusCode)
-                {
-                    return View("AccessDenied");
-                }
+            apiResponse = await HttpClient.SendAsync(apiRequest);
 
-                string jsonString = await apiResponse.Content.ReadAsStringAsync();
+            if (!apiResponse.IsSuccessStatusCode)
+            {
+                return View("AccessDenied");
+            }
 
-
-                OrderDetailsRating history  = JsonConvert.DeserializeObject<OrderDetailsRating>(jsonString);
+            string jsonString = await apiResponse.Content.ReadAsStringAsync();
 
 
-                return View(history);
+            OrderDetailsRating history = JsonConvert.DeserializeObject<OrderDetailsRating>(jsonString);
 
 
-            
-           
+            return View(history);
+
+
+
+
         }
-
 
         // GET: /<controller>/
         [HttpGet("{orderid}")]

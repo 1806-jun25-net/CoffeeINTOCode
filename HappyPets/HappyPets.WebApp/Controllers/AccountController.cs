@@ -137,8 +137,8 @@ namespace HappyPets.WebApp.Controllers
             }
 
             PassCookiesToClient(apiResponse);
-            Users user = new Users { 
-                UserName = null
+            Currentuser user = new Currentuser { 
+                Username = null
             };
             return RedirectToAction("Index", "Home", user);
         }

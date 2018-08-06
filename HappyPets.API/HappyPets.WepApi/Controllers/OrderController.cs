@@ -154,6 +154,8 @@ namespace HappyPets.WepApi.Controllers
       [Authorize]
         public  IEnumerable<Employee> Choose( Choosen choosen)
         {
+            //ViewData["date"] = choosen.Date;
+            //ViewData["time"] = choosen.Time;
             int? orderid;
             bool newCart;
             var date = choosen.Date;
@@ -163,9 +165,9 @@ namespace HappyPets.WepApi.Controllers
             int? userid = user.UsersId;
             (orderid, newCart) = Repo.GetActiveCartOrderId(userid);
 
-
+            
             int employeeId = 1;
-            Repo.CreateAppointment(time, orderid, userid, employeeId, date);
+           
             var location = choosen.LocationId;
 
             var employees = Repo.GetAvailableEmployees(date, time, location);
@@ -177,6 +179,7 @@ namespace HappyPets.WepApi.Controllers
         [Authorize]
         public void AddProductToCart(AddToCart cart)
         {
+
             bool isNewCart;
             int? orderid;
             bool itemType = cart.ItemType;
@@ -238,7 +241,12 @@ namespace HappyPets.WepApi.Controllers
         [Authorize]
         public OrderDetails Checkout(AddToCart details)
         {
+            // DateTime date = DateTime.Parse(ViewData["date"].ToString());
+            // bool time = boolParse(ViewData["time"].ToString());
             //details :employeeid and user stored
+
+           
+
             int? orderid;
             bool newCart;
             var employeeId = details.EmployeeId;
@@ -247,6 +255,7 @@ namespace HappyPets.WepApi.Controllers
             var user = Repo.GetUserByUserName(username);
             int? userid = user.UsersId;
             (orderid, newCart) = Repo.GetActiveCartOrderId(userid);
+            Repo.CreateAppointment(details.Time, orderid, userid, employeeId, details.Date);
             var appointment = Repo.GetApointmentByOrderId(orderid);
             DateTime? appointmentDate = appointment.AppointmentDate;
             var products = Repo.GetCurrentProduct(orderid);
@@ -321,7 +330,7 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpPost]
-        public History OrderHistory(Users user)
+        public OrdersDetailsRating OrderHistory(Users user)
         {
            var myuser = Repo.GetUserByUserName(user.UserName);
            var userid = myuser.UsersId;
@@ -341,11 +350,11 @@ namespace HappyPets.WepApi.Controllers
                 
             }
 
-            History orderHistory = new History
+            OrdersDetailsRating orderHistory = new OrdersDetailsRating
             {
-                OrderID = orders,
-                Date = date,
-                Ammount = ammount
+                OrderIDList = orders,
+                DateList = date,
+                AmmountList = ammount
             };
 
             return orderHistory;

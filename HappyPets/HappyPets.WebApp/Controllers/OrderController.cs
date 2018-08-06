@@ -100,9 +100,12 @@ namespace HappyPets.WebApp.Controllers
         {
 
             string username = TempData.Peek("current_user").ToString();
+            TempData["date"] = DateTime.Parse(viewCollection["selectedDate"]);
+            TempData["time"] = bool.Parse(viewCollection["selectedTime"]);
             //receive selected options from view, selected location, time and date
             int location = int.Parse(viewCollection["selectedLocation"]);
             bool time = bool.Parse(viewCollection["selectedTime"]);
+
             DateTime date = DateTime.Parse(viewCollection["selectedDate"]);
 
             Choosen choosen = new Choosen
@@ -289,8 +292,13 @@ namespace HappyPets.WebApp.Controllers
         {
             string username = TempData.Peek("current_user").ToString();
             var selectedemployeeid = int.Parse(viewcollection["selectedEmployee"]);
+            DateTime date = DateTime.Parse(TempData.Peek("date").ToString());
+            bool time = bool.Parse(TempData.Peek("time").ToString());
 
-            AddToCart add = new AddToCart { EmployeeId = selectedemployeeid, Username = username };
+           // Appointments app = new Appointments { AppointmentTime = time, AppointmentDate = date };
+
+            AddToCart add = new AddToCart { EmployeeId = selectedemployeeid, Username = username, Date = date, Time = time };
+
 
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/Checkout", add);
 
@@ -348,7 +356,7 @@ namespace HappyPets.WebApp.Controllers
                // OrderDetails order = JsonConvert.DeserializeObject<OrderDetails>(jsonString);
 
 
-                return View();
+                return View("Success");
 
 
             }

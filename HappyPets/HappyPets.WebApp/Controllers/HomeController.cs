@@ -8,14 +8,9 @@ namespace HappyPets.WebApp.Controllers
     {
         public IActionResult Index(Currentuser user)
         {
-            //string user = Request.QueryString("username");
-
-            var isLog = TempData.Peek("current_user") == null;
-
-            if(isLog)
-            {
-                TempData["current_user"] = user.Username;
-            }
+           
+            TempData["current_user"] = user.Username;
+            
             return View();
         }
 

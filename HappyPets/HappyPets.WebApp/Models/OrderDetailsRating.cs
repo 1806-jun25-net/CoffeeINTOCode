@@ -16,5 +16,6 @@ namespace HappyPets.WebApp.Models
         public IEnumerable<Services> ServicesItems { get; set; }
         public int? Rating { get; set; }
         public string Username { get; set; }
+        //order
     }
 }

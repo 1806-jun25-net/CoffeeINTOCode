@@ -1,4 +1,6 @@
-﻿namespace HappyPets.WepApi.Controllers
+﻿using System;
+
+namespace HappyPets.WepApi.Controllers
 {
     public class AddToCart
     {
@@ -7,8 +9,10 @@
         public string Size { get; set; }
         public int ItemId { get; set; }
         public bool ItemType { get; set; }
-
         public string Username { get; set; }
+        public DateTime Date { get; set; }
+        public bool Time { get; set; }
 
     }
 }
+

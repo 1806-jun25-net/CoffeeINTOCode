@@ -15,5 +15,9 @@ namespace HappyPets.Data.Data
         public IEnumerable<Services> ServicesItems { get; set; }
         public int? Rating { get; set;  }
         public string Username { get; set; }
+        public List<int?> OrderIDList { get; set; }
+        public List<DateTime?> DateList { get; set; }
+        public List<decimal?> AmmountList { get; set; }
+
     }
 }
