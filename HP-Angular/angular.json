@@ -29,11 +29,13 @@
               }
             ],
             "styles": [
-              {
-                "input": "src/styles.css"
-              }
+              "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/js/jquery.min.js",
+              "src/js/popper.min.js",
+              "src/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
