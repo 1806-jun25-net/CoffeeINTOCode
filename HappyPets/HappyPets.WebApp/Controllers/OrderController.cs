@@ -21,6 +21,14 @@ namespace HappyPets.WebApp.Controllers
         
         public async Task<ActionResult> ShowCart()
         {
+
+            bool islog = TempData.Peek("current_user") == null;
+
+            if(islog) 
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             string username = TempData.Peek("current_user").ToString();
             Users user = new Users { UserName = username };
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/ShowCart", user);
@@ -203,6 +211,13 @@ namespace HappyPets.WebApp.Controllers
         }
         public  async Task<ActionResult> AddProductsToCart(IFormCollection viewcollection)
         {
+
+            bool islog = TempData.Peek("current_user") == null;
+
+            if (islog)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             var quantity = int.Parse(viewcollection["selectedQuantity"]);
             var item = int.Parse(viewcollection["selectedId"]);
             string username = TempData.Peek("current_user").ToString();//verify if i can access this here
@@ -233,6 +248,13 @@ namespace HappyPets.WebApp.Controllers
 
         public async Task<ActionResult> AddServiceToCart(IFormCollection viewcollection)
         {
+
+            bool islog = TempData.Peek("current_user") == null;
+
+            if (islog)
+            {
+                return RedirectToAction("Login", "Account");
+            }
             var size = viewcollection["selectedSize"];
             var item = int.Parse(viewcollection["selectedId"]);
             string username = TempData.Peek("current_user").ToString();

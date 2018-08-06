@@ -13,11 +13,18 @@ namespace HappyPets.WebApp.Controllers
 {
     public class MyGroomingController : AServiceController
     {
-
         public MyGroomingController(HttpClient httpClient) : base(httpClient) {  }
         // GET: /<controller>/
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
+            bool islog = TempData.Peek("current_user") == null;
+
+            if (islog)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             string username = TempData.Peek("current_user").ToString();
             Users user = new Users { UserName = username };
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/OrderHistory", user);
@@ -50,6 +57,13 @@ namespace HappyPets.WebApp.Controllers
         [HttpGet("{orderid}")]
         public async Task<IActionResult> OrderDetailsRating(int orderid)
         {
+            bool islog = TempData.Peek("current_user") == null;
+
+            if (islog)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+
             string username = TempData.Peek("current_user").ToString();
             OrderDetailsRating myorder = new OrderDetailsRating { Username = username, OrderId = orderid };
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/OrderDetailsRating", myorder);
