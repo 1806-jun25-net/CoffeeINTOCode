@@ -13,23 +13,20 @@
             <thead>
                 <tr>
                     <th scope="col">Order ID</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Amount</th>
+                  
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @* @foreach (var c in @Model) *@
-                @for (int i = 0; i < 10; i++)
+                @foreach (var c in Model.OrderIDList) 
                 {
                     <tr>
-                        <td>c.itemName</td>
-                        <td>c.itemPrice</td>
-                        <td>c.itemPrice</td>
+                        <td>@c</td>
+                        >
                         <td>
                             <a asp-controller="MyGrooming"
                                asp-action="OrderDetailsRating"
-                               asp-route-id="1">
+                               asp-route-id="@c">
                                 <small class="text-primary">View</small>
                             </a>
                         </td>
