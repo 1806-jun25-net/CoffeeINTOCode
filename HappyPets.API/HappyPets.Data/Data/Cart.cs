@@ -14,7 +14,7 @@ namespace HappyPets.Data
         public bool? Active { get; set; }
         public decimal? ItemTotalCost { get; set; }
 
-        public Orders Order { get; set; }
+        //public Orders Order { get; set; }
         public Users Users { get; set; }
     }
 }

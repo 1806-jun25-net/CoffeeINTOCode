@@ -182,6 +182,11 @@ namespace HappyPets.Library.Repository
             );
         }
 
+        public void CreateAppointment(bool? ApTime, int? orderId, int? userId, int? employeeId, DateTime Date)
+        {
+            _repo.AddAppointment(ApTime,orderId,userId,employeeId, Date);
+        }
+
         public int GetLocationOfEmployee(int? employeeid)
         {
             var  employee = _repo.GetLocationByEmployeeId(employeeid);
@@ -226,13 +231,19 @@ namespace HappyPets.Library.Repository
            
         }
 
-        public DateTime GetOrderDate(int? orderid)
+        public DateTime? GetOrderDate(int? orderid)
         {
             var date = _repo.GetOrderTime(orderid);
             return date;
 
            
 
+        }
+
+        public IEnumerable<Orders> GetAllOrders()
+        {
+            var orders = _repo.GetOrders();
+            return orders;
         }
     }
 }

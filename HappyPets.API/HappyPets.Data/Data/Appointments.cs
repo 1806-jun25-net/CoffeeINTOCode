@@ -13,7 +13,7 @@ namespace HappyPets.Data
         public int? EmployeeId { get; set; }
 
         public Employee Employee { get; set; }
-        public Orders Order { get; set; }
+        //public Orders Order { get; set; }
         public Users Users { get; set; }
     }
 }

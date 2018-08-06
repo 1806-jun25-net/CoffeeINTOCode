@@ -20,7 +20,7 @@ namespace HappyPets.Library.Repository.CRUDs
             return orders;
         }
 
-        public DateTime GetOrderTime(int? id)
+        public DateTime? GetOrderTime(int? id)
         {
             var order = _db.Orders.First(g => g.OrderId == id);
             return order.OrderTime;

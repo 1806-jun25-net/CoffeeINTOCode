@@ -18,17 +18,17 @@ namespace HappyPets.Library.Repository.CRUDs
         }
 
         /////////////////////// Add an Appointment ////////////////////////////////////
-        public void AddAppointment( bool? ApTime, int? orderID, int? userID, int? employeeID)
+        public void AddAppointment( bool? ApTime, int? orderId, int? userId, int? employeeId, DateTime Date)
         {
-            DateTime Date = DateTime.Now;
+            
 
             var appointment = new Appointments
             {
                 AppointmentDate = Date,
                 AppointmentTime = ApTime,
-                OrderId = orderID,
-                UsersId = userID,
-                EmployeeId = employeeID
+                OrderId = orderId,
+                UsersId = userId,
+                EmployeeId = employeeId
 
             };
             _db.Add(appointment);

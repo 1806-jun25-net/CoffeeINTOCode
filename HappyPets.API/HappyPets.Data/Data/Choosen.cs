@@ -10,5 +10,8 @@ namespace HappyPets.WebApp.Models
         public int LocationId { get; set; }
         public DateTime Date { get; set; }
         public bool Time { get; set; }
+
+
+        public string Username { get; set; }
     }
 }

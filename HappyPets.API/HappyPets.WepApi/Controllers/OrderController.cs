@@ -8,6 +8,7 @@ using HappyPets.Library.Repository;
 using HappyPets.WebApp.Models;
 using HappyPets.WepApi.Data;
 using HappyPets.WepApi.Data.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,6 +40,7 @@ namespace HappyPets.WepApi.Controllers
         }
        //[Route("api/[controller]/[action]/{username}")]
         [HttpPost]
+        [Authorize]
         public IEnumerable<CartList> ShowCart(Users users)
         {
 
@@ -140,6 +142,7 @@ namespace HappyPets.WepApi.Controllers
 
         [HttpGet]
         //[Route("api/[controller]/[action]")]
+        [Authorize]
         public IEnumerable<Location> OptionsLocation()//options in mvc
         {
             var locations = Repo.GetLocations();
@@ -148,10 +151,21 @@ namespace HappyPets.WepApi.Controllers
         }
       // [Route("api/[controller]/[action]")]
       [HttpPost]
+      [Authorize]
         public  IEnumerable<Employee> Choose( Choosen choosen)
         {
+            int? orderid;
+            bool newCart;
             var date = choosen.Date;
             var time = choosen.Time;
+            var username = choosen.Username;
+            var user = Repo.GetUserByUserName(username);
+            int? userid = user.UsersId;
+            (orderid, newCart) = Repo.GetActiveCartOrderId(userid);
+
+
+            int employeeId = 1;
+            Repo.CreateAppointment(time, orderid, userid, employeeId, date);
             var location = choosen.LocationId;
 
             var employees = Repo.GetAvailableEmployees(date, time, location);
@@ -160,6 +174,7 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public void AddProductToCart(AddToCart cart)
         {
             bool isNewCart;
@@ -182,6 +197,7 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public void AddServiceToCart(AddToCart add)
         {
             bool isNewCart;
@@ -219,6 +235,7 @@ namespace HappyPets.WepApi.Controllers
             
         }
         [HttpPost]
+        [Authorize]
         public OrderDetails Checkout(AddToCart details)
         {
             //details :employeeid and user stored
@@ -253,6 +270,7 @@ namespace HappyPets.WepApi.Controllers
 
         }
 
+        [Authorize]
         public void PlaceOrder(MyOrder order)
         {
             int? orderid = order.OrderId;
@@ -271,6 +289,8 @@ namespace HappyPets.WepApi.Controllers
 
         }
 
+        [HttpPost]
+        [Authorize]
         public OrdersDetailsRating OrderDetailsRating(OrdersDetailsRating order)
         {
             
@@ -300,13 +320,14 @@ namespace HappyPets.WepApi.Controllers
 
         }
 
+        [HttpPost]
         public History OrderHistory(Users user)
         {
            var myuser = Repo.GetUserByUserName(user.UserName);
            var userid = myuser.UsersId;
            var orders = Repo.GetuserOrders(userid);//get orders ids
             List<decimal?> ammount = new List<decimal?>();
-            List<DateTime> date = new List<DateTime>();
+            List<DateTime?> date = new List<DateTime?>();
             
 
             foreach (var id in orders)
@@ -337,6 +358,18 @@ namespace HappyPets.WepApi.Controllers
             
             
         }
+
+
+        [HttpGet]
+        [Authorize]
+        public IEnumerable<Orders> GetOrders()
+        {
+            var orders = Repo.GetAllOrders();
+
+            return orders;
+        }
+
+
 
 
 

@@ -119,5 +119,45 @@ namespace HappyPets.Library.Repository
         //    return services;
         //}
 
+
+
+        ////////////////////////////// Services Ordered by Cheapest //////////////////////////////////
+        public IEnumerable<Services> GetServicesByCheapest()
+        {
+
+            var services = _db.Services.ToList().OrderBy(g => g.ServicePrice);
+            return services;
+        }
+
+
+        ///////////////////////////// Products Ordered by Cheapest ///////////////////////////////////
+        public IEnumerable<Products> GetProductsByCheapest()
+        {
+
+            var products = _db.Products.ToList().OrderBy(g => g.ProductPrice);
+            return products;
+        }
+
+
+        ////////////////////////////// Services Ordered by Most Expensive ///////////////////////////////
+        public IEnumerable<Services> GetServicesByMostExpensive()
+        {
+
+            var services = _db.Services.ToList().OrderByDescending(g => g.ServicePrice);
+            return services;
+        }
+
+
+        ////////////////////////// Products Ordered by Most Expensive ///////////////////////////////////
+        public IEnumerable<Products> GetProductsByMostExpensive()
+        {
+
+            var products = _db.Products.ToList().OrderByDescending(g => g.ProductPrice);
+            return products;
+        }
+
+
+
+
     }
 }
