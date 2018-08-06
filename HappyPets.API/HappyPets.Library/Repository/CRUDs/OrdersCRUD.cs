@@ -14,6 +14,18 @@ namespace HappyPets.Library.Repository.CRUDs
             var orders = _db.Orders.ToList();
             return orders;
         }
+        public IEnumerable<Orders> GetOrders(int? id )
+        {
+            var orders = _db.Orders.Where(g => g.OrderId == id);
+            return orders;
+        }
+
+        public DateTime GetOrderTime(int? id)
+        {
+            var order = _db.Orders.First(g => g.OrderId == id);
+            return order.OrderTime;
+        }
+
 
         /////////////////////// ADD Order ////////////////////////////////////
         public void AddOrders(DateTime OrderTime, decimal? TotalCost, int location, int? employee, int orderid)

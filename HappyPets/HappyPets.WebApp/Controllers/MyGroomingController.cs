@@ -16,9 +16,33 @@ namespace HappyPets.WebApp.Controllers
 
         public MyGroomingController(HttpClient httpClient) : base(httpClient) {  }
         // GET: /<controller>/
-        public IActionResult Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            return View();
+            string username = TempData.Peek("current_user").ToString();
+            Users user = new Users { UserName = username };
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/OrderHistory", user);
+
+
+            HttpResponseMessage apiResponse;
+            
+                apiResponse = await HttpClient.SendAsync(apiRequest);
+
+                if (!apiResponse.IsSuccessStatusCode)
+                {
+                    return View("AccessDenied");
+                }
+
+                string jsonString = await apiResponse.Content.ReadAsStringAsync();
+
+
+                OrderDetailsRating history  = JsonConvert.DeserializeObject<OrderDetailsRating>(jsonString);
+
+
+                return View(history);
+
+
+            
+           
         }
 
 
