@@ -310,6 +310,7 @@ namespace HappyPets.WepApi.Controllers
 
         }
 
+        [HttpPost]
         public History OrderHistory(Users user)
         {
            var myuser = Repo.GetUserByUserName(user.UserName);
