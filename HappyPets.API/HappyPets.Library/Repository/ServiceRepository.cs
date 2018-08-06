@@ -50,7 +50,7 @@ namespace HappyPets.Library.Repository
         public Services GetServiceById(int? id)
         {
 
-            var service = _db.Services.First(g => g.ServiceId == id);
+            var service = _db.Services.FirstOrDefault(g => g.ServiceId == id);
             if (service == null)
             {
                 return null;
