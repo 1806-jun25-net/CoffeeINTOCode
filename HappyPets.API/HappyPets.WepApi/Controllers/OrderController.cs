@@ -310,6 +310,44 @@ namespace HappyPets.WepApi.Controllers
 
         }
 
+        public History OrderHistory(Users user)
+        {
+           var myuser = Repo.GetUserByUserName(user.UserName);
+           var userid = myuser.UsersId;
+           var orders = Repo.GetuserOrders(userid);//get orders ids
+            List<decimal?> ammount = new List<decimal?>();
+            List<DateTime> date = new List<DateTime>();
+            
+
+            foreach (var id in orders)
+            {
+                date.Add(Repo.GetOrderDate(id));
+            }
+
+            foreach (var id in orders)
+            {
+                ammount.Add(Repo.GetOrderTotal(id));
+                
+            }
+
+            History orderHistory = new History
+            {
+                OrderID = orders,
+                Date = date,
+                Ammount = ammount
+            };
+
+            return orderHistory;
+
+
+
+           
+
+
+            
+            
+        }
+
 
 
 

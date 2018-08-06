@@ -211,6 +211,34 @@ namespace HappyPets.Library.Repository
             return Order.EmployeeId;
 
         }
+
+        public List<int?> GetuserOrders(int userid)
+        {
+            List<int?> ordersid = new List<int?>();
+            var carts = _db.Cart.Where(g=> g.UsersId == userid);
+
+            foreach (var item in carts)
+            {
+                ordersid.Add( item.OrderId);
+            }
+
+
+
+         
+
+
+            return ordersid;
+           
+        }
+
+        public DateTime GetOrderDate(int? orderid)
+        {
+            var date = _repo.GetOrderTime(orderid);
+            return date;
+
+           
+
+        }
     }
 }
 
