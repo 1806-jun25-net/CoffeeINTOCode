@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { OrderClass } from './Services/order.service';
+import {Order} from '../Model/Order';
 
 //import { Hero } from '../hero';
 //import { HeroService } from '../hero.service';
-import {Order} from '../Model/Order';
-import { OrderClass } from './Services/order.service';
+//import {Order} from '../Model/Order';
+//import { OrderClass } from './Services/order.service';
 
 @Component({
   selector: 'app-heroes',

@@ -1,5 +1,5 @@
 export class Order {
-user_id: number
+orderId: number
 locationId: number
 orderTime: string
 totalCost: number
