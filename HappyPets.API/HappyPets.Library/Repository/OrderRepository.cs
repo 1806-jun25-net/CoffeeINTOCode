@@ -79,8 +79,8 @@ namespace HappyPets.Library.Repository
         public (int?,bool) GetActiveCartOrderId(int? userid)
         {
 
-            var order = _db.Orders.Last();
-            var orderId = order.OrderId;
+            var cart = _db.Cart.Last();
+            var orderId = cart.OrderId;
             var lastCart = _db.Cart.Last(g=> g.OrderId == orderId);
             var isActive = lastCart.Active;
             int? id=0;
@@ -166,7 +166,7 @@ namespace HappyPets.Library.Repository
 
         public decimal? GetPriceForService(int serviceid, string petSize)
         {  
-            decimal? addS = 5, addM =10, addL =15, servicePrice;
+            decimal? addS = 5, addM =10, addL =15, servicePrice = 0;
             var service = _db.Services.FirstOrDefault(g => g.ServiceId ==serviceid);
             decimal? price = service.ServicePrice;
 

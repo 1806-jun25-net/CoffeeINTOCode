@@ -59,7 +59,13 @@ namespace HappyPets.WebApp.Controllers
 
             PassCookiesToClient(apiResponse);
 
-            return RedirectToAction("Index", "Home");
+            Currentuser user = new Currentuser
+            {
+
+                Username = account.Username
+
+            };
+            return RedirectToAction("Index", "Home", user);
         }
 
         // GET: Account/Login
