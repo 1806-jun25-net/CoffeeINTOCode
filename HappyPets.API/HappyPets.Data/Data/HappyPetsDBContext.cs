@@ -65,10 +65,7 @@ namespace HappyPets.Data
                     .HasForeignKey(d => d.EmployeeId)
                     .HasConstraintName("FK_employeeToAppointments");
 
-                entity.HasOne(d => d.Order)
-                    .WithMany(p => p.Appointments)
-                    .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK_orderToAppointments");
+               
 
                 entity.HasOne(d => d.Users)
                     .WithMany(p => p.Appointments)
@@ -98,10 +95,7 @@ namespace HappyPets.Data
 
                 entity.Property(e => e.UsersId).HasColumnName("users_id");
 
-                entity.HasOne(d => d.Order)
-                    .WithMany(p => p.Cart)
-                    .HasForeignKey(d => d.OrderId)
-                    .HasConstraintName("FK_orderToCart");
+                
 
                 entity.HasOne(d => d.Users)
                     .WithMany(p => p.Cart)

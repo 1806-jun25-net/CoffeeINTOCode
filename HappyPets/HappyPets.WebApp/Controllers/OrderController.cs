@@ -18,6 +18,7 @@ namespace HappyPets.WebApp.Controllers
 
         }
         //[HttpGet("username")]
+        
         public async Task<ActionResult> ShowCart()
         {
             string username = TempData.Peek("current_user").ToString();
@@ -89,6 +90,8 @@ namespace HappyPets.WebApp.Controllers
 
         public async Task<ActionResult> Choosen(IFormCollection viewCollection)
         {
+
+            string username = TempData.Peek("current_user").ToString();
             //receive selected options from view, selected location, time and date
             int location = int.Parse(viewCollection["selectedLocation"]);
             bool time = bool.Parse(viewCollection["selectedTime"]);
@@ -98,7 +101,10 @@ namespace HappyPets.WebApp.Controllers
             {
                 LocationId = location,
                 Time = time,
-                Date = date
+                Date = date,
+                Username = username
+
+                
             };
 
 

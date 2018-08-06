@@ -8,6 +8,7 @@ using HappyPets.Library.Repository;
 using HappyPets.WebApp.Models;
 using HappyPets.WepApi.Data;
 using HappyPets.WepApi.Data.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -39,6 +40,7 @@ namespace HappyPets.WepApi.Controllers
         }
        //[Route("api/[controller]/[action]/{username}")]
         [HttpPost]
+        [Authorize]
         public IEnumerable<CartList> ShowCart(Users users)
         {
 
@@ -140,6 +142,7 @@ namespace HappyPets.WepApi.Controllers
 
         [HttpGet]
         //[Route("api/[controller]/[action]")]
+        [Authorize]
         public IEnumerable<Location> OptionsLocation()//options in mvc
         {
             var locations = Repo.GetLocations();
@@ -148,6 +151,7 @@ namespace HappyPets.WepApi.Controllers
         }
       // [Route("api/[controller]/[action]")]
       [HttpPost]
+      [Authorize]
         public  IEnumerable<Employee> Choose( Choosen choosen)
         {
             var date = choosen.Date;
@@ -160,6 +164,7 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public void AddProductToCart(AddToCart cart)
         {
             bool isNewCart;
@@ -182,6 +187,7 @@ namespace HappyPets.WepApi.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public void AddServiceToCart(AddToCart add)
         {
             bool isNewCart;
@@ -219,6 +225,7 @@ namespace HappyPets.WepApi.Controllers
             
         }
         [HttpPost]
+        [Authorize]
         public OrderDetails Checkout(AddToCart details)
         {
             //details :employeeid and user stored
@@ -253,6 +260,7 @@ namespace HappyPets.WepApi.Controllers
 
         }
 
+        [Authorize]
         public void PlaceOrder(MyOrder order)
         {
             int? orderid = order.OrderId;
@@ -271,6 +279,8 @@ namespace HappyPets.WepApi.Controllers
 
         }
 
+        [HttpPost]
+        [Authorize]
         public OrdersDetailsRating OrderDetailsRating(OrdersDetailsRating order)
         {
             
