@@ -1,13 +1,38 @@
-<h2>Orders</h2>
-<div>
-    <li *ngFor="let item of post" (click)="onSelect(item)">
+<!-- Main Content -->
+<main class="my-4 bg-white">
+    <div class="container-fluid my-4">
+      <h2>Orders:</h2>
 
-        <span> Order No. {{item.orderId}}</span>
-        <!-- <span> {{item.title}}</span> -->
-    </li>
-</div>
+        <table class="table table-striped table-hover my-4">
+            <thead>
+                <tr>
+                    <th scope="col">Order Id</th>
+                    <th scope="col">Location Id</th>
+                    <th scope="col">Order Time</th>
+                    <th scope="col">Employee</th>
+                    <th scope="col">totalCost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of post" >
+                  <td>{{item.orderId}}</td>
+                  <td>{{item.locationId}}</td>
+                  <td>{{item.orderTime}}</td>
+                  <td>{{item.employee}}</td>
+                  <td>{{item.totalCost}}</td>
+                </tr>
+            </tbody>
+        </table>
 
 
+        <a class="btn btn-primary" href="https://localhost:44316/Home/Index/">Back to Store</a>
+
+        <div>
+          <img [src]="petImages" alt="" />
+        </div>
+
+    </div>
+</main>
 
 
 
