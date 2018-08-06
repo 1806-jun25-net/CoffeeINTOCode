@@ -140,7 +140,6 @@ namespace HappyPets.WebApp.Controllers
             }
         }
 
-<<<<<<< HEAD
         [HttpPost]
         public async Task<ActionResult> GetAllServices(IFormCollection viewCollection) 
         {
@@ -148,18 +147,6 @@ namespace HappyPets.WebApp.Controllers
             string orderBy = viewCollection["selectedOrder"];
 
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Services/GetAllServices");
-=======
-
-        /// <summary>
-        /// Most Expensive Services firsts
-        /// </summary>
-        /// <returns></returns>
-
-        public async Task<ActionResult> GetAllServicesByMostExpensive()
-        {
-
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Services/GetAllServicesByMostExpensive");
->>>>>>> c9dcd9694330a88f05165514984b5fbd15371a44
 
             HttpResponseMessage apiResponse;
             try
@@ -173,7 +160,6 @@ namespace HappyPets.WebApp.Controllers
 
                 string jsonString = await apiResponse.Content.ReadAsStringAsync();
 
-<<<<<<< HEAD
                 IEnumerable<Services> AllServices = JsonConvert.DeserializeObject<IEnumerable<Services>>(jsonString);
 
                 var searchQuery = from service in AllServices select service;
@@ -202,52 +188,11 @@ namespace HappyPets.WebApp.Controllers
                 }
 
                 return View(searchQuery);
-=======
-                IEnumerable<Products> AllServices = JsonConvert.DeserializeObject<IEnumerable<Products>>(jsonString);
-                return RedirectToAction("GetAllServices", AllServices);
             }
             catch (AggregateException ex)
             {
                 return View("Error");
             }
         }
-
-
-
-        /// <summary>
-        /// Cheaper services first
-        /// </summary>
-        /// <returns></returns>
-
-        public async Task<ActionResult> GetAllServicesByCheaper()
-        {
-
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Services/GetAllServicesByCheaper");
-
-            HttpResponseMessage apiResponse;
-            try
-            {
-                apiResponse = await HttpClient.SendAsync(apiRequest);
-
-                if (!apiResponse.IsSuccessStatusCode)
-                {
-                    return View("AccessDenied");
-                }
-
-                string jsonString = await apiResponse.Content.ReadAsStringAsync();
-
-                IEnumerable<Products> AllServices = JsonConvert.DeserializeObject<IEnumerable<Products>>(jsonString);
-                return RedirectToAction("GetAllServices", AllServices);
->>>>>>> c9dcd9694330a88f05165514984b5fbd15371a44
-            }
-            catch (AggregateException ex)
-            {
-                return View("Error");
-            }
-        }
-<<<<<<< HEAD
-=======
-
->>>>>>> c9dcd9694330a88f05165514984b5fbd15371a44
     }
 }
