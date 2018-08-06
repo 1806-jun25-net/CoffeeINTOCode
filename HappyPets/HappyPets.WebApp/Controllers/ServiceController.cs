@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using HappyPets.WebApp.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
@@ -139,6 +140,15 @@ namespace HappyPets.WebApp.Controllers
             }
         }
 
+<<<<<<< HEAD
+        [HttpPost]
+        public async Task<ActionResult> GetAllServices(IFormCollection viewCollection) 
+        {
+            string searchText = viewCollection["selectedSearchInput"];
+            string orderBy = viewCollection["selectedOrder"];
+
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Services/GetAllServices");
+=======
 
         /// <summary>
         /// Most Expensive Services firsts
@@ -149,6 +159,7 @@ namespace HappyPets.WebApp.Controllers
         {
 
             HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Services/GetAllServicesByMostExpensive");
+>>>>>>> c9dcd9694330a88f05165514984b5fbd15371a44
 
             HttpResponseMessage apiResponse;
             try
@@ -162,6 +173,36 @@ namespace HappyPets.WebApp.Controllers
 
                 string jsonString = await apiResponse.Content.ReadAsStringAsync();
 
+<<<<<<< HEAD
+                IEnumerable<Services> AllServices = JsonConvert.DeserializeObject<IEnumerable<Services>>(jsonString);
+
+                var searchQuery = from service in AllServices select service;
+
+                if(!String.IsNullOrEmpty(searchText))
+                {
+                    searchQuery = searchQuery.Where(s => s.ServiceNames.Contains(searchText));
+                }
+
+                if(!String.IsNullOrEmpty(orderBy))
+                {
+                    switch(orderBy)
+                    {
+                        case "LOW":
+                            searchQuery = searchQuery.OrderBy(s => s.ServicePrice);
+                            break;
+
+                        case "HIGH":
+                            searchQuery = searchQuery.OrderByDescending(s => s.ServicePrice);
+                            break;
+
+                        default:
+                            searchQuery = searchQuery.OrderBy(s => s.ServiceNames);
+                            break;
+                    }
+                }
+
+                return View(searchQuery);
+=======
                 IEnumerable<Products> AllServices = JsonConvert.DeserializeObject<IEnumerable<Products>>(jsonString);
                 return RedirectToAction("GetAllServices", AllServices);
             }
@@ -197,12 +238,16 @@ namespace HappyPets.WebApp.Controllers
 
                 IEnumerable<Products> AllServices = JsonConvert.DeserializeObject<IEnumerable<Products>>(jsonString);
                 return RedirectToAction("GetAllServices", AllServices);
+>>>>>>> c9dcd9694330a88f05165514984b5fbd15371a44
             }
             catch (AggregateException ex)
             {
                 return View("Error");
             }
         }
+<<<<<<< HEAD
+=======
 
+>>>>>>> c9dcd9694330a88f05165514984b5fbd15371a44
     }
 }

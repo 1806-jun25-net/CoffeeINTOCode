@@ -14,7 +14,7 @@
         <p> Your services Rating: <span> @Model.Rating </span> Starts <button id = "EditRating" type = "button"> edit </button ></p>
         }
 
-        <form style="display:none" id="selectedRating" asp-controller="" asp-action=" method="post">
+        <form style="display:none" id="selectedRating" asp-controller="MyGrooming" asp-action="OrderDetailsRatings" method="post">
             <label>Rate your Employee</label>
             @Html.DropDownList("selectedRating",
                       new List<SelectListItem>
