@@ -231,7 +231,7 @@ namespace HappyPets.Library.Repository
            
         }
 
-        public DateTime GetOrderDate(int? orderid)
+        public DateTime? GetOrderDate(int? orderid)
         {
             var date = _repo.GetOrderTime(orderid);
             return date;

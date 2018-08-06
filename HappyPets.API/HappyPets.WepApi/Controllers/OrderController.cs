@@ -317,7 +317,7 @@ namespace HappyPets.WepApi.Controllers
            var userid = myuser.UsersId;
            var orders = Repo.GetuserOrders(userid);//get orders ids
             List<decimal?> ammount = new List<decimal?>();
-            List<DateTime> date = new List<DateTime>();
+            List<DateTime?> date = new List<DateTime?>();
             
 
             foreach (var id in orders)
