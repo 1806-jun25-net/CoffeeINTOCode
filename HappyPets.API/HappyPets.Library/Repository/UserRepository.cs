@@ -239,6 +239,12 @@ namespace HappyPets.Library.Repository
            
 
         }
+
+        public IEnumerable<Orders> GetAllOrders()
+        {
+            var orders = _repo.GetOrders();
+            return orders;
+        }
     }
 }
 

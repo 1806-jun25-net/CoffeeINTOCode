@@ -350,6 +350,18 @@ namespace HappyPets.WepApi.Controllers
         }
 
 
+        [HttpGet]
+        [Authorize]
+        public IEnumerable<Orders> GetOrders()
+        {
+            var orders = Repo.GetAllOrders();
+
+            return orders;
+        }
+
+
+
+
 
 
 
