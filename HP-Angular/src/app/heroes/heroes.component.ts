@@ -16,10 +16,8 @@ import {Order} from '../Model/Order';
 export class HeroesComponent implements OnInit {
   post: Order[];
   selectedHero: Order;
-  petImages: String;
 
   constructor(private orderService: OrderClass) {
-    this.petImages = '/assets/images/pets1.jpg';
     this.orderService.getOrder().subscribe(
       (data:any[]) => {
         if(data.length)
