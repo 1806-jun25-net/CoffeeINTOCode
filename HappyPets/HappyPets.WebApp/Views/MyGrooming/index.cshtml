@@ -1,4 +1,5 @@
-﻿@{
+﻿@* @model HappyPets.WebApp.Models. *@
+@{
     ViewData["Title"] = "Cart";
 }
 <!-- Main Content -->
@@ -25,7 +26,13 @@
                     <td>c.itemName</td>
                     <td>c.itemPrice</td>
                     <td>c.itemPrice</td>
-                    <td><small class="text-primary">View</small></td>
+                    <td>
+                        <a asp-controller="MyGrooming"
+                           asp-action="OrderDetailsRating"
+                            asp-route-id="1">
+                            <small class="text-primary">View</small>
+                        </a>
+                    </td>
                 </tr>
                 }
             </tbody>
