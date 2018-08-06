@@ -9,7 +9,7 @@ export class OrderClass {
     }
 
     getOrder(){
-        return this.http.get('http://localhost:5001/api/Order/GetOrders')
+        return this.http.get('https://localhost:44316/api/Order/GetOrders')
        .map(res => res.json());
            
         
