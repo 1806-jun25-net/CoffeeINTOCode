@@ -1,0 +1,45 @@
+# # all mvc containers can see angular service
+# # at the URL "htyp://angular" 
+  
+version: "3"
+services:
+  mvc:
+    # replace username/repo:tag with your name and image details
+    image: kevin2335/happypets:happypetswebapp # name of the tag
+    deploy:
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+    ports:
+      - "5003:80"
+    networks:
+      - net
+    env_file: secrets.env
+  angular:
+    image: kevin2335/happypets:angularimage # name of the tag
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+    ports:
+      - "5004:80"
+    networks:
+      - net
+  api:
+    image: kevin2335/happypets:webapi # name of the tag
+    deploy:
+      replicas: 1
+    ports:
+      - "5005:80"
+    networks:
+      - net
+networks:
+  net:

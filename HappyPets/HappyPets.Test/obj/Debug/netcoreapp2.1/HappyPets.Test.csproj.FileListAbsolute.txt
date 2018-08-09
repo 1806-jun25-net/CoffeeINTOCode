@@ -1,0 +1,11 @@
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\bin\Debug\netcoreapp2.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\bin\Debug\netcoreapp2.1\xunit.runner.reporters.netcoreapp10.dll
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\bin\Debug\netcoreapp2.1\xunit.runner.utility.netcoreapp10.dll
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\bin\Debug\netcoreapp2.1\HappyPets.Test.deps.json
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\bin\Debug\netcoreapp2.1\HappyPets.Test.runtimeconfig.json
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\bin\Debug\netcoreapp2.1\HappyPets.Test.runtimeconfig.dev.json
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\bin\Debug\netcoreapp2.1\HappyPets.Test.dll
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\obj\Debug\netcoreapp2.1\HappyPets.Test.csprojAssemblyReference.cache
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\obj\Debug\netcoreapp2.1\HappyPets.Test.csproj.CoreCompileInputs.cache
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\obj\Debug\netcoreapp2.1\HappyPets.Test.AssemblyInfoInputs.cache
+C:\Revature\CoffeeINTOCode\HappyPets\HappyPets.Test\obj\Debug\netcoreapp2.1\HappyPets.Test.AssemblyInfo.cs
