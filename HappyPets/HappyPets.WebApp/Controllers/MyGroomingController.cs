@@ -33,7 +33,7 @@ namespace HappyPets.WebApp.Controllers
 
             string username = TempData.Peek("current_user").ToString();
             Users user = new Users { UserName = username };
-            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Post, "api/Order/OrderHistory", user);
+            HttpRequestMessage apiRequest = CreateRequestToService(HttpMethod.Get, "api/Order/OrderHistory", user);
 
 
             HttpResponseMessage apiResponse;
@@ -59,6 +59,7 @@ namespace HappyPets.WebApp.Controllers
         }
 
         // GET: /<controller>/
+        
         [HttpGet("{orderid}")]
         public async Task<IActionResult> OrderDetailsRating(int orderid)
         {

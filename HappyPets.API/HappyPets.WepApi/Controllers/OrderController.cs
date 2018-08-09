@@ -329,7 +329,7 @@ namespace HappyPets.WepApi.Controllers
 
         }
 
-        [HttpPost]
+        [HttpGet]
         public OrdersDetailsRating OrderHistory(Users user)
         {
            var myuser = Repo.GetUserByUserName(user.UserName);
@@ -354,8 +354,14 @@ namespace HappyPets.WepApi.Controllers
             {
                 OrderIDList = orders,
                 DateList = date,
-                AmmountList = ammount
-            };
+                AmmountList = ammount,
+        };
+
+           
+            
+           
+            
+            
 
             return orderHistory;
 

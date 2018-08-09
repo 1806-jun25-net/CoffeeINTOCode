@@ -19,5 +19,6 @@ namespace HappyPets.WebApp.Models
         public List<int?> OrderIDList { get; set; }
         public List<DateTime?> DateList { get; set; }
         public List<decimal?> AmmountList { get; set; }
+
     }
 }

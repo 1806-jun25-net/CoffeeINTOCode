@@ -22,13 +22,12 @@
                 {
                     <tr>
                         <td>@c</td>
-                        >
+                        
                         <td>
-                            <a asp-controller="MyGrooming"
-                               asp-action="OrderDetailsRating"
-                               asp-route-id="@c">
-                                <small class="text-primary">View</small>
-                            </a>
+                           <form asp-controller="MyGroomming" action="OrderDetailsRating" method="post">
+
+                            <button type="button">View</button>
+                            </form>
                         </td>
                     </tr>
                 }
