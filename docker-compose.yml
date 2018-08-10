@@ -20,6 +20,8 @@ services:
     networks:
       - net
     env_file: secrets.env
+    environment:
+      ServiceUris__api: "http://api"
   angular:
     image: kevin2335/happypets:angularimage # name of the tag
     deploy:

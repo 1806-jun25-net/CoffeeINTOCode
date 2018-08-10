@@ -34,6 +34,8 @@ namespace HappyPets.WebApp
 
             services.AddSingleton(sp =>
                 new HttpClient(new HttpClientHandler { UseCookies = false }));
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton<Settings>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

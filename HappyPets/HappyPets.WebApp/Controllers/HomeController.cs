@@ -6,9 +6,16 @@ namespace HappyPets.WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        public Settings Settings { get; set; }
+
+        public HomeController(Settings settings)
+        {
+            Settings = settings;
+        }
+
         public IActionResult Index(Currentuser user)
         {
-           
+            ViewData["Uri"]=Settings.ServiceUri;
             TempData["current_user"] = user.Username;
             
             return View();
